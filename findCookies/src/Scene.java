@@ -73,7 +73,7 @@ public class Scene {
     @Override
     public String toString() {
         String message = "\tScene de hauteur=" + hauteur +
-                ", largeur=" + largeur;
+                ", largeur=" + largeur + "\n";
         for(Couche c: listeCouches) {
             message += c;
         }
