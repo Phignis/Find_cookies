@@ -63,7 +63,7 @@ public class Couche {
 
     @Override
     public String toString() {
-                String message = "\t\ttCouche numéro : " + numCouche + ", objets à l'intérieur : ";
+                String message = "\t\tCouche numéro : " + numCouche + ", objets à l'intérieur :\n ";
                 for(Objet o: listeObjets) {
                     message += o.toString() + '\n';
                 }
