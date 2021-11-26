@@ -205,30 +205,13 @@
 											"height": 13,
 											"text": "+posY",
 											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLAttributeView",
-											"_id": "AAAAAAF9W9FipznHcRE=",
-											"_parent": {
-												"$ref": "AAAAAAF9W68BNCQei+Y="
-											},
-											"model": {
-												"$ref": "AAAAAAF9W9FimTnEEdM="
-											},
-											"font": "Arial;13;0",
-											"left": 789,
-											"top": 265,
-											"width": 96.47802734375,
-											"height": 13,
-											"text": "+numeroCouche",
-											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 784,
 									"top": 185,
 									"width": 106.47802734375,
-									"height": 98
+									"height": 83
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -241,7 +224,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 784,
-									"top": 283,
+									"top": 268,
 									"width": 106.47802734375,
 									"height": 10
 								},
@@ -2146,9 +2129,9 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 630,
+									"left": 629,
 									"top": 351,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": -0.14022230312039957,
 									"distance": 124.66354719804824,
@@ -2208,9 +2191,9 @@
 										"$ref": "AAAAAAF9W8uoGzSORdk="
 									},
 									"font": "Arial;13;0",
-									"left": 627,
+									"left": 626,
 									"top": 310,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": 0.5235987755982988,
 									"distance": 25,
@@ -2674,9 +2657,9 @@
 										"$ref": "AAAAAAF9W+cBGj1Lxw4="
 									},
 									"font": "Arial;13;0",
-									"left": 771,
+									"left": 770,
 									"top": 282,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": 0.5235987755982988,
 									"distance": 25,
@@ -2778,7 +2761,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF9W68BMyQWtnw="
 							},
-							"name": "image"
+							"name": "image",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -2786,7 +2770,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF9W68BMyQWtnw="
 							},
-							"name": "hauteur"
+							"name": "hauteur",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -2794,7 +2779,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF9W68BMyQWtnw="
 							},
-							"name": "largeur"
+							"name": "largeur",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -2802,7 +2788,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF9W68BMyQWtnw="
 							},
-							"name": "posX"
+							"name": "posX",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -2810,15 +2797,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF9W68BMyQWtnw="
 							},
-							"name": "posY"
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAF9W9FimTnEEdM=",
-							"_parent": {
-								"$ref": "AAAAAAF9W68BMyQWtnw="
-							},
-							"name": "numeroCouche"
+							"name": "posY",
+							"type": ""
 						}
 					],
 					"isAbstract": true
@@ -2867,7 +2847,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF9W6/xfSRVzBw="
 							},
-							"name": "pseudo"
+							"name": "pseudo",
+							"type": ""
 						}
 					]
 				},
@@ -2971,7 +2952,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF9W7MPYSSUazc="
 							},
-							"name": "numero"
+							"name": "numero",
+							"type": ""
 						}
 					]
 				},
@@ -3021,7 +3003,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF9W7S4TiZELrM="
 							},
-							"name": "hauteur"
+							"name": "hauteur",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3029,7 +3012,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF9W7S4TiZELrM="
 							},
-							"name": "largeur"
+							"name": "largeur",
+							"type": ""
 						}
 					]
 				},
@@ -3094,7 +3078,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF9W+Y5Xzq8K/U="
 							},
-							"name": "num"
+							"name": "num",
+							"type": ""
 						}
 					]
 				}
