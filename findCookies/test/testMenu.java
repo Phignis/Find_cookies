@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.stage.Stage;
 
 public class testMenu extends Application {
+    Stage stage = new Stage();
     /*
     public void main(String args[]) {
         nomScene = "vues/menu.fxml";
@@ -14,7 +15,6 @@ public class testMenu extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-
         /*
         FlowPane fp = new FlowPane();
         fp.getChildren().addAll(new Button("JOUER"),
@@ -25,15 +25,13 @@ public class testMenu extends Application {
         stage.setScene(niveau);
         stage.show();
         */
-        String nomScene = "vues/menu.fxml";
-        Parent p = FXMLLoader.load(getClass().getResource(nomScene));
-        stage.setScene(new javafx.scene.Scene(p));
-        stage.show();
+        changeScene("vues/menu.fxml");
+       // stage.close();
     }
 
     public void changeScene(String nomScene) throws Exception {
+      //  stage.close();
         Parent p = FXMLLoader.load(getClass().getResource(nomScene));
-        Stage stage = new Stage();
         stage.setScene(new javafx.scene.Scene(p));
         stage.show();
     }
@@ -41,6 +39,11 @@ public class testMenu extends Application {
     @FXML
     private void clickJouer(ActionEvent event) throws Exception {
         System.out.println("Jouer");
+
+        //text bJouer.text="patate";
+
+
+       // stage.close();
         changeScene("vues/game.fxml");
     }
 }
