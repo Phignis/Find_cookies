@@ -17,4 +17,10 @@ public class TestGlobal {
 
 
     }
+
+    private static void testObservateur() {
+        Niveau n = new Niveau(0);
+        Couche c1 = new Couche(1);
+        c1.ajouterObjet(new Interrupteur());
+    }
 }
