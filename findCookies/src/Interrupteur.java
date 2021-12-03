@@ -1,6 +1,7 @@
-public class Interrupteur extends Sujet {
+public class Interrupteur extends Declancheur {
 
     private boolean estActive;
+    private Sujet sujet;
 
 
     ////////////////////////////////
@@ -8,6 +9,7 @@ public class Interrupteur extends Sujet {
     ////////////////////////////////
 
     public Interrupteur() {
+        super();
         estActive = false;
     }
 
@@ -25,7 +27,24 @@ public class Interrupteur extends Sujet {
     // METHODES
     ////////////////////////////////
 
-    public void lorsqueActionne() {
+    public boolean attacherObsersvateur(Observateur o) {
+        return sujet.attacherObservateur(o);
+    }
 
+    public boolean detacherObservateur(Observateur o) {
+        return sujet.detacherObservateur(o);
+    }
+
+    public void notifier() {
+        sujet.notifier();
+    }
+
+    public void lorsqueActionne() {
+        return; // changement du skin dans le futur
+    }
+
+    @Override
+    public void effet() {
+        return;
     }
 }

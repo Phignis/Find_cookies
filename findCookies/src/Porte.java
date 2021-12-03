@@ -2,6 +2,7 @@ public class Porte extends Observateur {
 
     private boolean estOuverte;
 
+    // interrupteur observé
     private Interrupteur actionneur;
 
 
