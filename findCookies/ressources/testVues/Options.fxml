@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="testMenu">
+   <children>
+      <Label text="OPTIONS" textFill="#f26a9e">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TilePane alignment="TOP_CENTER" prefHeight="9.0" prefWidth="600.0">
+         <children>
+            <Label text="Volume" />
+            <Slider />
+            <Spinner prefHeight="25.0" prefWidth="55.0" />
+         </children>
+      </TilePane>
+      <Button mnemonicParsing="false" text="Accueil" textAlignment="CENTER" textFill="#f26a9e" onAction="#clickAccueil"/>
+   </children>
+</VBox>

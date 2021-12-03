@@ -3,10 +3,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.input.MouseDragEvent;
 import javafx.stage.Stage;
 
 public class testMenu extends Application {
-    Stage stage = new Stage();
+    Stage monStage = new Stage();
     /*
     public void main(String args[]) {
         nomScene = "vues/menu.fxml";
@@ -25,15 +26,15 @@ public class testMenu extends Application {
         stage.setScene(niveau);
         stage.show();
         */
-        changeScene("vues/menu.fxml");
-       // stage.close();
+        changeScene("testVues/Menu.fxml");
+        stage.close();
     }
 
     public void changeScene(String nomScene) throws Exception {
-      //  stage.close();
+        //monStage.close();
         Parent p = FXMLLoader.load(getClass().getResource(nomScene));
-        stage.setScene(new javafx.scene.Scene(p));
-        stage.show();
+        monStage.setScene(new javafx.scene.Scene(p));
+        monStage.show();
     }
 
     @FXML
@@ -42,8 +43,38 @@ public class testMenu extends Application {
 
         //text bJouer.text="patate";
 
+        monStage.close();
+        changeScene("testVues/Lobbie.fxml");
+    }
 
-       // stage.close();
-        changeScene("vues/game.fxml");
+    @FXML
+    public void onMouseDragOver(MouseDragEvent mouseDragEvent) {
+        System.out.println("onMouseDragOver");
+    }
+
+    @FXML
+    private void clickOptions(ActionEvent event) throws Exception {
+        System.out.println("Options");
+        changeScene("testVues/Options.fxml");
+    }
+
+    @FXML
+    private void clickAccueil(ActionEvent event) throws Exception {
+        monStage.close();
+        System.out.println("Menu");
+        changeScene("testVues/Menu.fxml");
+    }
+
+    @FXML
+    private void clickNouvJoueur(ActionEvent event) throws Exception {
+        monStage.close();
+        System.out.println("Nouveau joueur");
+        changeScene("testVues/NouveauJoueur.fxml");
+    }
+
+    @FXML
+    private void clickCredits(ActionEvent event) throws Exception {
+        System.out.println("Nouveau joueur");
+        changeScene("testVues/Credits.fxml");
     }
 }
