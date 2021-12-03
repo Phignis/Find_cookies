@@ -1,20 +1,18 @@
 // Objet représente un objet possédant une intéractivitée
 
 public class Objet {
-
-    private String image;
-    private int hauteur;
-    private int largeur;
-    private int posX;
-    private int posY;
-
+    private String uri_image;
+    private float hauteur;
+    private float largeur;
+    private float posX;
+    private float posY;
 
     ////////////////////////////////
     // CONSTRUCTEURS
     ////////////////////////////////
 
-    public Objet(String image, int hauteur, int largeur, int posX, int posY) {
-        this.image = image;
+    public Objet(String uri_image, float hauteur, float largeur, float posX, float posY) {
+        this.uri_image = uri_image;
         this.hauteur = hauteur;
         this.largeur = largeur;
         this.posX = posX;
@@ -26,23 +24,23 @@ public class Objet {
     // GETTERS
     ////////////////////////////////
 
-    public String getImage() {
-        return image;
+    public String getUri_image() {
+        return uri_image;
     }
 
-    public int getHauteur() {
+    public float getHauteur() {
         return hauteur;
     }
 
-    public int getLargeur() {
+    public float getLargeur() {
         return largeur;
     }
 
-    public int getPosX() {
+    public float getPosX() {
         return posX;
     }
 
-    public int getPosY() {
+    public float getPosY() {
         return posY;
     }
 
@@ -51,23 +49,23 @@ public class Objet {
     // SETTERS
     ////////////////////////////////
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setImage(String uri_image) {
+        this.uri_image = uri_image;
     }
 
-    public void setHauteur(int hauteur) {
+    public void setHauteur(float hauteur) {
         this.hauteur = hauteur;
     }
 
-    public void setLargeur(int largeur) {
+    public void setLargeur(float largeur) {
         this.largeur = largeur;
     }
 
-    public void setPosX(int posX) {
+    public void setPosX(float posX) {
         this.posX = posX;
     }
 
-    public void setPosY(int posY) {
+    public void setPosY(float posY) {
         this.posY = posY;
     }
 
@@ -78,7 +76,8 @@ public class Objet {
 
     @Override
     public String toString() {
-        return "\t\t\tObjet '" + image + '\'' +
+        return "\t\t\tObjet\n"
+                + "image= " + uri_image + '\'' +
                 ", hauteur=" + hauteur +
                 ", largeur=" + largeur +
                 ", posX=" + posX +

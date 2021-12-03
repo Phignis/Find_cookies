@@ -27,9 +27,13 @@ public class Interrupteur extends Declancheur {
     // METHODES
     ////////////////////////////////
 
-    public boolean attacherObsersvateur(Observateur o) {
+<<<<<<< HEAD
+    public boolean attacherObserservateur(Observateur o) {
         return sujet.attacherObservateur(o);
     }
+=======
+    public void effet() {
+>>>>>>> 046bd38fbd486a3e94244f2d2b8c70e9d6f8a8d4
 
     public boolean detacherObservateur(Observateur o) {
         return sujet.detacherObservateur(o);
