@@ -1,7 +1,6 @@
 public class TestGlobal {
     public static void main(String args[]) {
 
-
         Niveau n = new Niveau(1);
         Couche c0 = new Couche(0);
         c0.ajouterObjet(new Objet("mon1erObjet", 2, 5, 3, 5));
@@ -15,5 +14,7 @@ public class TestGlobal {
         n.getScene().ajouterCouche(c1);
 
         System.out.println(n);
+
+
     }
 }
