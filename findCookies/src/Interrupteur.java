@@ -25,7 +25,7 @@ public class Interrupteur extends Sujet {
     // METHODES
     ////////////////////////////////
 
-    public void lorsqueActionne() {
+    public void effet() {
 
     }
 }

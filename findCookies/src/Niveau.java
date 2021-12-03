@@ -1,11 +1,8 @@
 public class Niveau {
-
-
     private int numeroNiveau;
 
     // scène possédée par le niveau
     private Scene scene;
-
 
     ////////////////////////////////
     // CONSTRUCTEURS

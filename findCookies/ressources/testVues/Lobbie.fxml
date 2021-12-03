@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="testMenu">
+   <children>
+      <Label text="JOUER" textFill="#f26a9e">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </VBox.margin>
+      </Label>
+      <Button alignment="CENTER" mnemonicParsing="false" text="Nouveau joueur" onAction="#clickNouvJoueur">
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </VBox.margin>
+      </Button>
+      <TilePane alignment="TOP_CENTER" prefHeight="9.0" prefWidth="600.0">
+         <children>
+            <Label text="Pseudo" />
+            <MenuButton mnemonicParsing="false" text="MenuButton">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Joueur1" />
+                <MenuItem mnemonicParsing="false" text="Joueur2" />
+              </items>
+               <TilePane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </TilePane.margin>
+            </MenuButton>
+         </children>
+      </TilePane>
+      <TilePane alignment="TOP_CENTER" prefHeight="9.0" prefWidth="600.0">
+         <children>
+            <Label text="Mot de passe" textAlignment="CENTER" />
+            <PasswordField>
+               <TilePane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </TilePane.margin>
+            </PasswordField>
+         </children>
+      </TilePane>
+      <Button mnemonicParsing="false" text="Accueil" textAlignment="CENTER" textFill="#f26a9e" onAction="#clickAccueil" >
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </VBox.margin></Button>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</VBox>

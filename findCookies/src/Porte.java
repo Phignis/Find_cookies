@@ -39,9 +39,9 @@ public class Porte extends Observateur {
     public void update() {
         estOuverte = actionneur.isEstActive();
         if(isEstOuverte()) {
-            System.out.println("je suis ouverte sur l'avènement de mon interrupteur");
+            System.out.println("je suis ouverte sur l'évènement de mon interrupteur");
         } else {
-            System.out.println("je suis fermée sur l'avènement de mon interrupteur");
+            System.out.println("je suis fermée sur l'évènement de mon interrupteur");
         }
     }
 }

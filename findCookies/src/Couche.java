@@ -18,7 +18,7 @@ public class Couche {
         this.listeObjets = new LinkedList<>();
     }
 
-    public Couche(int numCouche, Collection<Objet> listeObjets) {
+    public Couche(int numCouche, Collection<Objet> listeObjets){
         this.numCouche = numCouche;
         this.listeObjets = listeObjets;
     }
