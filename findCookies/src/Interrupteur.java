@@ -1,4 +1,4 @@
-public class Interrupteur extends Declancheur {
+public class Interrupteur extends Declencheur {
 
     private boolean estActive;
     private Sujet sujet;
@@ -8,8 +8,8 @@ public class Interrupteur extends Declancheur {
     // CONSTRUCTEUR
     ////////////////////////////////
 
-    public Interrupteur() {
-        super();
+    public Interrupteur(String image, int hauteur, int largeur, int posX, int posY) {
+        super(image, hauteur, largeur, posX, posY);
         estActive = false;
     }
 
@@ -26,7 +26,7 @@ public class Interrupteur extends Declancheur {
     ////////////////////////////////
     // METHODES
     ////////////////////////////////
-    
+
     public boolean attacherObserservateur(Observateur o) {
         return sujet.attacherObservateur(o);
     }

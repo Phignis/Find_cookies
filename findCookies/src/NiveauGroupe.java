@@ -87,12 +87,12 @@ public class NiveauGroupe {
 
     @Override
     public String toString() {
-        String message="\nNiveau numero " + numeroNiveau +
+        String message = "\nNiveau numero " + numeroNiveau +
                 '\n';
 
         message = message + "\tNiveau de hauteur=" + hauteur +
                 ", largeur=" + largeur + "\n";
-        for(Couche c: listeCouches) {
+        for (Couche c : listeCouches) {
             message += c;
         }
 
