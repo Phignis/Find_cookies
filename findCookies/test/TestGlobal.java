@@ -1,6 +1,9 @@
 public class TestGlobal {
     public static void main(String args[]) {
+        TestClock.testBoucle();
+    }
 
+    private static  void testStructure() {
         Niveau n = new Niveau(1);
         Couche c0 = new Couche(0);
         c0.ajouterObjet(new Objet("mon1erObjet", 2, 5, 3, 5));
@@ -30,9 +33,9 @@ public class TestGlobal {
         System.out.println(ng2);
     }
 
-    private static void testObservateur() {
+    /* private static void testObservateur() {
         Niveau n = new Niveau(0);
         Couche c1 = new Couche(1);
         c1.ajouterObjet(new Interrupteur());
-    }
+    } */
 }
