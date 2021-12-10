@@ -1,9 +1,10 @@
 package clock;
 
 public class BoucleTemporelle extends Subject implements Runnable {
-    private long nbSecondesBoucle;
-    private long tempsEcoule;
-    private Thread threadInterne;
+    // un tick = 16 ms
+    private long nbTicksBoucle;
+    private long nbTicksEcoule;
+    private final Thread threadInterne;
 
 
     ////////////////////////////////
@@ -11,19 +12,18 @@ public class BoucleTemporelle extends Subject implements Runnable {
     ////////////////////////////////
 
     public BoucleTemporelle(long nbSecondesBoucle) {
-        this.nbSecondesBoucle = nbSecondesBoucle;
-        tempsEcoule = 0;
+        this.nbTicksBoucle = (nbSecondesBoucle * 1000 / 16); // conversion des secondes en tick de 16ms
+        nbTicksEcoule = 0;
         threadInterne = new Thread(this);
         threadInterne.start();
     }
-
 
     ////////////////////////////////
     // SETTERS
     ////////////////////////////////
 
     public void setTempsTotalBoucle(long nbSecondesBoucle) {
-        this.nbSecondesBoucle = nbSecondesBoucle;
+        this.nbTicksBoucle = (nbSecondesBoucle * 1000 / 16);
     }
 
     ////////////////////////////////
@@ -31,13 +31,13 @@ public class BoucleTemporelle extends Subject implements Runnable {
     ////////////////////////////////
 
     private boolean estBoucleTermine() {
-        return nbSecondesBoucle == tempsEcoule;
+        return nbTicksBoucle == nbTicksEcoule;
     }
 
     private void eventFinDeBoucle() {
         if (estBoucleTermine()) {
             super.notifier();
-            tempsEcoule = 0;
+            nbTicksEcoule = 0;
         }
     }
 
@@ -46,8 +46,8 @@ public class BoucleTemporelle extends Subject implements Runnable {
         // boucle du thread
         while (true) {
             try {
-                Thread.sleep(1000); // wait d'une seconde
-                ++tempsEcoule;
+                Thread.sleep(16); // on veut un jeu a 60 fps, on permet un check des events toutes les 1/60 de secondes
+                ++nbTicksEcoule;
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
