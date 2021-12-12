@@ -1,11 +1,14 @@
-package clock;
+package utile.patron_observateur;
 
 import java.util.LinkedList;
 
-public abstract class Subject {
+/**
+ * Subject
+ */
+public abstract class Sujet {
     private LinkedList<Observateur> observateurs;
 
-    public Subject() {
+    public Sujet() {
         this.observateurs = new LinkedList<>();
     }
 

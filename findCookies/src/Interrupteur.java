@@ -1,3 +1,6 @@
+import utile.patron_observateur.Observateur;
+import utile.patron_observateur.Sujet;
+
 public class Interrupteur extends Declencheur {
 
     private boolean estActive;
@@ -28,11 +31,11 @@ public class Interrupteur extends Declencheur {
     ////////////////////////////////
 
     public boolean attacherObserservateur(Observateur o) {
-        return sujet.attacherObservateur(o);
+        return sujet.attacher(o);
     }
 
     public boolean detacherObservateur(Observateur o) {
-        return sujet.detacherObservateur(o);
+        return sujet.detacher(o);
     }
 
     public void notifier() {
