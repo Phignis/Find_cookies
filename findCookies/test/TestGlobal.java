@@ -1,3 +1,5 @@
+import test_clock.TestClock;
+
 public class TestGlobal {
     public static void main(String args[]) {
         TestClock.testBoucle();
