@@ -40,8 +40,8 @@ public class Porte extends Observateur {
 
     @Override
     public void update() {
-        // estOuverte = actionneur.isEstActive();
-        estOuverte = !estOuverte;
+        estOuverte = actionneur.isEstActive();
+        
         if(isEstOuverte()) {
             System.out.println("je suis ouverte sur l'évènement de mon interrupteur");
         } else {
