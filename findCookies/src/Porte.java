@@ -1,3 +1,5 @@
+import utile.patron_observateur.Observateur;
+
 public class Porte extends Observateur {
 
     private boolean estOuverte;
@@ -38,7 +40,8 @@ public class Porte extends Observateur {
 
     @Override
     public void update() {
-        estOuverte = actionneur.isEstActive();
+        // estOuverte = actionneur.isEstActive();
+        estOuverte = !estOuverte;
         if(isEstOuverte()) {
             System.out.println("je suis ouverte sur l'évènement de mon interrupteur");
         } else {

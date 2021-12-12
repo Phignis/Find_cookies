@@ -1,11 +1,13 @@
 package clock;
 
+import utile.patron_observateur.Sujet;
+
 /**
  * BoucleTemporelle représente la boucle temporelle présente dans les niveaux du jeu.
  * Il se charge de la fréquence à laquelle la partie métier recoit les notifications de la vue (comme les actions claviers),
  * mais aussi indiquer la fin de la limite de temps de jeu, a laquelle le personne est remis au début du niveau
  */
-public class BoucleTemporelle extends Subject implements Runnable {
+public class BoucleTemporelle extends Sujet implements Runnable {
     // un tick = 16 ms
     /**
      * nombre de ticks que dure au total la boucle, avant d'indiquer la fin de la boucle temporelle du niveau.
