@@ -1,6 +1,6 @@
-// Objet représente un objet possédant une intéractivitée
+package metier;// métier.Objet représente un objet possédant une intéractivitée
 
-public class Objet {
+public abstract class Objet {
     private String uri_image;
     private float hauteur;
     private float largeur;
@@ -49,7 +49,7 @@ public class Objet {
     // SETTERS
     ////////////////////////////////
 
-    public void setImage(String uri_image) {
+    public void setUri_Image(String uri_image) {
         this.uri_image = uri_image;
     }
 
@@ -76,7 +76,7 @@ public class Objet {
 
     @Override
     public String toString() {
-        return "\t\t\tObjet\n"
+        return "\t\t\tmétier.Objet\n"
                 + "image= " + uri_image + '\'' +
                 ", hauteur=" + hauteur +
                 ", largeur=" + largeur +

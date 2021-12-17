@@ -1,3 +1,5 @@
+package metier;
+
 public abstract class Declencheur extends Objet {
 
     public Declencheur(String image, int hauteur, int largeur, int posX, int posY) {

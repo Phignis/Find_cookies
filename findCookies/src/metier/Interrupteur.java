@@ -1,3 +1,5 @@
+package metier;
+
 import utile.patron_observateur.Observateur;
 import utile.patron_observateur.Sujet;
 
