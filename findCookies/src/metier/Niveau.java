@@ -1,7 +1,9 @@
+package metier;
+
 import java.util.Collection;
 import java.util.LinkedList;
 
-public class NiveauGroupe {
+public class Niveau {
     private int numeroNiveau;
     private float hauteur;
     private float largeur;
@@ -11,21 +13,21 @@ public class NiveauGroupe {
     // CONSTRUCTEURS
     ////////////////////////////////
 
-    public NiveauGroupe(int numeroNiveau) {
+    public Niveau(int numeroNiveau) {
         this.numeroNiveau = numeroNiveau;
         this.hauteur = 500;
         this.largeur = 500;
         this.listeCouches = new LinkedList<>();
     }
 
-    public NiveauGroupe(int numeroNiveau, float hauteur, float largeur) {
+    public Niveau(int numeroNiveau, float hauteur, float largeur) {
         this.numeroNiveau = numeroNiveau;
         this.hauteur = hauteur;
         this.largeur = largeur;
         this.listeCouches = new LinkedList<>();
     }
 
-    public NiveauGroupe(int numeroNiveau, float hauteur, float largeur, Collection<Couche> listeCouches) {
+    public Niveau(int numeroNiveau, float hauteur, float largeur, Collection<Couche> listeCouches) {
         this.numeroNiveau = numeroNiveau;
         this.hauteur = hauteur;
         this.largeur = largeur;
