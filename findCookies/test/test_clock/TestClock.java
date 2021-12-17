@@ -12,7 +12,7 @@ public class TestClock {
 
         // mise en place de la clock, avec boucle temporelle de 2 secondes
         GenerateurTick t = new GenerateurTick();
-        BoucleTemporelle b = new BoucleTemporelle(2);
+        BoucleTemporelle b = new BoucleTemporelle(2 * 1000 / t.getIntervalleEntreTicks());
         t.attacher(b); // on attache la boucle temporelle au générateur du tick
 
         // création de quelques objets a attacher

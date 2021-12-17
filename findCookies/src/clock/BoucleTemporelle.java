@@ -5,7 +5,7 @@ import utile.observateur.Sujet;
 
 /**
  * BoucleTemporelle représente la boucle temporelle présente dans les niveaux du jeu.
- * Il est chargé d'indiquer la fin de la limite de temps de jeu, a laquelle le personne est remise au début du niveau
+ * Elle est chargée d'indiquer la fin de la limite de temps de jeu, a laquelle le personne est remise au début du niveau
  */
 public class BoucleTemporelle extends Sujet implements Observateur {
 
@@ -28,11 +28,11 @@ public class BoucleTemporelle extends Sujet implements Observateur {
     ////////////////////////////////
 
     /**
-     * Constructeur de BoucleTemporelle, il lance en interne un nouveau thread (threadInterne), permettant de mettre en place les ticks
-     * @param nbSecondesBoucle Le nombre de secondes que dure la boucle temporelle, avant que le niveau soit remis au début de la boucle
+     * Constructeur de BoucleTemporelle
+     * @param nbTicksBoucle Le nombre de ticks que dure la boucle temporelle, avant que le niveau soit remis au début de la boucle
      */
-    public BoucleTemporelle(long nbSecondesBoucle) {
-        this.nbTicksBoucle = (nbSecondesBoucle * 1000 / 16); // conversion des secondes en tick de 16ms
+    public BoucleTemporelle(long nbTicksBoucle) {
+        this.nbTicksBoucle = nbTicksBoucle;
         nbTicksEcoule = 0;
     }
 
@@ -43,10 +43,10 @@ public class BoucleTemporelle extends Sujet implements Observateur {
     /**
      * Met a jour le nombre de ticks que dure la boucle temporelle du niveau (conversion des secondes données en ticks de 16ms)
      * @see BoucleTemporelle#nbTicksBoucle
-     * @param nbSecondesBoucle Le nouveau nombre de secondes que dure la boucle, avant que le niveau soit remis au début de la boucle
+     * @param nbTicksBoucle Le nouveau nombre de ticks que dure la boucle, avant que le niveau soit remis au début de la boucle
      */
-    public void setTempsTotalBoucle(long nbSecondesBoucle) {
-        this.nbTicksBoucle = (nbSecondesBoucle * 1000 / 16);
+    public void setTempsTotalBoucle(long nbTicksBoucle) {
+        this.nbTicksBoucle = nbTicksBoucle;
     }
 
     ////////////////////////////////
@@ -79,7 +79,7 @@ public class BoucleTemporelle extends Sujet implements Observateur {
      * et si jamais on a atteint la fin du temps de la boucle, on effectue l'event de fin de boucle, qui notifie tout ce qui est abonné
      * à la boucle
      * @see Observateur
-     * @see BoucleTemporelle#setTempsTotalBoucle(long) 
+     * @see BoucleTemporelle#setTempsTotalBoucle(long)
      * @see BoucleTemporelle#eventFinBoucleTemporelle() 
      */
     @Override
