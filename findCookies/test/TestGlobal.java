@@ -9,11 +9,11 @@ public class TestGlobal {
     private static  void testStructure() {
         Niveau n = new Niveau(1);
         Couche c0 = new Couche(0);
-        c0.ajouterObjet(new Interrupteur("mon1erObjet", 2, 5, 3, 5));
-        c0.ajouterObjet(new Interrupteur("mon2emeObjet", 24, 5, 3, 6));
+        c0.ajouterObjet(new Interrupteur("mon1erObjet", 3, 5));
+        c0.ajouterObjet(new Interrupteur("mon2emeObjet",  3, 6));
         Couche c1 = new Couche(1);
-        c1.ajouterObjet(new Interrupteur("mon3emeObjet", 0, 5, 3, 6));
-        c1.ajouterObjet(new Interrupteur("mon4emeObjet", 246, 5, 3, 6));
+        c1.ajouterObjet(new Interrupteur("mon3emeObjet",  3, 6));
+        c1.ajouterObjet(new Interrupteur("mon4emeObjet",  3, 6));
 
         n.setScene(new Scene(5, 10));
         n.getScene().ajouterCouche(c0);

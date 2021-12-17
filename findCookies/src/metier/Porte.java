@@ -1,6 +1,6 @@
 package metier;
 
-import utile.patron_observateur.Observateur;
+import utile.observateur.Observateur;
 
 public class Porte extends Observateur {
 

@@ -7,7 +7,7 @@
 
 
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="testMenu">
+      fx:controller="PrincipalControleur">
 
    <children>
       <Label text="Crédits" textFill="#f26a9e">

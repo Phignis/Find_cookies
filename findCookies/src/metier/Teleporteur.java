@@ -19,7 +19,6 @@ public class Teleporteur{
     ////////////////////////////////
 
     public boolean setDestination(int xDestination, int yDestination) {
-
         this.xDestination = xDestination;
         this.yDestination = yDestination;
 

@@ -1,6 +1,6 @@
 package test_clock;
 
-import utile.patron_observateur.Observateur;
+import utile.observateur.Observateur;
 
 public class ObservateurGenerique extends Observateur {
     // classe attendu seulement a fin de test de la clock, ne servant qu'a fournir une classe concrète

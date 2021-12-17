@@ -1,7 +1,7 @@
 package test_clock;
 
 import clock.BoucleTemporelle;
-import utile.patron_observateur.Observateur;
+import utile.observateur.Observateur;
 
 public class TestClock {
 

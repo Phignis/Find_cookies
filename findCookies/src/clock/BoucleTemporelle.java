@@ -1,6 +1,6 @@
 package clock;
 
-import utile.patron_observateur.Sujet;
+import utile.observateur.Sujet;
 
 /**
  * BoucleTemporelle représente la boucle temporelle présente dans les niveaux du jeu.
