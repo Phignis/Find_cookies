@@ -1,7 +1,7 @@
 package metier;
 
-import utile.patron_observateur.Observateur;
-import utile.patron_observateur.Sujet;
+import utile.observateur.Observateur;
+import utile.observateur.Sujet;
 
 public class Interrupteur extends Declencheur {
 
@@ -13,8 +13,8 @@ public class Interrupteur extends Declencheur {
     // CONSTRUCTEUR
     ////////////////////////////////
 
-    public Interrupteur(String image, int hauteur, int largeur, int posX, int posY) {
-        super(image, hauteur, largeur, posX, posY);
+    public Interrupteur(String image, int posX, int posY) {
+        super(image, posX, posY);
         estActive = false;
     }
 

@@ -1,4 +1,4 @@
-package utile.patron_observateur;
+package utile.observateur;
 
 /**
  * Observateur a pour but d'observer un Sujet en particulier.

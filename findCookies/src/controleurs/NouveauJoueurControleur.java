@@ -1,12 +1,18 @@
-package Controleurs;
+package controleurs;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.fxml.FXML;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.control.Button;
+import utile.Vue;
 
-public class NouveauJoueurControleur {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class NouveauJoueurControleur implements Initializable {
     @FXML
     TextField vPseudo;
     private SimpleStringProperty pseudo = new SimpleStringProperty();
@@ -16,13 +22,9 @@ public class NouveauJoueurControleur {
     public final String getPseudo() {
         return pseudo.get();
     }
-    public final void setMdp(String pseudo) {
-        this.pseudo.setValue("test");
-    }
 
     @FXML
     Button vBtnValidation;
-    private PrincipalControleur principalC = new PrincipalControleur();
     private Vue vue = new Vue();
 
     @Override
@@ -30,12 +32,6 @@ public class NouveauJoueurControleur {
         vPseudo.textProperty().bindBidirectional(pseudoProperty());
         vPseudo.setText("Pseudo1");
         vBtnValidation.disableProperty().bind(vPseudo.textProperty().isEmpty());
-/*
-        if(!vPassword.getText().isEmpty()){
-            vBtnValidation.setDisable(false);
-        }
-        */
-
     }
 
     @FXML

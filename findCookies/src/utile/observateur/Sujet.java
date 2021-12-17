@@ -1,4 +1,4 @@
-package utile.patron_observateur;
+package utile.observateur;
 
 import java.util.LinkedList;
 

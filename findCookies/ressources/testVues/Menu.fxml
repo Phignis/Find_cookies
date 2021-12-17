@@ -8,7 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="testMenu">
+      fx:controller="PrincipalControleur">
    <children>
       <!--
       <ImageView>
@@ -18,7 +18,7 @@
       </ImageView>
       -->
 
-      <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onMouseDragOver="#onMouseDragOver" onAction="#clickJouer" text="JOUER" textAlignment="CENTER" textFill="#f26a9e" textOverrun="CENTER_ELLIPSIS" wrapText="true">
+      <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#clickJouer" text="JOUER" textAlignment="CENTER" textFill="#f26a9e" textOverrun="CENTER_ELLIPSIS" wrapText="true">
          <font>
             <Font size="24.0" />
          </font>
@@ -26,7 +26,7 @@
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </VBox.margin>
       </Button>
-      <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onMouseDragOver="#onMouseDragOver" onAction="#clickOptions" text="OPTIONS" textAlignment="CENTER" textFill="#f26a9e" textOverrun="CENTER_ELLIPSIS" wrapText="true">
+      <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#clickOptions" text="OPTIONS" textAlignment="CENTER" textFill="#f26a9e" textOverrun="CENTER_ELLIPSIS" wrapText="true">
          <font>
             <Font size="24.0" />
          </font>
@@ -34,7 +34,7 @@
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </VBox.margin>
       </Button>
-      <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="283.0" layoutY="260.0" mnemonicParsing="false" onMouseDragOver="#onMouseDragOver" onAction="#clickCredits" text="CREDITS" textAlignment="CENTER" textFill="#f26a9e" textOverrun="CENTER_ELLIPSIS" wrapText="true">
+      <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="283.0" layoutY="260.0" mnemonicParsing="false" onAction="#clickCredits" text="CREDITS" textAlignment="CENTER" textFill="#f26a9e" textOverrun="CENTER_ELLIPSIS" wrapText="true">
          <font>
             <Font size="24.0" />
          </font>
