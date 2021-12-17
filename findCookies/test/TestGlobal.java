@@ -1,4 +1,6 @@
+import metier.Couche;
 import metier.Interrupteur;
+import metier.Niveau;
 import test_clock.TestClock;
 
 public class TestGlobal {
@@ -15,20 +17,18 @@ public class TestGlobal {
         c1.ajouterObjet(new Interrupteur("mon3emeObjet",  3, 6));
         c1.ajouterObjet(new Interrupteur("mon4emeObjet",  3, 6));
 
-        n.setScene(new Scene(5, 10));
-        n.getScene().ajouterCouche(c0);
-        n.getScene().ajouterCouche(c1);
-
+        n.ajouterCouche(c0);
+        n.ajouterCouche(c1);
         System.out.println(n);
 
         ////
         System.out.println("----------------------");
 
-        NiveauGroupe ng1 = new NiveauGroupe(1);
+        Niveau ng1 = new Niveau(1);
 
         System.out.println(ng1);
 
-        NiveauGroupe ng2 = new NiveauGroupe(2, 25, 50);
+        Niveau ng2 = new Niveau(2, 25, 50);
         ng2.ajouterCouche(new Couche(0));
         ng2.ajouterCouche(new Couche(1));
         ng2.enleverCouche(new Couche(0));

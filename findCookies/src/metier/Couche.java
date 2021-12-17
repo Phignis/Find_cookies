@@ -1,4 +1,5 @@
 // représente une grille, un layout d'objet du jeu
+package metier;
 
 import metier.Objet;
 
@@ -65,11 +66,11 @@ public class Couche {
 
     @Override
     public String toString() {
-                String message = "\t\tCouche numéro : " + numCouche + ", objets à l'intérieur :\n ";
-                for(Objet o: listeObjets) {
-                    message += o.toString() + '\n';
-                }
+        String message = "\t\tCouche numéro : " + numCouche + ", objets à l'intérieur :\n ";
+        for(Objet o: listeObjets) {
+            message += o.toString() + '\n';
+        }
 
-                return message;
+        return message;
     }
 }

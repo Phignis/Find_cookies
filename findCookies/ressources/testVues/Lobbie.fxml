@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="PrincipalControleur">
+      fx:controller="GeneralControleur">
    <children>
       <Label text="JOUER" textFill="#f26a9e">
          <font>
@@ -38,16 +38,6 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </TilePane.margin>
             </MenuButton>
-         </children>
-      </TilePane>
-      <TilePane alignment="TOP_CENTER" prefHeight="9.0" prefWidth="600.0">
-         <children>
-            <Label text="Mot de passe" textAlignment="CENTER" />
-            <PasswordField>
-               <TilePane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </TilePane.margin>
-            </PasswordField>
          </children>
       </TilePane>
       <Button mnemonicParsing="false" text="Accueil" textAlignment="CENTER" textFill="#f26a9e" onAction="#clickAccueil" >
