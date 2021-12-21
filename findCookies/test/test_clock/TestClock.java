@@ -26,9 +26,11 @@ public class TestClock {
         } catch (InterruptedException e) {
             System.err.println("error ");
         }
+
         t.interrompreGenerateur();
         System.out.println("generateur arreté, puis repris!");
         t.reprendreGenerateur();
+
         try {
             sleep(5000);
         } catch (InterruptedException e) {
