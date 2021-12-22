@@ -6,7 +6,7 @@ package utile.observateur;
  * @see Sujet
  * @see <a href="http://goprod.bouhours.net/?page=pattern&pat_id=16">Patron Observateur</a>
  */
-public abstract class Observateur {
+public interface Observateur {
 
     /**
      * a pour but d'effectuer une action précise, lorsque la notification du ou d'un des Sujets auquel l'instance est abonné est envoyé.

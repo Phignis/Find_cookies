@@ -2,7 +2,7 @@ package metier;
 
 import utile.observateur.Observateur;
 
-public class Porte extends Observateur {
+public class Porte implements Observateur {
 
     private boolean estOuverte;
 
