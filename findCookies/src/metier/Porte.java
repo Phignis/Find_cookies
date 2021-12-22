@@ -41,7 +41,7 @@ public class Porte implements Observateur {
     ////////////////////////////////
 
     @Override
-    public void update() {
+    public void update(Class c) {
         estOuverte = actionneur.isEstActive();
 
         if(isEstOuverte()) {

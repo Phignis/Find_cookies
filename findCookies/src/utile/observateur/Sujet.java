@@ -48,12 +48,12 @@ public abstract class Sujet {
 
     /**
      * Notifie, via la méthode update de Observateur, tout les Observateurs abonnés a cette instance, via la méthode attacher
-     * @see Observateur#update() 
+     * @see Observateur#update(Class)
      * @see Sujet#attacher(Observateur)
      */
     public void notifier() {
         for (Observateur o : observateurs) {
-            o.update();
+            o.update(getClass());
         }
     }
 }
