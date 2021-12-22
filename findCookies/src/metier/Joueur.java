@@ -1,20 +1,10 @@
 package metier;
 
-import javafx.beans.InvalidationListener;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.collections.ArrayChangeListener;
-import javafx.collections.ObservableArray;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.TextField;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-public class Joueur implements Initializable {
-    //   private final StringProperty pseudo;
-    private SimpleStringProperty pseudo = new SimpleStringProperty();
+public class Joueur{// implements Initializable {
+    private StringProperty pseudo = new SimpleStringProperty();
     public final StringProperty pseudoProperty(){
         return pseudo;
     }
@@ -66,14 +56,6 @@ public class Joueur implements Initializable {
     @Override
     public String toString() {
         return pseudo + "\t: " + niveauAtteint.getNumeroNiveau();
-    }
-
-    @FXML
-    TextField vPseudo;
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        vPseudo.textProperty().bindBidirectional(pseudoProperty());
     }
 }
 

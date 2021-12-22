@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="GeneralControleur">
+      fx:controller="controleurs.OptionsControleur">
    <children>
       <Label text="OPTIONS" textFill="#f26a9e">
          <font>
@@ -19,8 +19,8 @@
       <TilePane alignment="TOP_CENTER" prefHeight="9.0" prefWidth="600.0">
          <children>
             <Label text="Volume" />
-            <Slider />
-            <Spinner prefHeight="25.0" prefWidth="55.0" />
+            <Slider fx:id="vSlider" />
+            <Spinner fx:id="vCpt" prefHeight="25.0" prefWidth="55.0" />
          </children>
       </TilePane>
       <Button mnemonicParsing="false" text="Accueil" textAlignment="CENTER" textFill="#f26a9e" onAction="#clickAccueil"/>
