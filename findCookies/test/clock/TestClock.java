@@ -1,7 +1,6 @@
-package test_clock;
+package clock;
 
-import clock.BoucleTemporelle;
-import clock.GenerateurTick;
+import observateur.ObservateurGenerique;
 import utile.observateur.Observateur;
 
 import static java.lang.Thread.sleep;

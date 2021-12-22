@@ -1,12 +1,12 @@
 package metier;
 
 import utile.observateur.Observateur;
-import utile.observateur.Sujet;
+import utile.observateur.SujetAbstract;
 
-public class Interrupteur extends Declencheur {
+public class Interrupteur extends Objet {
 
     private boolean estActive;
-    private Sujet sujet;
+    private SujetAbstract sujet;
 
 
     ////////////////////////////////
@@ -16,6 +16,7 @@ public class Interrupteur extends Declencheur {
     public Interrupteur(String image, int posX, int posY) {
         super(image, posX, posY);
         estActive = false;
+        sujet = null;
     }
 
 
@@ -46,10 +47,5 @@ public class Interrupteur extends Declencheur {
 
     public void lorsqueActionne() {
         return; // changement du skin dans le futur
-    }
-
-    @Override
-    public void effet() {
-        return;
     }
 }
