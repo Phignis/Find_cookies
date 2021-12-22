@@ -2,7 +2,7 @@ package test_clock;
 
 import utile.observateur.Observateur;
 
-public class ObservateurGenerique extends Observateur {
+public class ObservateurGenerique implements Observateur {
     // classe attendu seulement a fin de test de la clock, ne servant qu'a fournir une classe concrète
 
     private String nomObservateur;
