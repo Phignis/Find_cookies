@@ -23,11 +23,11 @@ public class ObservateurGenerique implements Observateur {
     }
 
     @Override
-    public void update() {
+    public void update(Class c) {
         activiteObservateur = !activiteObservateur;
 
-        if(isActiviteObservateur()) System.out.println(getNomObservateur() + " est actif!");
-        else System.out.println(getNomObservateur() + " est inactif!");
+        if(isActiviteObservateur()) System.out.println(getNomObservateur() + " est actif par l'action d'un " + c.getName());
+        else System.out.println(getNomObservateur() + " est inactif sur l'action d'un " + c.getName());
     }
 
 }

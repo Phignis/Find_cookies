@@ -28,7 +28,13 @@ public class TestClock {
         }
 
         t.interrompreGenerateur();
-        System.out.println("generateur arreté, puis repris!");
+        System.out.println("generateur arreté");
+        try {
+            sleep(4000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("generateur repris après 4 secondes!");
         t.reprendreGenerateur();
 
         try {

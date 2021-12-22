@@ -13,5 +13,5 @@ public interface Observateur {
      * @see Sujet#attacher(Observateur)
      * @see Sujet#notifier()
      */
-    public abstract void update();
+    public abstract void update(Class c);
 }

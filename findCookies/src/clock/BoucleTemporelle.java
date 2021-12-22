@@ -83,7 +83,7 @@ public class BoucleTemporelle extends Sujet implements Observateur {
      * @see BoucleTemporelle#eventFinBoucleTemporelle() 
      */
     @Override
-    public void update() {
+    public void update(Class c) {
         // update par GenerateurTick
         ++nbTicksEcoule;
         eventFinBoucleTemporelle();
