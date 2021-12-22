@@ -12,6 +12,10 @@ public class JoueurControleur {
     private VerifierJoueur verifierJ = new VerifierJoueur();
     private List<Joueur> listeJoueurs = new ArrayList<>();
 
+    public Joueur getJoueurCourant() {
+        return joueurCourant;
+    }
+
     public boolean ajouterJoueur(String pseudo) throws Exception {
         boolean verif = verifierJ.verifierPseudo(pseudo, listeJoueurs);
         if(!verif){

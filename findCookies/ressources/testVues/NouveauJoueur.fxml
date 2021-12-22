@@ -13,7 +13,7 @@
 
 <?import javafx.scene.control.TextField?>
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-    fx:controller="GeneralControleur">
+    fx:controller="controleurs.NouveauJoueurControleur">
    <children>
       <Label text="JOUER" textFill="#f26a9e">
          <font>
@@ -41,6 +41,7 @@
             <TextField fx:id="vPseudo" GridPane.columnIndex="1" GridPane.valignment="CENTER"/>
          </children>
       </GridPane>
+       <Label text="" fx:id="vTxtErreur" textAlignment="CENTER" GridPane.halignment="RIGHT" />
       <TilePane alignment="TOP_CENTER" prefHeight="9.0" prefWidth="600.0">
          <children>
             <Button mnemonicParsing="false" text="Accueil" onAction="#clickAccueil" textAlignment="CENTER" textFill="#f26a9e" TilePane.alignment="CENTER">

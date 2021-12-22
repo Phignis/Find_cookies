@@ -3,68 +3,55 @@ package controleurs;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.fxml.FXML;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import metier.Joueur;
 import utile.Vue;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class NouveauJoueurControleur implements Initializable {
-    @FXML
-    TextField vPseudo;
-    private SimpleStringProperty pseudo = new SimpleStringProperty();
-    public final StringProperty pseudoProperty(){
-        return pseudo;
-    }
-    public final String getPseudo() {
-        return pseudo.get();
-    }
-
-    @FXML
-    Button vBtnValidation;
-
-    private Vue vue = new Vue();
-    private JoueurControleur joueurC = new JoueurControleur();
+    @FXML Button vBtnValidation;
+    @FXML TextField vPseudo;
+    @FXML Label vTxtErreur;
 
     private Stage monStage;
+    private Vue vue = new Vue();
 
-    public NouveauJoueurControleur(Stage monStage){
-        this.monStage = monStage;
-    }
+    private JoueurControleur joueurC = new JoueurControleur();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        vPseudo.textProperty().bindBidirectional(pseudoProperty());
-        vPseudo.setText("Pseudo1");
+        System.out.println("initialize");
         vBtnValidation.disableProperty().bind(vPseudo.textProperty().isEmpty());
     }
 
-    public void clickAjouterJoueur() {
+    @FXML
+    private void clickAccueil(ActionEvent event) throws Exception{
+        monStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        vue.changeScene(monStage, "Menu");
+    }
+
+    @FXML
+    private void clickAjouterJoueur(ActionEvent event) {
+        monStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        String pseudo = vPseudo.textProperty().get();
+
         try{
-            if(joueurC.ajouterJoueur(pseudo.get())){
+            if(joueurC.ajouterJoueur(pseudo)){
                 vue.changeScene(monStage, "Niveau");
             }else{
-                vue.changeScene(monStage, "NouveauJoueur");
+              //  vue.changeScene(monStage, "NouveauJoueur");
+                vTxtErreur.setText("Problème de pseudo - Veuillez en changer");
             }
         }
         catch (Exception e){
-            System.out.println("Pb ajout nouveau joueur");
+            vTxtErreur.setText("Problème d'ajout du nouveau joueur.");
             System.out.println(e.getMessage());
         }
-        //test="test";
-        //int test;
-        // test=Integer.parseInt(vPseudo.getText());
-
-     //   System.out.println(pseudoProperty().get());
-
-      //  Joueur j = new Joueur(pseudoProperty().get(), mdpProperty().get(), 0);
-     //   generalC.vue.changeScene("Niveau.fxml");
     }
 
 
