@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import utile.Vue;
+import utile.NavigateurVue;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,7 +19,7 @@ public class NouveauJoueurControleur implements Initializable {
     @FXML Label vTxtErreur;
 
     private Stage monStage;
-    private Vue vue = new Vue();
+    private NavigateurVue vue = new NavigateurVue();
 
     private JoueurControleur joueurC = new JoueurControleur();
 

@@ -4,14 +4,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.stage.Stage;
-import utile.Vue;
+import utile.NavigateurVue;
 
 /**
  * \brief Controleur associé à la vue "Credits.fxml"
  */
 public class CreditsControleur {
     private Stage monStage;
-    private Vue vue = new Vue();
+    private NavigateurVue vue = new NavigateurVue();
 
     /**
      * \brief Redirige l'utilisateur vers la page principale "Menu.fxml"
