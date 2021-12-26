@@ -1,9 +1,5 @@
 package controleurs;
 
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -13,21 +9,21 @@ import javafx.scene.control.Slider;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.stage.Stage;
-import javafx.util.converter.PercentageStringConverter;
-import utile.Vue;
+import utile.NavigateurVue;
 
 import javafx.fxml.FXML;
 
 import java.net.URL;
-import java.text.NumberFormat;
 import java.util.ResourceBundle;
 
 public class OptionsControleur implements Initializable{
     private Stage monStage;
-    private Vue vue = new Vue();
+    private NavigateurVue vue = new NavigateurVue();
 
-    @FXML Slider vSlider;
-    @FXML Spinner<Integer> vCpt;
+    @FXML
+    Slider vSlider;
+    @FXML
+    Spinner<Integer> vCpt;
 
     private final int valeurInitiale = 50;
     private int valeurCourante;
@@ -43,7 +39,7 @@ public class OptionsControleur implements Initializable{
         vCpt.setValueFactory(fabrique);
         vSlider.setValue(vCpt.getValue());
 
-        //Le slider bindé au spinner
+        //Le slider est bindé au spinner
         vCpt.valueProperty().addListener(new ChangeListener<Integer>() {
             @Override
             public void changed(ObservableValue<? extends Integer> arg0, Integer arg1, Integer arg2) {

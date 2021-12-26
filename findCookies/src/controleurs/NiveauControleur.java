@@ -4,11 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.stage.Stage;
-import utile.Vue;
+import utile.NavigateurVue;
 
 public class NiveauControleur {
     private Stage monStage;
-    private Vue vue = new Vue();
+    private NavigateurVue vue = new NavigateurVue();
 
     @FXML
     private void clickAccueil(ActionEvent event) throws Exception{
