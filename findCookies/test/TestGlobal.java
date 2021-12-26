@@ -45,12 +45,6 @@ public class TestGlobal {
         System.out.println(ng2);
     }
 
-    private static void testObservateur() {
-        Niveau n = new Niveau(0);
-        Couche c1 = new Couche(1);
-        c1.ajouterObjet(new Interrupteur("image", 12, 16));
-    }
-
     private static boolean testUniciteSujetAbstract() {
 
         boolean reussi;
