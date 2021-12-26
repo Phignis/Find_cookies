@@ -9,9 +9,11 @@ package utile.observateur;
 public interface Observateur {
 
     /**
-     * a pour but d'effectuer une action précise, lorsque la notification du ou d'un des Sujets auquel l'instance est abonné est envoyé.
+     * a pour but d'effectuer une action précise, lorsque la notification du ou d'un des Sujets auquel l'instance est abonné
+     * est envoyé. L'action d'update peut changé en fonction du type de Class passé en paramètre
+     * @param c Class qui est initiatrice de la mise en place de cette méthode
      * @see SujetObservableUneFois#attacher(Observateur)
      * @see SujetObservableUneFois#notifier()
      */
-    public abstract void update(Class c);
+    void update(Class c);
 }

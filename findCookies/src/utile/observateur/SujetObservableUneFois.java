@@ -4,31 +4,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Sujet a pour but de se faire observer par un Observateur abonné.
- * Un exemple de Sujet peut etre la classe BoucleTemporelle
- * Il est la couche d'abstraction Sujet (Subject), avec Observateur (Observer) du patron de conception comportemental "Observateur"
+ * SujetObservableUneFois est une implémentation de Sujet. Il réalise donc la promesse de Sujet, et garentit en plus l'unicité des
+ * Observateurs, c'est à dire qu'un Observateur ne peut observer qu'une seule fois cette instance de SujetObservableUneFois
+ * Une classe fille typique est GenerateurTick
+ * @see Sujet
  * @see Observateur
- * @see clock.BoucleTemporelle
- * @see <a href="http://goprod.bouhours.net/?page=pattern&pat_id=16">Patron Observateur</a>
+ * @see clock.GenerateurTick
  */
 public abstract class SujetObservableUneFois implements Sujet {
 
     /**
-     * liste des observateurs abonnés au Sujet observés, l'unicité des instances dans la liste est garantit
+     * liste des observateurs abonnés au Sujet observé, l'unicité des instances dans la liste est garantit
      * @see SujetObservableUneFois#attacher(Observateur)
      * @see SujetObservableUneFois#detacher(Observateur)
      */
     private List<Observateur> observateurs;
 
     /**
-     * Constructeur de Sujet, créé la liste des observateurs abonnées (à vide)
+     * Constructeur de SujetObservableUneFois, créé la liste des observateurs abonnées (à vide)
      */
     public SujetObservableUneFois() {
         this.observateurs = new ArrayList<>();
     }
 
     /**
-     * Abonne un Observateur à cette instance de Sujet, pour qu'il reçoit les notifications, si l'instance n'est pas déjà présente
+     * Abonne un Observateur à cette instance de SujetObservableUneFois, pour qu'il reçoive les notifications,
+     * si l'instance n'est pas déjà présente
      * @see SujetObservableUneFois#notifier()
      * @param o observateur a abonner au Sujet, pour qu'il recoive les notifications
      * @return true si l'observateur a bien été abonné, false sinon (si null, ou si l'instance est déjà abonnée)
@@ -44,10 +45,10 @@ public abstract class SujetObservableUneFois implements Sujet {
     }
 
     /**
-     * Désabonne un Observateur à cette instance de Sujet, pour qu'il ne reçoit plus les notifications
+     * Désabonne un Observateur à cette instance de SujetObservableUneFois, pour qu'il ne reçoive plus les notifications
      * @see SujetObservableUneFois#notifier()
      * @param o observateur a abonner au Sujet, pour qu'il recoive les notifications
-     * @return true si l'observateur a bien été abonné, false sinon
+     * @return true si l'observateur a bien été désabonné, false sinon (si l'observateur n'était déjà pas abonné)
      */
     public boolean detacher(Observateur o) {
         return observateurs.remove(o);
