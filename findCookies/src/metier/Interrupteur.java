@@ -58,6 +58,17 @@ public class Interrupteur extends Objet implements Sujet {
     ////////////////////////////////
 
     /**
+     * Action d'activer l'instance d'Interrupteur. Inverse le booléen estActive représentant on et off, et notifie les
+     * Observateurs abonnés de ce changement.
+     * @see Interrupteur#estActive
+     * @see Interrupteur#notifier()
+     */
+    public void actionnerInterrupteur() {
+        estActive = !estActive;
+        notifier();
+    }
+
+    /**
      * Abonne un Observateur à cette instance de Interrupteur, pour qu'il reçoive les notifications,
      * si jamais il n'est pas déjà présent
      * @param o Observateur a abonner, pour qu'il recoive les notifications
@@ -78,6 +89,6 @@ public class Interrupteur extends Objet implements Sujet {
     }
 
     public void notifier() {
-        gestionSujet.notifier();
+        gestionSujet.notifier(getClass());
     }
 }
