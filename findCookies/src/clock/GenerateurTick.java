@@ -1,6 +1,6 @@
 package clock;
 
-import utile.observateur.SujetAbstract;
+import utile.observateur.SujetObservableUneFois;
 
 /**
  * GenerateurTick génère les ticks permettant de cadencer le jeu, et déterminer le délai entre deux actions.
@@ -8,7 +8,7 @@ import utile.observateur.SujetAbstract;
  * Ces ticks servent par exemple a la boucle temporelle du jeu
  * @see BoucleTemporelle
  */
-public class GenerateurTick extends SujetAbstract implements Runnable {
+public class GenerateurTick extends SujetObservableUneFois implements Runnable {
 
     /**
      * Représente l'intervalle entre deux ticks généré par l'instance de la classe. Cette valeur est en micro secondes

@@ -1,12 +1,15 @@
 package metier;
 
 import utile.observateur.Observateur;
-import utile.observateur.SujetAbstract;
+import utile.observateur.Sujet;
 
-public class Interrupteur extends Objet {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Interrupteur extends Objet implements Sujet {
 
     private boolean estActive;
-    private SujetAbstract sujet;
+    private List<Observateur> observateurs;
 
 
     ////////////////////////////////
@@ -16,7 +19,7 @@ public class Interrupteur extends Objet {
     public Interrupteur(String image, int posX, int posY) {
         super(image, posX, posY);
         estActive = false;
-        sujet = null;
+        observateurs = new ArrayList<>();
     }
 
 
@@ -33,19 +36,26 @@ public class Interrupteur extends Objet {
     // METHODES
     ////////////////////////////////
 
-    public boolean attacherObserservateur(Observateur o) {
-        return sujet.attacher(o);
+    @Override
+    public boolean attacher(Observateur o) {
+        if(o == null) return false;
+
+        for (Observateur dejaAbonne : observateurs) {
+            if(o == dejaAbonne) return false;
+        }
+
+        return observateurs.add(o);
     }
 
-    public boolean detacherObservateur(Observateur o) {
-        return sujet.detacher(o);
+    @Override
+    public boolean detacher(Observateur o) {
+        return observateurs.remove(o);
     }
 
+    @Override
     public void notifier() {
-        sujet.notifier();
-    }
-
-    public void lorsqueActionne() {
-        return; // changement du skin dans le futur
+        for (Observateur o : observateurs) {
+            o.update(getClass());
+        }
     }
 }
