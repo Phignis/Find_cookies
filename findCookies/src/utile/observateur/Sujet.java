@@ -13,7 +13,7 @@ public interface Sujet {
     /**
      * A pour but d'abonner l'observateur passé en paramètre, en l'ajoutant à une collection d'abonnés, pour qu'il recoive les notifications
      * @see Sujet#notifier()
-     * @param o Observateur a abonner, pour qu'il recoivent les notifications
+     * @param o Observateur a abonner, pour qu'il recoive les notifications
      * @return true si l'observateur a été abonné, false sinon
      */
     boolean attacher(Observateur o);
