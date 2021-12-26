@@ -2,7 +2,6 @@ import clock.BoucleTemporelle;
 import metier.Interrupteur;
 import observateur.ObservateurGenerique;
 import utile.observateur.Observateur;
-import utile.observateur.SujetAbstract;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
