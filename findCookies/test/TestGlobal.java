@@ -1,5 +1,10 @@
 import clock.BoucleTemporelle;
+import clock.GenerateurTick;
 import metier.Interrupteur;
+import metier.Porte;
+import metier.gestion.porte.update.GestionnaireUpdatePorte;
+import metier.gestion.porte.update.UpdatePorteByBoucle;
+import metier.gestion.porte.update.UpdatePorteByInterrupteur;
 import observateur.ObservateurGenerique;
 import utile.observateur.Observateur;
 
@@ -9,9 +14,13 @@ import java.util.Scanner;
 public class TestGlobal {
     public static void main(String args[]) {
         // TestClock.testBoucle();
-        if(!testUniciteSujetAbstract()) {
+        /*if(!testUniciteSujetAbstract()) {
             System.err.println("Soucis dans le test d'unicité des instances abonnés a un SujetAbstract");
-        } else System.out.println(("Test d'unicité des instances abonnés a un SujetAbstract réussi!"));
+        } else System.out.println(("Test d'unicité des instances abonnés a un SujetAbstract réussi!"));*/
+
+        if(!testUpdatePorte()) {
+            System.err.println("Soucis dans le test d'update d'une porte");
+        } else System.out.println(("Test d'update d'une porte réussi!"));
     }
 
     private static void testStructure() {
@@ -87,5 +96,35 @@ public class TestGlobal {
         c.close();
 
         return reussi;
+    }
+
+    private static boolean testUpdatePorte() {
+        Porte p = new Porte();
+        Interrupteur i = new Interrupteur("too", 3,3);
+        BoucleTemporelle b = new BoucleTemporelle(1); // update a chaque tick
+
+        p.setActionneur(i); // censé créer un gestion pour gérer les notifs de Interrupteur, on ne peut donc a nouveau l'ajouter
+        if(p.getActionneur() != i || p.ajouterGestionUpdate(new UpdatePorteByInterrupteur(p))) return false;
+
+        p.setEstOuverte(true);
+        if(!p.isEstOuverte()) return false;
+
+        // on est a true, et les update généré par b ne sont pas encore censé changer a false notre état
+        b.attacher(p);
+        b.update(GenerateurTick.class); // b notifie p, mais p est censé rester dans son état
+
+        if(!p.isEstOuverte()) return false;
+
+        // on le refait cette fois avec l'action d'update pour la boucle
+        if(!p.ajouterGestionUpdate(new UpdatePorteByBoucle(p))) return false;
+        b.update(GenerateurTick.class); // b notifie p, mais p recoit et doit s'update
+
+        if(p.isEstOuverte()) return false;
+        // on est dans le cas où p est fermée par la boucle
+        i.actionnerInterrupteur(); // on active l'interrupteur, la porte doit donc s'ouvrir
+
+        if(!p.isEstOuverte()) return false;
+
+        return true;
     }
 }
