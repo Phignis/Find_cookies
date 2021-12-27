@@ -2,12 +2,13 @@ package clock;
 
 import utile.observateur.Observateur;
 import utile.observateur.Sujet;
+import utile.observateur.SujetObservableUneFois;
 
 /**
  * BoucleTemporelle représente la boucle temporelle présente dans les niveaux du jeu.
  * Elle est chargée d'indiquer la fin de la limite de temps de jeu, a laquelle le personne est remise au début du niveau
  */
-public class BoucleTemporelle extends Sujet implements Observateur {
+public class BoucleTemporelle extends SujetObservableUneFois implements Observateur {
 
     /**
      * nombre de ticks que dure au total la boucle, avant d'indiquer la fin de la boucle temporelle du niveau.
@@ -80,12 +81,15 @@ public class BoucleTemporelle extends Sujet implements Observateur {
      * à la boucle
      * @see Observateur
      * @see BoucleTemporelle#setTempsTotalBoucle(long)
-     * @see BoucleTemporelle#eventFinBoucleTemporelle() 
+     * @see BoucleTemporelle#eventFinBoucleTemporelle()
+     * @param c
      */
     @Override
-    public void update() {
+    public void update(Class<? extends Sujet> c) {
         // update par GenerateurTick
-        ++nbTicksEcoule;
-        eventFinBoucleTemporelle();
+        if(c.getName() == GenerateurTick.class.getName()) {
+            ++nbTicksEcoule;
+            eventFinBoucleTemporelle();
+        }
     }
 }

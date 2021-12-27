@@ -1,7 +1,6 @@
-package test_clock;
+package clock;
 
-import clock.BoucleTemporelle;
-import clock.GenerateurTick;
+import observateur.ObservateurGenerique;
 import utile.observateur.Observateur;
 
 import static java.lang.Thread.sleep;
@@ -28,7 +27,13 @@ public class TestClock {
         }
 
         t.interrompreGenerateur();
-        System.out.println("generateur arreté, puis repris!");
+        System.out.println("generateur arreté");
+        try {
+            sleep(4000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("generateur repris après 4 secondes!");
         t.reprendreGenerateur();
 
         try {

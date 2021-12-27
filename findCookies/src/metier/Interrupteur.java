@@ -1,21 +1,43 @@
 package metier;
 
+import metier.gestion.porte.update.GestionnaireUpdatePorte;
 import utile.observateur.Observateur;
 import utile.observateur.Sujet;
+import utile.observateur.SujetRelaisUniqueObservation;
 
-public class Interrupteur extends Declencheur {
+/**
+ * Interrupteur a pour but de pouvoir s'activer ou se désactiver (on/off), et notifier tout Observateur abonné à lui.
+ * @see Sujet
+ * @see SujetRelaisUniqueObservation
+ */
+public class Interrupteur extends Objet implements Sujet {
 
+    /**
+     * représente l'activation ou non de cette instance d'Interrupteur
+     */
     private boolean estActive;
-    private Sujet sujet;
 
+    /**
+     * permet de gérer tout l'aspect Sujet de l'interrupteur (abonnement, désabonnement et notification des abonnés)
+     * la gestion est donc totalement délégué à cet attribut
+     * @see SujetRelaisUniqueObservation
+     */
+    private SujetRelaisUniqueObservation gestionSujet;
 
     ////////////////////////////////
     // CONSTRUCTEUR
     ////////////////////////////////
 
+    /**
+     *
+     * @param image chemin vers l'image représentant graphiquement l'interrupteur
+     * @param posX la position X de l'interrupteur
+     * @param posY la position Y de l'interrupteur
+     */
     public Interrupteur(String image, int posX, int posY) {
         super(image, posX, posY);
         estActive = false;
+        gestionSujet = new SujetRelaisUniqueObservation();
     }
 
 
@@ -23,6 +45,10 @@ public class Interrupteur extends Declencheur {
     // GETTERS
     ////////////////////////////////
 
+    /**
+     * permet de savoir si l'instance d'Interrupteur est actif (on) ou non
+     * @return true si l'interrupteur est sur on, donc actif, false sinon
+     */
     public boolean isEstActive() {
         return estActive;
     }
@@ -32,24 +58,38 @@ public class Interrupteur extends Declencheur {
     // METHODES
     ////////////////////////////////
 
-    public boolean attacherObserservateur(Observateur o) {
-        return sujet.attacher(o);
+    /**
+     * Action d'activer l'instance d'Interrupteur. Inverse le booléen estActive représentant on et off, et notifie les
+     * Observateurs abonnés de ce changement.
+     * @see Interrupteur#estActive
+     * @see Interrupteur#notifier()
+     */
+    public void actionnerInterrupteur() {
+        estActive = !estActive;
+        notifier();
     }
 
-    public boolean detacherObservateur(Observateur o) {
-        return sujet.detacher(o);
+    /**
+     * Abonne un Observateur à cette instance de Interrupteur, pour qu'il reçoive les notifications,
+     * si jamais il n'est pas déjà présent
+     * @param o Observateur a abonner, pour qu'il recoive les notifications
+     * @return true si l'observateur a bien été abonné, false sinon (si null, ou si l'instance est déjà abonnée)
+     */
+    public boolean attacher(Observateur o) {
+        return gestionSujet.attacher(o);
+    }
+
+    /**
+     * Désabonne un Observateur à cette instance de Interrupteur, pour qu'il ne reçoive plus les notifications
+     * @see Interrupteur#notifier()
+     * @param o observateur a abonner au Sujet, pour qu'il recoive les notifications
+     * @return true si l'observateur a bien été abonné, false sinon
+     */
+    public boolean detacher(Observateur o) {
+        return gestionSujet.detacher(o);
     }
 
     public void notifier() {
-        sujet.notifier();
-    }
-
-    public void lorsqueActionne() {
-        return; // changement du skin dans le futur
-    }
-
-    @Override
-    public void effet() {
-        return;
+        gestionSujet.notifier(getClass());
     }
 }
