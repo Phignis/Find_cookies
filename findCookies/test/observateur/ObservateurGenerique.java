@@ -1,6 +1,7 @@
 package observateur;
 
 import utile.observateur.Observateur;
+import utile.observateur.Sujet;
 
 public class ObservateurGenerique implements Observateur {
     // classe attendu seulement a fin de test de la clock ou de l'implémentation du patron Observateur,
@@ -24,7 +25,7 @@ public class ObservateurGenerique implements Observateur {
     }
 
     @Override
-    public void update(Class c) {
+    public void update(Class<? extends Sujet> c) {
         activiteObservateur = !activiteObservateur;
 
         if(isActiviteObservateur()) System.out.println(getNomObservateur() + " est actif par l'action d'un " + c.getName());

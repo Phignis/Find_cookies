@@ -1,6 +1,7 @@
 package clock;
 
 import utile.observateur.Observateur;
+import utile.observateur.Sujet;
 import utile.observateur.SujetObservableUneFois;
 
 /**
@@ -80,12 +81,15 @@ public class BoucleTemporelle extends SujetObservableUneFois implements Observat
      * à la boucle
      * @see Observateur
      * @see BoucleTemporelle#setTempsTotalBoucle(long)
-     * @see BoucleTemporelle#eventFinBoucleTemporelle() 
+     * @see BoucleTemporelle#eventFinBoucleTemporelle()
+     * @param c
      */
     @Override
-    public void update(Class c) {
+    public void update(Class<? extends Sujet> c) {
         // update par GenerateurTick
-        ++nbTicksEcoule;
-        eventFinBoucleTemporelle();
+        if(c.getName() == GenerateurTick.class.getName()) {
+            ++nbTicksEcoule;
+            eventFinBoucleTemporelle();
+        }
     }
 }

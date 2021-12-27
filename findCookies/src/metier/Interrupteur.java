@@ -1,5 +1,6 @@
 package metier;
 
+import metier.gestion.porte.update.GestionnaireUpdatePorte;
 import utile.observateur.Observateur;
 import utile.observateur.Sujet;
 import utile.observateur.SujetRelaisUniqueObservation;
@@ -29,9 +30,9 @@ public class Interrupteur extends Objet implements Sujet {
 
     /**
      *
-     * @param image
-     * @param posX
-     * @param posY
+     * @param image chemin vers l'image représentant graphiquement l'interrupteur
+     * @param posX la position X de l'interrupteur
+     * @param posY la position Y de l'interrupteur
      */
     public Interrupteur(String image, int posX, int posY) {
         super(image, posX, posY);
