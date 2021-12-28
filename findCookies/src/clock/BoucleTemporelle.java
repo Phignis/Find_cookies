@@ -79,15 +79,15 @@ public class BoucleTemporelle extends SujetObservableUneFois implements Observat
      * Implémentation de la méthode de Observateur. ici, a chaque notification, on incrémente le nombre de ticks écoulés depuis le début,
      * et si jamais on a atteint la fin du temps de la boucle, on effectue l'event de fin de boucle, qui notifie tout ce qui est abonné
      * à la boucle
+     * @param notificateur notificateur à l'origine de l'update, le nombre de tick ecoulé ne s'incrémente que si ce dernier est un GenerateurTick
      * @see Observateur
      * @see BoucleTemporelle#setTempsTotalBoucle(long)
      * @see BoucleTemporelle#eventFinBoucleTemporelle()
-     * @param c
      */
     @Override
-    public void update(Class<? extends Sujet> c) {
+    public void update(Sujet notificateur) {
         // update par GenerateurTick
-        if(c.getName() == GenerateurTick.class.getName()) {
+        if(notificateur instanceof GenerateurTick) {
             ++nbTicksEcoule;
             eventFinBoucleTemporelle();
         }
