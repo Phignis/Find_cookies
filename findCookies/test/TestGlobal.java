@@ -1,8 +1,10 @@
 import clock.BoucleTemporelle;
 import clock.GenerateurTick;
+import metier.Couche;
+import metier.Interrupteur;
+import metier.Niveau;
 import metier.Porte;
-import metier.gestion.porte.update.UpdatePorteByBoucle;
-import metier.gestion.porte.update.UpdatePorteByInterrupteur;
+import metier.gestion.porte.update.RemiseMementoPorte;
 import observateur.ObservateurGenerique;
 import utile.observateur.Observateur;
 
@@ -100,20 +102,22 @@ public class TestGlobal {
         BoucleTemporelle b = new BoucleTemporelle(1); // update a chaque tick
 
         p.setActionneur(i); // censé créer un gestion pour gérer les notifs de Interrupteur, on ne peut donc a nouveau l'ajouter
-        if(p.getActionneur() != i || p.ajouterGestionUpdate(new UpdatePorteByInterrupteur(p))) return false;
+        if(p.getActionneur() != i) return false;
 
         p.setEstOuverte(true);
         if(!p.isEstOuverte()) return false;
 
         // on est a true, et les update généré par b ne sont pas encore censé changer a false notre état
         b.attacher(p);
-        b.update(GenerateurTick.class); // b notifie p, mais p est censé rester dans son état
+        GenerateurTick t = new GenerateurTick();
+        t.interrompreGenerateur();
+        b.update(t); // b notifie p, mais p est censé rester dans son état
 
         if(!p.isEstOuverte()) return false;
 
         // on le refait cette fois avec l'action d'update pour la boucle
-        if(!p.ajouterGestionUpdate(new UpdatePorteByBoucle(p))) return false;
-        b.update(GenerateurTick.class); // b notifie p, mais p recoit et doit s'update
+        p.ajouterActionUpdate(b, new RemiseMementoPorte(p));
+        b.update(t); // b notifie p, mais p recoit et doit s'update
 
         if(p.isEstOuverte()) return false;
         // on est dans le cas où p est fermée par la boucle
