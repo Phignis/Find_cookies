@@ -10,10 +10,10 @@ public interface Observateur {
 
     /**
      * a pour but d'effectuer une action précise, lorsque la notification du ou d'un des Sujets auquel l'instance est abonné
-     * est envoyé. L'action d'update peut changé en fonction du type de Class passé en paramètre
-     * @param c Class qui est initiatrice de la mise en place de cette méthode
+     * est envoyé. L'algorithme de update change en fonction de la classe du notificateur
+     * @param notificateur Sujet qui est initiateur de l'éxecution de cette méthode
      * @see SujetObservableUneFois#attacher(Observateur)
      * @see SujetObservableUneFois#notifier()
      */
-    void update(Class<? extends Sujet> c);
+    void update(Sujet notificateur);
 }

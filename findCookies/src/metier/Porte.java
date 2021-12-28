@@ -1,9 +1,12 @@
 package metier;
 
-import metier.gestion.porte.update.GestionnaireUpdatePorte;
-import metier.gestion.porte.update.UpdatePorteByInterrupteur;
+import metier.gestion.porte.update.ActionPorte;
+import metier.gestion.porte.update.SynchroPorteInterrupteur;
 import utile.observateur.Observateur;
 import utile.observateur.Sujet;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Porte a pour but de pouvoir s'ouvrir ou se fermer, selon qui notifie la Porte
@@ -17,16 +20,10 @@ public class Porte implements Observateur {
     private boolean estOuverte;
 
     /**
-     * actionneur est l'interrupteur qui commande la porte, observée donc par celle ci
-     * @see Observateur
+     * map liant un Sujet notificateur à un ActionUpdatePorte, qui détermine l'algorithme de update à effectuer
+     * @see Observateur#update(Sujet)
      */
-    private Interrupteur actionneur;
-
-    /**
-     * permet de gérer l'action a faire en cas de notification, selon la classe du notificateur
-     * @see Observateur#update(Class)
-     */
-    private GestionnaireUpdatePorte gestionUpdate;
+    private Map<Sujet, ActionPorte> listeUpdatePossible;
 
 
     ////////////////////////////////
@@ -38,6 +35,7 @@ public class Porte implements Observateur {
      */
     public Porte() {
         this.estOuverte = false;
+        listeUpdatePossible = new HashMap<Sujet, ActionPorte>();
     }
 
 
@@ -53,10 +51,6 @@ public class Porte implements Observateur {
         return estOuverte;
     }
 
-    public Interrupteur getActionneur() {
-        return actionneur;
-    }
-
     ////////////////////////////////
     // SETTERS
     ////////////////////////////////
@@ -69,19 +63,14 @@ public class Porte implements Observateur {
     /**
      * permet d'ajouter un interrupteur actionnant la porte, ainsi que la gestion pour update si jamais l'interrupteur actionne la porte
      * abonne cette instance a l'actionneur
+     *
+     * @deprecated Cette méthode fait exactement la même chose que
+     * {@link Porte#ajouterActionUpdate(Sujet, ActionPorte)}, avec pour 1er attribut l'actionneur et en second un SynchroPorteInterrupteur
+     * avec la Porte puis l'actionneur
      * @param actionneur Interrupteur commandant la porte
      */
     public void setActionneur(Interrupteur actionneur) {
-        this.actionneur = actionneur;
-        actionneur.attacher(this);
-
-        GestionnaireUpdatePorte ajoutPossible = new UpdatePorteByInterrupteur(this);
-        if(gestionUpdate != null && gestionUpdate.isTypeGestionnairePresent(ajoutPossible.getClass())) {
-            ajouterGestionUpdate(ajoutPossible);
-        }
-        else if(gestionUpdate == null) {
-            ajouterGestionUpdate(ajoutPossible);
-        }
+        listeUpdatePossible.put(actionneur, new SynchroPorteInterrupteur(this, actionneur));
     }
 
 
@@ -90,30 +79,38 @@ public class Porte implements Observateur {
     ////////////////////////////////
 
     /**
-     * Permet d'ajouter en tête de la structure de donnée un nouveau systeme d'update
-     * @param ajout nouveau systeme d'update
-     * @return true si l'insertion est réussie, false sinon, si jamais le systeme d'update est déjà présent dans nos systèmes
-     * @see GestionnaireUpdatePorte
+     * Permet d'ajouter à la liste des algorithmes possibles de update une nouvelle entrée.
+     * Chaque algorithme est spécifique a une instance de Sujet (donc pour deux instances de même classe, on peut avoir deux
+     * algorithmes qui diffèrent).
+     * Si jamais l'entrée pour l'instance notificateur existe déjà, alors l'action a effectuer est remplacée
+     *
+     * @param notificateur Sujet étant à l'origine de l'update, pour lequel on spécifie un algorithme
+     * @param actionAEffectuer Algorithme a effectuer
+     * @see ActionPorte
+     * @see Porte#update(Sujet)
      */
-    public boolean ajouterGestionUpdate(GestionnaireUpdatePorte ajout) {
-        if(gestionUpdate != null && !gestionUpdate.isTypeGestionnairePresent(ajout.getClass())) {
-            // dans ce cas, on peut insérer, le type n'est pas déjà présent, cas le plus courant
-            ajout.setSuccesseur(gestionUpdate);
-            gestionUpdate = ajout;
-        } else if(gestionUpdate == null) {
-            // on ajoute juste
-            gestionUpdate = ajout;
-        } else { // on a donc gestionUpdate non null, mais le type déjà présent
-            return false;
-        }
-
-        return true;
+    public void ajouterActionUpdate(Sujet notificateur, ActionPorte actionAEffectuer) {
+        listeUpdatePossible.put(notificateur, actionAEffectuer);
     }
 
+    /**
+     * Permet de supprimer de la liste des algorithmes possible l'entrée pour le notificateur spécifié
+     * @param notificateur Sujet dont l'algorithme est à supprimer
+     * @return true si la suppression est réussie, false sinon (si notificateur n'existait déjà pas dans la liste des algo)
+     */
+    public boolean supprimerActionUpdate(Sujet notificateur) {
+        return listeUpdatePossible.remove(notificateur) != null;
+    }
+
+    /**
+     * permet à la porte de s'update, selon l'instance de sujet passée en paramètre
+     * @param notificateur Sujet qui est initiateur de l'éxecution de cette méthode
+     */
     @Override
-    public void update(Class<? extends Sujet> c) {
-        if(gestionUpdate != null) {
-            gestionUpdate.gererUpdatePorte(c);
+    public void update(Sujet notificateur) {
+        ActionPorte actionAEffectuer = listeUpdatePossible.get(notificateur);
+        if(actionAEffectuer != null) {
+            actionAEffectuer.doAction();
         }
     }
 }

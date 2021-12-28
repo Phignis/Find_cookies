@@ -40,7 +40,7 @@ public class SujetRelaisUniqueObservation implements Sujet {
      * Abonne un Observateur à cette instance de SujetRelaisUniqueObservation, pour qu'il reçoive les notifications,
      * si l'instance n'est pas déjà présente
      * @see SujetRelaisUniqueObservation#notifier()
-     * @see SujetRelaisUniqueObservation#notifier(Class)
+     * @see SujetRelaisUniqueObservation#notifier(Sujet)
      * @param o observateur a abonner au SujetRelaisUniqueObservation, pour qu'il recoive les notifications
      * @return true si l'observateur a bien été abonné, false sinon (si null, ou si l'instance est déjà abonnée)
      */
@@ -66,34 +66,34 @@ public class SujetRelaisUniqueObservation implements Sujet {
 
     /**
      * Notifie, via la méthode update de Observateur, tout les Observateurs abonnés a cette instance, via la méthode attacher.
-     * Cette méthode notifie avec la Class de l'instance, ici SujetRelaisUniqueObservation
+     * Cette méthode notifie avec lui-même (l'instance), ici SujetRelaisUniqueObservation
      *
      * @deprecated Cette méthode ne devrait pas etre utilisé dans le concept original de cette classe, qui est de servir
      * de relais pour des classes ne pouvant étandre de SujetObservationUneFois, instance pensée pour etre possédée en attribut
      * Notifie, via la méthode update de Observateur, tout les Observateurs abonnés a cette instance, via la méthode attacher.
      * Cette méthode notifie avec la Class lié à cette instance, donc SujetRelaisUniqueObservation.
-     * @see Observateur#update(Class)
+     * @see Observateur#update(Sujet)
      * @see SujetRelaisUniqueObservation#attacher(Observateur)
      */
     @Override
     public void notifier() {
         for (Observateur o : observateurs) {
-            o.update(getClass());
+            o.update(this);
         }
     }
 
     /**
      * Notifie, via la méthode update de Observateur, tout les Observateurs abonnés a cette instance, via la méthode attacher.
-     * Cette méthode notifie avec la Class passé en paramètre, typiquement la classe de l'instance qui possède cette instance en attribut.
-     * @param c Classe sous laquelle vous souhaitez faire passer la notification
-     * @see Observateur#update(Class)
+     * Cette méthode notifie avec l'intence passée en paramètre, typiquement l'instance qui possède cette instance en attribut.
+     * @param notificateur Instance sous laquelle vous souhaitez faire passer la notification
+     * @see Observateur#update(Sujet)
      * @see SujetRelaisUniqueObservation#attacher(Observateur)
      * @see Object#getClass()
      * @see Interrupteur#notifier()
      */
-    public void notifier(Class c) {
+    public void notifier(Sujet notificateur) {
         for (Observateur o : observateurs) {
-            o.update(c);
+            o.update(notificateur);
         }
     }
 }
