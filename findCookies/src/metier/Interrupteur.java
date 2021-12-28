@@ -1,6 +1,5 @@
 package metier;
 
-import metier.gestion.porte.update.GestionnaireUpdatePorte;
 import utile.observateur.Observateur;
 import utile.observateur.Sujet;
 import utile.observateur.SujetRelaisUniqueObservation;
@@ -89,7 +88,12 @@ public class Interrupteur extends Objet implements Sujet {
         return gestionSujet.detacher(o);
     }
 
+    /**
+     * permet de notifier tout les Observateurs abonné à cet interrupteur (en réalité abonné à gestionSujet)
+     * @see Interrupteur#gestionSujet
+     * @see Observateur#update(Sujet)
+     */
     public void notifier() {
-        gestionSujet.notifier(getClass());
+        gestionSujet.notifier(this);
     }
 }
