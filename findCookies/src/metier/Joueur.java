@@ -3,7 +3,7 @@ package metier;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class Joueur{// implements Initializable {
+public class Joueur{ // implements Initializable {
     private StringProperty pseudo = new SimpleStringProperty();
     public final StringProperty pseudoProperty(){
         return pseudo;
