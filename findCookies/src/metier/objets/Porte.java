@@ -1,5 +1,6 @@
-package metier;
+package metier.objets;
 
+import metier.Interrupteur;
 import metier.gestion.porte.update.ActionPorte;
 import metier.gestion.porte.update.SynchroPorteInterrupteur;
 import utile.observateur.Observateur;

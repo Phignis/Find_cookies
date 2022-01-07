@@ -3,7 +3,7 @@ import clock.GenerateurTick;
 import metier.Couche;
 import metier.Interrupteur;
 import metier.Niveau;
-import metier.Porte;
+import metier.objets.Porte;
 import metier.gestion.porte.update.RemiseMementoPorte;
 import observateur.ObservateurGenerique;
 import utile.observateur.Observateur;
@@ -12,25 +12,28 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TestGlobal {
+
     public static void main(String args[]) {
         // TestClock.testBoucle();
         /*if(!testUniciteSujetAbstract()) {
             System.err.println("Soucis dans le test d'unicité des instances abonnés a un SujetAbstract");
         } else System.out.println(("Test d'unicité des instances abonnés a un SujetAbstract réussi!"));*/
 
+       /*
         if(!testUpdatePorte()) {
             System.err.println("Soucis dans le test d'update d'une porte");
         } else System.out.println(("Test d'update d'une porte réussi!"));
+        */
     }
 
     private static void testStructure() {
         Niveau n = new Niveau(1);
         Couche c0 = new Couche(0);
-        c0.ajouterObjet(new Interrupteur("mon1erObjet", 3, 5));
-        c0.ajouterObjet(new Interrupteur("mon2emeObjet",  3, 6));
+       // c0.ajouterObjet(new Interrupteur("mon1erObjet", 3, 5));
+       // c0.ajouterObjet(new Interrupteur("mon2emeObjet",  3, 6));
         Couche c1 = new Couche(1);
-        c1.ajouterObjet(new Interrupteur("mon3emeObjet",  3, 6));
-        c1.ajouterObjet(new Interrupteur("mon4emeObjet",  3, 6));
+       // c1.ajouterObjet(new Interrupteur("mon3emeObjet",  3, 6));
+       // c1.ajouterObjet(new Interrupteur("mon4emeObjet",  3, 6));
 
         n.ajouterCouche(c0);
         n.ajouterCouche(c1);
@@ -80,7 +83,7 @@ public class TestGlobal {
             return false;
         }
 
-        System.out.println("Vous devriez voir une lignes de notification, pour obs2");
+        System.out.println("Vous devriez voir une ligne de notification, pour obs2");
         b.update(null);
         System.out.println("Il y a t'il bien eu 1 ligne pour obs2? (true/false)");
 
@@ -90,12 +93,12 @@ public class TestGlobal {
             reussi = false;
         }
 
-
         c.close();
 
         return reussi;
     }
 
+    /* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
     private static boolean testUpdatePorte() {
         Porte p = new Porte();
         Interrupteur i = new Interrupteur("too", 3,3);
@@ -126,4 +129,5 @@ public class TestGlobal {
 
         return true;
     }
+     */
 }

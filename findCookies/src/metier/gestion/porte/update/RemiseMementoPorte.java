@@ -1,6 +1,6 @@
 package metier.gestion.porte.update;
 
-import metier.Porte;
+import metier.objets.Porte;
 
 public class RemiseMementoPorte implements ActionPorte {
 

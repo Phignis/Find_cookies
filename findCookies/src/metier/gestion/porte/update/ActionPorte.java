@@ -1,10 +1,11 @@
 package metier.gestion.porte.update;
 
+import metier.objets.Porte;
 import utile.observateur.Sujet;
 
 /**
  * Cette interface a pour but d'effectuer une action sur Porte
- * @see metier.Porte
+ * @see Porte
  */
 public interface ActionPorte {
     /**
