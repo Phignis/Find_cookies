@@ -1,4 +1,4 @@
-package metier;// métier.Objet représente un objet possédant une intéractivitée
+package metier; // métier.Objet représente un objet possédant une intéractivitée
 
 public abstract class Objet {
     private String uri_image;
