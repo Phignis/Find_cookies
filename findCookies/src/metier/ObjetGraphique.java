@@ -1,18 +1,30 @@
-package metier; // métier.Objet représente un objet possédant une intéractivitée
+package metier;
 
-public abstract class Objet {
-    private String uri_image;
+import metier.objets.ObjetMetier;
+
+/**
+ * Objet graphique de l'application
+ *
+ * @version 1.0
+ *
+ * @author L'HOSTIS Loriane
+ */
+
+public class ObjetGraphique {
+    private String cheminImage;
     private float posX;
     private float posY;
+    private ObjetMetier metier;
 
     ////////////////////////////////
     // CONSTRUCTEURS
     ////////////////////////////////
 
-    public Objet(String uri_image, float posX, float posY) {
-        this.uri_image = uri_image;
+    public ObjetGraphique(String cheminImage, float posX, float posY, ObjetMetier metier) {
+        this.cheminImage = cheminImage;
         this.posX = posX;
         this.posY = posY;
+        this.metier = metier;
     }
 
 
@@ -20,8 +32,8 @@ public abstract class Objet {
     // GETTERS
     ////////////////////////////////
 
-    public String getUri_image() {
-        return uri_image;
+    public String getCheminImage() {
+        return cheminImage;
     }
 
     public float getPosX() {
@@ -32,23 +44,17 @@ public abstract class Objet {
         return posY;
     }
 
+    public ObjetMetier getObjetMetier() { return metier; }
 
     ////////////////////////////////
     // SETTERS
     ////////////////////////////////
 
-    public void setUri_Image(String uri_image) {
-        this.uri_image = uri_image;
+    public void setCheminImage(String cheminImage) {
+        this.cheminImage = cheminImage;
     }
 
-    public void setPosX(float posX) {
-        this.posX = posX;
-    }
-
-    public void setPosY(float posY) {
-        this.posY = posY;
-    }
-
+    public void setObjetMetier(ObjetMetier metier) { this.metier = metier; }
 
     ////////////////////////////////
     // METHODES
@@ -57,7 +63,7 @@ public abstract class Objet {
     @Override
     public String toString() {
         return "\t\t\tmétier.Objet\n"
-                + "image= " + uri_image + '\'' +
+                + "image= " + cheminImage + '\'' +
                 ", posX=" + posX +
                 ", posY=" + posY;
     }

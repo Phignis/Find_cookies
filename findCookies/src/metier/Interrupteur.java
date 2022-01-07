@@ -1,5 +1,6 @@
 package metier;
 
+import metier.objets.ObjetMetier;
 import utile.observateur.Observateur;
 import utile.observateur.Sujet;
 import utile.observateur.SujetRelaisUniqueObservation;
@@ -9,7 +10,7 @@ import utile.observateur.SujetRelaisUniqueObservation;
  * @see Sujet
  * @see SujetRelaisUniqueObservation
  */
-public class Interrupteur extends Objet implements Sujet {
+public class Interrupteur extends ObjetMetier implements Sujet {
 
     /**
      * représente l'activation ou non de cette instance d'Interrupteur
@@ -33,12 +34,13 @@ public class Interrupteur extends Objet implements Sujet {
      * @param posX la position X de l'interrupteur
      * @param posY la position Y de l'interrupteur
      */
+    /* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
     public Interrupteur(String image, int posX, int posY) {
         super("image", posX, posY);
         estActive = false;
         gestionSujet = new SujetRelaisUniqueObservation();
     }
-
+*/
 
     ////////////////////////////////
     // GETTERS

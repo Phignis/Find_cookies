@@ -34,6 +34,12 @@ public class Niveau {
         this.listeCouches = listeCouches;
     }
 
+    public Niveau(int numeroNiveau, Collection<Couche> listeCouches) {
+        this.numeroNiveau = numeroNiveau;
+        this.hauteur = 500;
+        this.largeur = 500;
+        this.listeCouches = listeCouches;
+    }
 
     ////////////////////////////////
     // GETTERS
