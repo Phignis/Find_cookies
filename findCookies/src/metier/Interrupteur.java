@@ -34,7 +34,7 @@ public class Interrupteur extends Objet implements Sujet {
      * @param posY la position Y de l'interrupteur
      */
     public Interrupteur(String image, int posX, int posY) {
-        super(image, posX, posY);
+        super("image", posX, posY);
         estActive = false;
         gestionSujet = new SujetRelaisUniqueObservation();
     }

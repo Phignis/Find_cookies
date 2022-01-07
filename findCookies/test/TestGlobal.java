@@ -101,12 +101,12 @@ public class TestGlobal {
         Interrupteur i = new Interrupteur("too", 3,3);
         BoucleTemporelle b = new BoucleTemporelle(1); // update a chaque tick
 
+        i.attacher(p);
         p.setActionneur(i); // censé créer un gestion pour gérer les notifs de Interrupteur, on ne peut donc a nouveau l'ajouter
         //if(p.getActionneur() != i) return false;
 
         p.setEstOuverte(true);
         if(!p.isEstOuverte()) return false;
-
         // on est a true, et les update généré par b ne sont pas encore censé changer a false notre état
         b.attacher(p);
         GenerateurTick t = new GenerateurTick();
@@ -114,7 +114,6 @@ public class TestGlobal {
         b.update(t); // b notifie p, mais p est censé rester dans son état
 
         if(!p.isEstOuverte()) return false;
-
         // on le refait cette fois avec l'action d'update pour la boucle
         p.ajouterActionUpdate(b, new RemiseMementoPorte(p));
         b.update(t); // b notifie p, mais p recoit et doit s'update
