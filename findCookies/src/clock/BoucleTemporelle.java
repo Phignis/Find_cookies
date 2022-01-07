@@ -56,9 +56,9 @@ public class BoucleTemporelle extends SujetObservableUneFois implements Observat
 
     /**
      * Indique si la boucle temporelle est terminée, moment où le niveau sera réinitialisé au début du début de la boucle temporelle
-     * @return true si jamais la boucle est bien terminé, false sinon
+     * @return true si jamais la boucle est bien terminée, false sinon
      */
-    private boolean estBoucleTemporelleTermine() {
+    private boolean estBoucleTemporelleTerminee() {
         return nbTicksBoucle == nbTicksEcoule;
     }
 
@@ -66,11 +66,11 @@ public class BoucleTemporelle extends SujetObservableUneFois implements Observat
      * Effectue l'action prédéterminée (ici notifier les Observateurs abonnés a la Boucle, et remettre à zéro le nombre de ticks écoulés) si jamais la boucle temporelle est terminée.
      * Afin de vérifier cette fin, la fonction estBoucleTemporelleTermine() est utilisé.
      * @see BoucleTemporelle#nbTicksEcoule
-     * @see BoucleTemporelle#estBoucleTemporelleTermine()
+     * @see BoucleTemporelle#estBoucleTemporelleTerminee()
      */
     private void eventFinBoucleTemporelle() {
-        if (estBoucleTemporelleTermine()) {
-            super.notifier();
+        if (estBoucleTemporelleTerminee()) {
+            notifier();
             nbTicksEcoule = 0;
         }
     }
