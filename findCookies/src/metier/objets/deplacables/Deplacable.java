@@ -1,4 +1,6 @@
 package metier.objets.deplacables;
 
-public abstract class Deplacable {
+import metier.objets.ObjetMetier;
+
+public abstract class Deplacable extends ObjetMetier {
 }

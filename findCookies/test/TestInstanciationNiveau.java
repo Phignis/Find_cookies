@@ -1,4 +1,4 @@
-import metier.InstanciationNiveau;
+import vueNiveau.InstanciationNiveau;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
