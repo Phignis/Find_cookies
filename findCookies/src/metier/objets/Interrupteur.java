@@ -1,6 +1,6 @@
-package metier;
+package metier.objets;
 
-import metier.objets.ObjetMetier;
+import metier.objets.deplacables.Deplacable;
 import utile.observateur.Observateur;
 import utile.observateur.Sujet;
 import utile.observateur.SujetRelaisUniqueObservation;
@@ -29,18 +29,12 @@ public class Interrupteur extends ObjetMetier implements Sujet {
     ////////////////////////////////
 
     /**
-     *
-     * @param image chemin vers l'image représentant graphiquement l'interrupteur
-     * @param posX la position X de l'interrupteur
-     * @param posY la position Y de l'interrupteur
+     * Créé un interrupteur
      */
-    /* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-    public Interrupteur(String image, int posX, int posY) {
-        super("image", posX, posY);
+    public Interrupteur() {
         estActive = false;
         gestionSujet = new SujetRelaisUniqueObservation();
     }
-*/
 
     ////////////////////////////////
     // GETTERS

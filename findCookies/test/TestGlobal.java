@@ -1,10 +1,10 @@
 import clock.BoucleTemporelle;
 import clock.GenerateurTick;
 import metier.Couche;
-import metier.Interrupteur;
-import metier.Niveau;
-import metier.objets.Porte;
+import metier.objets.Interrupteur;
 import metier.gestion.porte.update.RemiseMementoPorte;
+import metier.objets.Porte;
+import vueNiveau.Niveau;
 import observateur.ObservateurGenerique;
 import utile.observateur.Observateur;
 
@@ -19,11 +19,10 @@ public class TestGlobal {
             System.err.println("Soucis dans le test d'unicité des instances abonnés a un SujetAbstract");
         } else System.out.println(("Test d'unicité des instances abonnés a un SujetAbstract réussi!"));*/
 
-       /*
         if(!testUpdatePorte()) {
             System.err.println("Soucis dans le test d'update d'une porte");
         } else System.out.println(("Test d'update d'une porte réussi!"));
-        */
+
     }
 
     private static void testStructure() {
@@ -98,10 +97,9 @@ public class TestGlobal {
         return reussi;
     }
 
-    /* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
     private static boolean testUpdatePorte() {
         Porte p = new Porte();
-        Interrupteur i = new Interrupteur("too", 3,3);
+        Interrupteur i = new Interrupteur();
         BoucleTemporelle b = new BoucleTemporelle(1); // update a chaque tick
 
         i.attacher(p);
@@ -109,25 +107,24 @@ public class TestGlobal {
         //if(p.getActionneur() != i) return false;
 
         p.setEstOuverte(true);
-        if(!p.isEstOuverte()) return false;
+        if (!p.isEstOuverte()) return false;
         // on est a true, et les update généré par b ne sont pas encore censé changer a false notre état
         b.attacher(p);
         GenerateurTick t = new GenerateurTick();
         t.interrompreGenerateur();
         b.update(t); // b notifie p, mais p est censé rester dans son état
 
-        if(!p.isEstOuverte()) return false;
+        if (!p.isEstOuverte()) return false;
         // on le refait cette fois avec l'action d'update pour la boucle
         p.ajouterActionUpdate(b, new RemiseMementoPorte(p));
         b.update(t); // b notifie p, mais p recoit et doit s'update
 
-        if(p.isEstOuverte()) return false;
+        if (p.isEstOuverte()) return false;
         // on est dans le cas où p est fermée par la boucle
         i.actionnerInterrupteur(); // on active l'interrupteur, la porte doit donc s'ouvrir
 
-        if(!p.isEstOuverte()) return false;
+        if (!p.isEstOuverte()) return false;
 
         return true;
     }
-     */
 }

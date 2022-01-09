@@ -1,6 +1,6 @@
 package metier.gestion.porte.update;
 
-import metier.Interrupteur;
+import metier.objets.Interrupteur;
 import metier.objets.Porte;
 
 /**

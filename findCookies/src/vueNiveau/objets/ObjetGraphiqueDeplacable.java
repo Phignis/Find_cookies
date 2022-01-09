@@ -1,15 +1,12 @@
-package metier;
+package vueNiveau.objets;
 
-import metier.objets.ObjetMetier;
 import metier.objets.deplacables.Deplacable;
 
 public class ObjetGraphiqueDeplacable extends ObjetGraphique {
     private float posX;
     private float posY;
 
-    private Deplacable d;
-
-    public ObjetGraphiqueDeplacable(String cheminImage, float posX, float posY, ObjetMetier metier) {
+    public ObjetGraphiqueDeplacable(String cheminImage, float posX, float posY, Deplacable metier) {
         super(cheminImage, posX, posY, metier);
         this.posX = posX;
         this.posY = posY;

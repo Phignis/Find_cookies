@@ -1,4 +1,4 @@
-package metier;
+package vueNiveau.objets;
 
 import metier.objets.ObjetMetier;
 
@@ -9,12 +9,11 @@ import metier.objets.ObjetMetier;
  *
  * @author L'HOSTIS Loriane
  */
-
 public class ObjetGraphique {
     private String cheminImage;
     private float posX;
     private float posY;
-    private ObjetMetier metier;
+    protected ObjetMetier metier;
 
     ////////////////////////////////
     // CONSTRUCTEURS

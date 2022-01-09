@@ -1,6 +1,8 @@
 // représente une grille, un layout d'objet du jeu
 package metier;
 
+import vueNiveau.objets.ObjetGraphique;
+
 import java.util.Collection;
 import java.util.LinkedList;
 

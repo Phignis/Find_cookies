@@ -2,6 +2,7 @@ package metier;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import vueNiveau.Niveau;
 
 public class Joueur{ // implements Initializable {
     private StringProperty pseudo = new SimpleStringProperty();

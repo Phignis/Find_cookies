@@ -1,7 +1,7 @@
-package metier;
+package vueNiveau;
 
-import metier.objets.ObjetMetier;
-import metier.objets.deplacables.Personnage;
+import metier.Couche;
+import vueNiveau.objets.ObjetGraphique;
 
 import java.io.*;
 import java.net.URI;

@@ -1,4 +1,6 @@
-package metier;
+package vueNiveau;
+
+import metier.Couche;
 
 import java.util.Collection;
 import java.util.LinkedList;
