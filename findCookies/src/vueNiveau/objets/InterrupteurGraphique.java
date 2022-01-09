@@ -4,8 +4,8 @@ import metier.objets.Interrupteur;
 import utile.observateur.Observateur;
 
 public class InterrupteurGraphique extends ObjetGraphique {
-    public InterrupteurGraphique(String cheminImage, float posX, float posY, Interrupteur metier) {
-        super(cheminImage, posX, posY, metier);
+    public InterrupteurGraphique(float posX, float posY, Interrupteur metier) {
+        super("/images/interrupteur_ferme.png", posX, posY, metier);
     }
 
     public void actionnerInterrupteur() {

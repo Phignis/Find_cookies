@@ -1,7 +1,11 @@
 package vueNiveau;
 
 import metier.Couche;
+import metier.objets.Interrupteur;
+import metier.objets.Porte;
+import vueNiveau.objets.InterrupteurGraphique;
 import vueNiveau.objets.ObjetGraphique;
+import vueNiveau.objets.PorteGraphique;
 
 import java.io.*;
 import java.net.URI;
@@ -46,7 +50,7 @@ public class InstanciationNiveau {
         return niveau;
     }
 
-    public Collection<ObjetGraphique> chargerFichier(URI nomFichier) throws URISyntaxException, IOException {
+    public Collection<ObjetGraphique> chargerFichier(URI nomFichier) throws IOException {
         File fichier = new File(nomFichier);
         FileReader fr = new FileReader(fichier);
         BufferedReader br = new BufferedReader(fr);
@@ -55,7 +59,7 @@ public class InstanciationNiveau {
         int x=0;
         int y=0;
 
-        Collection<ObjetGraphique> collectionObjets = new ArrayList<ObjetGraphique>();
+        Collection<ObjetGraphique> collectionObjets = new ArrayList<>();
 
         while((caractere = br.read()) != -1)
         {
@@ -70,6 +74,11 @@ public class InstanciationNiveau {
                 case '1':
                     collectionObjets.add(new ObjetGraphique("Chpatata.png", x, y, null));
                     break;
+                case '2':
+                    collectionObjets.add(new InterrupteurGraphique(x, y, new Interrupteur()));
+                    break;
+                case '3':
+                    collectionObjets.add(new PorteGraphique(x, y, new Porte()));
                 default:
                     collectionObjets.add(new ObjetGraphique("Rien.png", x, y, null));
                     break;
@@ -78,8 +87,8 @@ public class InstanciationNiveau {
             sb.append((char) caractere);
         }
         fr.close();
-        System.out.println("Contenu du fichier: ");
-        System.out.println(sb.toString());
+        // System.out.println("Contenu du fichier: ");
+        // System.out.println(sb);
 
         return collectionObjets;
     }
