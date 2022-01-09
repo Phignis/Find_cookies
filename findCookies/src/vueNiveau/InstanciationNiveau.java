@@ -55,7 +55,6 @@ public class InstanciationNiveau {
         int x=0;
         int y=0;
 
-        ObjetGraphique obj = new ObjetGraphique("Rien.png", 1, 1, null);
         Collection<ObjetGraphique> collectionObjets = new ArrayList<ObjetGraphique>();
 
         while((caractere = br.read()) != -1)
@@ -66,18 +65,17 @@ public class InstanciationNiveau {
                     y++;
                     break;
                 case '0':
-                    obj = new ObjetGraphique("Sol.png", x, y, null);
+                    collectionObjets.add(new ObjetGraphique("Sol.png", x, y, null));
                     break;
                 case '1':
-                    obj = new ObjetGraphique("Chpatata.png", x, y, null);
+                    collectionObjets.add(new ObjetGraphique("Chpatata.png", x, y, null));
                     break;
                 default:
-                    obj = new ObjetGraphique("Rien.png", x, y, null);
+                    collectionObjets.add(new ObjetGraphique("Rien.png", x, y, null));
                     break;
             }
             x++;
             sb.append((char) caractere);
-            collectionObjets.add(obj);
         }
         fr.close();
         System.out.println("Contenu du fichier: ");
