@@ -9,12 +9,10 @@ import metier.objets.ObjetMetier;
  *
  * @author L'HOSTIS Loriane
  */
-public class ObjetGraphique {
+public abstract class ObjetGraphique {
     private String cheminImage;
     private float posX;
     private float posY;
-    protected ObjetMetier metier;
-
     ////////////////////////////////
     // CONSTRUCTEURS
     ////////////////////////////////
@@ -23,7 +21,6 @@ public class ObjetGraphique {
         this.cheminImage = cheminImage;
         this.posX = posX;
         this.posY = posY;
-        this.metier = metier;
     }
 
 
@@ -43,7 +40,7 @@ public class ObjetGraphique {
         return posY;
     }
 
-    public ObjetMetier getObjetMetier() { return metier; }
+    public abstract ObjetMetier getObjetMetier();
 
     ////////////////////////////////
     // SETTERS
@@ -52,8 +49,6 @@ public class ObjetGraphique {
     public void setCheminImage(String cheminImage) {
         this.cheminImage = cheminImage;
     }
-
-    public void setObjetMetier(ObjetMetier metier) { this.metier = metier; }
 
     ////////////////////////////////
     // METHODES
