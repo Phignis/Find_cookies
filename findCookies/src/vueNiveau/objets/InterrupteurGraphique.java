@@ -13,7 +13,7 @@ public class InterrupteurGraphique extends ObjetGraphique {
         interrupteur = metier;
     }
 
-    private InterrupteurGraphique(InterrupteurGraphique i) {
+    public InterrupteurGraphique(InterrupteurGraphique i) {
         super(i);
         interrupteur = new Interrupteur(i.interrupteur);
     }

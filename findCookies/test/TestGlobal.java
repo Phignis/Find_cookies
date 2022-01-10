@@ -7,6 +7,7 @@ import metier.objets.Porte;
 import vueNiveau.Niveau;
 import observateur.ObservateurGenerique;
 import utile.observateur.Observateur;
+import vueNiveau.objets.InterrupteurGraphique;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -23,6 +24,9 @@ public class TestGlobal {
             System.err.println("Soucis dans le test d'update d'une porte");
         } else System.out.println(("Test d'update d'une porte réussi!"));
 
+        if(!testSauvegardeEtat()) {
+            System.err.println("Soucis dans le test de sauvegarde d'un état des objets graphiques");
+        } else System.out.println(("Test de sauvegarde d'un état des objets graphiques d'une porte réussi!"));
     }
 
     private static void testStructure() {
@@ -125,6 +129,21 @@ public class TestGlobal {
 
         if (!p.isEstOuverte()) return false;
 
+        return true;
+    }
+
+    private static boolean testSauvegardeEtat() {
+        InterrupteurGraphique i = new InterrupteurGraphique(2, 3, new Interrupteur());
+
+        i.actionnerInterrupteur(); // l'interrupteur est a présent actif
+
+        InterrupteurGraphique i_copie = new InterrupteurGraphique(i);
+
+        if(i_copie.getPosX() != 2 || i_copie.getPosY() != 3 || !((Interrupteur) i_copie.getObjetMetier()).isEstActive()) return false;
+
+        i.actionnerInterrupteur(); // l'interrupteur est a présent inactif
+
+        if(i_copie.getPosX() != 2 || i_copie.getPosY() != 3 || !((Interrupteur) i_copie.getObjetMetier()).isEstActive()) return false;
         return true;
     }
 }
