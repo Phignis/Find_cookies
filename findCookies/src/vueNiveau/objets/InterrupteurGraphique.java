@@ -9,8 +9,18 @@ public class InterrupteurGraphique extends ObjetGraphique {
     private Interrupteur interrupteur;
 
     public InterrupteurGraphique(float posX, float posY, Interrupteur metier) {
-        super("/images/objet_skin/interrupteur_ferme.png", posX, posY, metier);
+        super("/images/interrupteur_ferme.png", posX, posY);
         interrupteur = metier;
+    }
+
+    public InterrupteurGraphique(InterrupteurGraphique i) {
+        super(i);
+        interrupteur = new Interrupteur(i.interrupteur);
+    }
+
+    @Override
+    public ObjetMetier getObjetMetier() {
+        return interrupteur;
     }
 
     public void actionnerInterrupteur() {
@@ -27,11 +37,6 @@ public class InterrupteurGraphique extends ObjetGraphique {
 
     public void notifier() {
         interrupteur.notifier();
-    }
-
-    @Override
-    public ObjetMetier getObjetMetier() {
-        return interrupteur;
     }
 
 }

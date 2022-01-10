@@ -5,16 +5,21 @@ import metier.objets.Porte;
 
 public class PorteGraphique extends ObjetGraphique {
 
-    private Porte p;
+    private Porte porte;
 
     public PorteGraphique(float posX, float posY, Porte metier) {
-        super("/images/porte_fermee.png", posX, posY, metier);
-        p = metier;
+        super("/images/porte_fermee.png", posX, posY);
+        porte = metier;
+    }
+
+    public PorteGraphique(PorteGraphique p) {
+        super(p);
+        porte = new Porte(p.porte);
     }
 
 
     @Override
     public ObjetMetier getObjetMetier() {
-        return null;
+        return porte;
     }
 }

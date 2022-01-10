@@ -38,6 +38,11 @@ public class Interrupteur extends ObjetMetier implements Sujet {
         super.collision = true;
     }
 
+    public Interrupteur(Interrupteur i) {
+        this.estActive = i.estActive;
+        this.gestionSujet = i.gestionSujet;
+    }
+
     ////////////////////////////////
     // GETTERS
     ////////////////////////////////
