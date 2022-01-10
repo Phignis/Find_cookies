@@ -7,8 +7,8 @@ public abstract class ObjetGraphiqueDeplacable extends ObjetGraphique {
     private float posX;
     private float posY;
 
-    public ObjetGraphiqueDeplacable(String cheminImage, float posX, float posY, Deplacable metier) {
-        super(cheminImage, posX, posY, metier);
+    public ObjetGraphiqueDeplacable(String cheminImage, float posX, float posY) {
+        super(cheminImage, posX, posY);
         this.posX = posX;
         this.posY = posY;
     }

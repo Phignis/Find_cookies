@@ -12,14 +12,14 @@ public class PorteGraphique extends ObjetGraphique {
         porte = metier;
     }
 
+    public PorteGraphique(PorteGraphique p) {
+        super(p);
+        porte = new Porte(p.porte);
+    }
+
 
     @Override
     public ObjetMetier getObjetMetier() {
         return porte;
-    }
-
-    @Override
-    public ObjetGraphique creerSauvegardeEtat() {
-        return new PorteGraphique(getPosX(), getPosY(), porte.creerSauvegardeEtat());
     }
 }
