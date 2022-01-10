@@ -10,14 +10,26 @@ public class Joueur{ // implements Initializable {
         return pseudo;
     }
 
+    public final String getPseudo() {
+        return pseudo.get();
+    }
+    public final void setPseudo(String pseudo) {
+        this.pseudo.setValue(pseudo);
+    }
+
     private Niveau niveauAtteint;
+    public Niveau getNiveauAtteint() {
+        return niveauAtteint;
+    }
+    public void setNiveauAtteint(Niveau niveauAtteint) {
+        this.niveauAtteint = niveauAtteint;
+    }
 
     ////////////////////////////////
     // CONSTRUCTEUR
     ////////////////////////////////
 
     public Joueur(String pseudo, int niveauAtteint) {
-        // this.pseudo = pseudo;
         this.pseudo.setValue(pseudo);
         this.niveauAtteint = new Niveau(niveauAtteint);
     }
@@ -25,34 +37,6 @@ public class Joueur{ // implements Initializable {
     ////////////////////////////////
     // GETTERS
     ////////////////////////////////
-
-    public final String getPseudo() {
-        return pseudo.get();
-    }
-
-    public Niveau getNiveauAtteint() {
-        return niveauAtteint;
-    }
-
-    ////////////////////////////////
-    // SETTERS
-    ////////////////////////////////
-
-    public final void setPseudo(String pseudo) {
-        this.pseudo.setValue(pseudo);
-    }
-
-    public void setNiveauAtteint(Niveau niveauAtteint) {
-        this.niveauAtteint = niveauAtteint;
-    }
-
-    ////////////////////////////////
-    // METHODES
-    ////////////////////////////////
-
-    private String hashMdp(String mdp) {
-        return mdp;
-    }
 
     @Override
     public String toString() {

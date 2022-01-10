@@ -34,6 +34,8 @@ public class Interrupteur extends ObjetMetier implements Sujet {
     public Interrupteur() {
         estActive = false;
         gestionSujet = new SujetRelaisUniqueObservation();
+
+        super.collision = true;
     }
 
     ////////////////////////////////

@@ -58,6 +58,7 @@ public class Porte extends ObjetMetier implements Observateur {
 
 
     public void setEstOuverte(boolean estOuverte) {
+        super.collision = !estOuverte;
         this.estOuverte = estOuverte;
     }
 
