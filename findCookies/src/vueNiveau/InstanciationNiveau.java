@@ -69,10 +69,10 @@ public class InstanciationNiveau {
                     y++;
                     break;
                 case '0':
-                    collectionObjets.add(new ObjetGraphique("Sol.png", x, y, null));
+                    // collectionObjets.add(new ObjetGraphique("Sol.png", x, y, null));
                     break;
                 case '1':
-                    collectionObjets.add(new ObjetGraphique("Chpatata.png", x, y, null));
+                    // collectionObjets.add(new ObjetGraphique("Chpatata.png", x, y, null));
                     break;
                 case '2':
                     collectionObjets.add(new InterrupteurGraphique(x, y, new Interrupteur()));
@@ -80,7 +80,7 @@ public class InstanciationNiveau {
                 case '3':
                     collectionObjets.add(new PorteGraphique(x, y, new Porte()));
                 default:
-                    collectionObjets.add(new ObjetGraphique("Rien.png", x, y, null));
+                    // collectionObjets.add(new ObjetGraphique("Rien.png", x, y, null));
                     break;
             }
             x++;
