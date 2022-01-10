@@ -5,7 +5,7 @@ import utile.observateur.Observateur;
 
 public class InterrupteurGraphique extends ObjetGraphique {
     public InterrupteurGraphique(float posX, float posY, Interrupteur metier) {
-        super("/images/interrupteur_ferme.png", posX, posY, metier);
+        super("/images/objet_skin/interrupteur_ferme.png", posX, posY, metier);
     }
 
     public void actionnerInterrupteur() {

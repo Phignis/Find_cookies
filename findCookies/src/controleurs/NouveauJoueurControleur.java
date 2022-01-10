@@ -25,7 +25,6 @@ public class NouveauJoueurControleur implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("initialize");
         vBtnValidation.disableProperty().bind(vPseudo.textProperty().isEmpty());
     }
 

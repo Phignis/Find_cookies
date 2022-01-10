@@ -9,10 +9,10 @@ import metier.objets.ObjetMetier;
  *
  * @author L'HOSTIS Loriane
  */
-public class ObjetGraphique {
+public abstract class ObjetGraphique {
     private String cheminImage;
-    private float posX;
-    private float posY;
+    protected float posX;
+    protected float posY;
     protected ObjetMetier metier;
 
     ////////////////////////////////
