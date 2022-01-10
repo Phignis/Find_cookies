@@ -39,6 +39,11 @@ public class Porte extends ObjetMetier implements Observateur {
         listeUpdatePossible = new HashMap<Sujet, ActionPorte>();
     }
 
+    private Porte(boolean estOuverte, Map<Sujet, ActionPorte> listeUpdatePossible) {
+        this.estOuverte = estOuverte;
+        this.listeUpdatePossible = listeUpdatePossible;
+    }
+
 
     ////////////////////////////////
     // GETTERS
@@ -101,6 +106,10 @@ public class Porte extends ObjetMetier implements Observateur {
      */
     public boolean supprimerActionUpdate(Sujet notificateur) {
         return listeUpdatePossible.remove(notificateur) != null;
+    }
+
+    public Porte creerSauvegardeEtat() {
+        return new Porte(estOuverte, listeUpdatePossible);
     }
 
     /**

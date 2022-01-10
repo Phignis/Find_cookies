@@ -13,11 +13,13 @@ public abstract class ObjetGraphique {
     private String cheminImage;
     private float posX;
     private float posY;
+
+
     ////////////////////////////////
     // CONSTRUCTEURS
     ////////////////////////////////
 
-    public ObjetGraphique(String cheminImage, float posX, float posY, ObjetMetier metier) {
+    public ObjetGraphique(String cheminImage, float posX, float posY) {
         this.cheminImage = cheminImage;
         this.posX = posX;
         this.posY = posY;
@@ -53,6 +55,12 @@ public abstract class ObjetGraphique {
     ////////////////////////////////
     // METHODES
     ////////////////////////////////
+
+    /**
+     * permet de générer un objet du même type, dans le même état que cet objet à l'instant où est effectué la méthode
+     * @return l'objet généré, ObjetGraphique
+     */
+    public abstract ObjetGraphique creerSauvegardeEtat();
 
     @Override
     public String toString() {
