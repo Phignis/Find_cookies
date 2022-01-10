@@ -11,9 +11,22 @@ import metier.objets.ObjetMetier;
  */
 public abstract class ObjetGraphique {
     private String cheminImage;
+    public String getCheminImage() {
+        return cheminImage;
+    }
+    public void setCheminImage(String cheminImage) {
+        this.cheminImage = cheminImage;
+    }
+
     protected float posX;
+    public float getPosX() {
+        return posX;
+    }
+
     protected float posY;
-    protected ObjetMetier metier;
+    public float getPosY() {
+        return posY;
+    }
 
     ////////////////////////////////
     // CONSTRUCTEURS
@@ -23,37 +36,13 @@ public abstract class ObjetGraphique {
         this.cheminImage = cheminImage;
         this.posX = posX;
         this.posY = posY;
-        this.metier = metier;
     }
-
 
     ////////////////////////////////
-    // GETTERS
+    // GETTER
     ////////////////////////////////
 
-    public String getCheminImage() {
-        return cheminImage;
-    }
-
-    public float getPosX() {
-        return posX;
-    }
-
-    public float getPosY() {
-        return posY;
-    }
-
-    public ObjetMetier getObjetMetier() { return metier; }
-
-    ////////////////////////////////
-    // SETTERS
-    ////////////////////////////////
-
-    public void setCheminImage(String cheminImage) {
-        this.cheminImage = cheminImage;
-    }
-
-    public void setObjetMetier(ObjetMetier metier) { this.metier = metier; }
+    public abstract ObjetMetier getObjetMetier();
 
     ////////////////////////////////
     // METHODES
