@@ -1,5 +1,6 @@
 package vueNiveau.objets;
 
+import metier.objets.ObjetMetier;
 import metier.objets.deplacables.Deplacable;
 
 public class ObjetGraphiqueDeplacable extends ObjetGraphique {
@@ -10,11 +11,6 @@ public class ObjetGraphiqueDeplacable extends ObjetGraphique {
         this.deplacable = deplacable;
     }
 
-    public Deplacable getDeplacable(){
-        return deplacable;
-    }
-
-
     public void setPosX(float posX){
         super.posX = posX;
     }
@@ -24,6 +20,8 @@ public class ObjetGraphiqueDeplacable extends ObjetGraphique {
     }
 
 
-
-
+    @Override
+    public ObjetMetier getObjetMetier() {
+        return deplacable;
+    }
 }
