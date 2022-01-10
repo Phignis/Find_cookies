@@ -3,10 +3,10 @@ package vueNiveau.objets;
 import metier.objets.deplacables.Deplacable;
 
 public class ObjetGraphiqueDeplacable extends ObjetGraphique {
-    private float posX;
-    private float posY;
+    private int posX;
+    private int posY;
 
-    public ObjetGraphiqueDeplacable(String cheminImage, float posX, float posY, Deplacable metier) {
+    public ObjetGraphiqueDeplacable(String cheminImage, int posX, int posY, Deplacable metier) {
         super(cheminImage, posX, posY, metier);
         this.posX = posX;
         this.posY = posY;

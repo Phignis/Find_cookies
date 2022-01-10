@@ -16,11 +16,17 @@ import java.util.LinkedList;
 
 public class InstanciationNiveau {
 
+    private Niveau niveau;
+
     public InstanciationNiveau(int numNiveau) throws URISyntaxException, IOException {
-        Niveau n = creerNiveau(numNiveau);
+        niveau = creerNiveau(numNiveau);
     }
 
-    public Niveau creerNiveau(int numNiveau) throws URISyntaxException, IOException {
+    public Niveau getNiveau() {
+        return niveau;
+    }
+
+    private Niveau creerNiveau(int numNiveau) throws URISyntaxException, IOException {
         Niveau niveau;
         int numCouche = 0;
         Collection<Couche> listeCouches = new LinkedList<>();
@@ -37,7 +43,7 @@ public class InstanciationNiveau {
             }
             System.out.println();
 
-            numCouche++;
+            ++numCouche;
             try {
                 nomFichier = getClass().getResource("/fichiers/" + numNiveau + "-" + numCouche + ".txt").toURI();
             }catch (Exception e){
@@ -50,7 +56,7 @@ public class InstanciationNiveau {
         return niveau;
     }
 
-    public Collection<ObjetGraphique> chargerFichier(URI nomFichier) throws IOException {
+    private Collection<ObjetGraphique> chargerFichier(URI nomFichier) throws IOException {
         File fichier = new File(nomFichier);
         FileReader fr = new FileReader(fichier);
         BufferedReader br = new BufferedReader(fr);

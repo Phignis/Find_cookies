@@ -1,5 +1,6 @@
 package vueNiveau.objets;
 
+import javafx.scene.image.Image;
 import metier.objets.ObjetMetier;
 
 /**
@@ -10,17 +11,17 @@ import metier.objets.ObjetMetier;
  * @author L'HOSTIS Loriane
  */
 public class ObjetGraphique {
-    private String cheminImage;
-    private float posX;
-    private float posY;
+    private Image image;
+    private int posX;
+    private int posY;
     protected ObjetMetier metier;
 
     ////////////////////////////////
     // CONSTRUCTEURS
     ////////////////////////////////
 
-    public ObjetGraphique(String cheminImage, float posX, float posY, ObjetMetier metier) {
-        this.cheminImage = cheminImage;
+    public ObjetGraphique(String cheminImage, int posX, int posY, ObjetMetier metier) {
+        this.image = new Image(cheminImage);
         this.posX = posX;
         this.posY = posY;
         this.metier = metier;
@@ -31,15 +32,15 @@ public class ObjetGraphique {
     // GETTERS
     ////////////////////////////////
 
-    public String getCheminImage() {
-        return cheminImage;
+    public Image getImage() {
+        return image;
     }
 
-    public float getPosX() {
+    public int getPosX() {
         return posX;
     }
 
-    public float getPosY() {
+    public int getPosY() {
         return posY;
     }
 
@@ -50,7 +51,7 @@ public class ObjetGraphique {
     ////////////////////////////////
 
     public void setCheminImage(String cheminImage) {
-        this.cheminImage = cheminImage;
+        this.image = new Image(cheminImage);
     }
 
     public void setObjetMetier(ObjetMetier metier) { this.metier = metier; }
@@ -62,7 +63,7 @@ public class ObjetGraphique {
     @Override
     public String toString() {
         return "\t\t\tmétier.Objet\n"
-                + "image= " + cheminImage + '\'' +
+                + "image= " + image.toString() + '\'' +
                 ", posX=" + posX +
                 ", posY=" + posY;
     }
