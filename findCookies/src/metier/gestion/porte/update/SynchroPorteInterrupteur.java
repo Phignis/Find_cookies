@@ -1,9 +1,7 @@
 package metier.gestion.porte.update;
 
-import metier.Interrupteur;
-import metier.Porte;
-
-import java.time.temporal.Temporal;
+import metier.objets.Interrupteur;
+import metier.objets.Porte;
 
 /**
  * Cette classe a pour but que l'état d'une porte se synchronise avec celle d'un Interrupteur

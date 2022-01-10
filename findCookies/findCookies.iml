@@ -7,10 +7,9 @@
       <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/ressources" type="java-resource" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="openJDK_16" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="JavaFX" level="application" />
-    <orderEntry type="library" exported="" name="lib" level="application" />
-    <orderEntry type="library" exported="" name="findCookies" level="project" />
+    <orderEntry type="library" exported="" name="javaFX" level="application" />
+    <orderEntry type="library" name="lib" level="application" />
   </component>
 </module>

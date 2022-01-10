@@ -1,10 +1,10 @@
 import clock.BoucleTemporelle;
 import clock.GenerateurTick;
 import metier.Couche;
-import metier.Interrupteur;
-import metier.Niveau;
-import metier.Porte;
+import metier.objets.Interrupteur;
 import metier.gestion.porte.update.RemiseMementoPorte;
+import metier.objets.Porte;
+import vueNiveau.Niveau;
 import observateur.ObservateurGenerique;
 import utile.observateur.Observateur;
 
@@ -12,6 +12,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TestGlobal {
+
     public static void main(String args[]) {
         // TestClock.testBoucle();
         /*if(!testUniciteSujetAbstract()) {
@@ -21,16 +22,17 @@ public class TestGlobal {
         if(!testUpdatePorte()) {
             System.err.println("Soucis dans le test d'update d'une porte");
         } else System.out.println(("Test d'update d'une porte réussi!"));
+
     }
 
     private static void testStructure() {
         Niveau n = new Niveau(1);
         Couche c0 = new Couche(0);
-        c0.ajouterObjet(new Interrupteur("mon1erObjet", 3, 5));
-        c0.ajouterObjet(new Interrupteur("mon2emeObjet",  3, 6));
+       // c0.ajouterObjet(new Interrupteur("mon1erObjet", 3, 5));
+       // c0.ajouterObjet(new Interrupteur("mon2emeObjet",  3, 6));
         Couche c1 = new Couche(1);
-        c1.ajouterObjet(new Interrupteur("mon3emeObjet",  3, 6));
-        c1.ajouterObjet(new Interrupteur("mon4emeObjet",  3, 6));
+       // c1.ajouterObjet(new Interrupteur("mon3emeObjet",  3, 6));
+       // c1.ajouterObjet(new Interrupteur("mon4emeObjet",  3, 6));
 
         n.ajouterCouche(c0);
         n.ajouterCouche(c1);
@@ -80,7 +82,7 @@ public class TestGlobal {
             return false;
         }
 
-        System.out.println("Vous devriez voir une lignes de notification, pour obs2");
+        System.out.println("Vous devriez voir une ligne de notification, pour obs2");
         b.update(null);
         System.out.println("Il y a t'il bien eu 1 ligne pour obs2? (true/false)");
 
@@ -90,7 +92,6 @@ public class TestGlobal {
             reussi = false;
         }
 
-
         c.close();
 
         return reussi;
@@ -98,32 +99,31 @@ public class TestGlobal {
 
     private static boolean testUpdatePorte() {
         Porte p = new Porte();
-        Interrupteur i = new Interrupteur("too", 3,3);
+        Interrupteur i = new Interrupteur();
         BoucleTemporelle b = new BoucleTemporelle(1); // update a chaque tick
 
+        i.attacher(p);
         p.setActionneur(i); // censé créer un gestion pour gérer les notifs de Interrupteur, on ne peut donc a nouveau l'ajouter
         //if(p.getActionneur() != i) return false;
 
         p.setEstOuverte(true);
-        if(!p.isEstOuverte()) return false;
-
+        if (!p.isEstOuverte()) return false;
         // on est a true, et les update généré par b ne sont pas encore censé changer a false notre état
         b.attacher(p);
         GenerateurTick t = new GenerateurTick();
         t.interrompreGenerateur();
         b.update(t); // b notifie p, mais p est censé rester dans son état
 
-        if(!p.isEstOuverte()) return false;
-
+        if (!p.isEstOuverte()) return false;
         // on le refait cette fois avec l'action d'update pour la boucle
         p.ajouterActionUpdate(b, new RemiseMementoPorte(p));
         b.update(t); // b notifie p, mais p recoit et doit s'update
 
-        if(p.isEstOuverte()) return false;
+        if (p.isEstOuverte()) return false;
         // on est dans le cas où p est fermée par la boucle
         i.actionnerInterrupteur(); // on active l'interrupteur, la porte doit donc s'ouvrir
 
-        if(!p.isEstOuverte()) return false;
+        if (!p.isEstOuverte()) return false;
 
         return true;
     }

@@ -1,7 +1,8 @@
-package metier;
+package metier.objets;
 
 import metier.gestion.porte.update.ActionPorte;
 import metier.gestion.porte.update.SynchroPorteInterrupteur;
+import metier.objets.deplacables.Deplacable;
 import utile.observateur.Observateur;
 import utile.observateur.Sujet;
 
@@ -12,7 +13,7 @@ import java.util.Map;
  * Porte a pour but de pouvoir s'ouvrir ou se fermer, selon qui notifie la Porte
  * @see Observateur
  */
-public class Porte implements Observateur {
+public class Porte extends ObjetMetier implements Observateur {
 
     /**
      * indique l'état de la porte (ouverte -> true, fermée -> false)

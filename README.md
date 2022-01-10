@@ -43,7 +43,7 @@
 > L'HOSTIS Loriane
 >
 
-## Technologies utilisées
+## Technologies utilisées
 >
 > Java 16, JavaFX 16 (avec FXML)
 >
