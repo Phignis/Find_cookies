@@ -11,6 +11,31 @@ import metier.objets.ObjetMetier;
  */
 public abstract class ObjetGraphique {
     private String cheminImage;
+    private float posX;
+    private float posY;
+
+
+    ////////////////////////////////
+    // CONSTRUCTEURS
+    ////////////////////////////////
+
+    public ObjetGraphique(String cheminImage, float posX, float posY) {
+        this.cheminImage = cheminImage;
+        this.posX = posX;
+        this.posY = posY;
+    }
+
+    protected ObjetGraphique(ObjetGraphique g) {
+        this.cheminImage = g.cheminImage;
+        this.posX = g.posX;
+        this.posY = g.posY;
+    }
+
+
+    ////////////////////////////////
+    // GETTERS
+    ////////////////////////////////
+
     public String getCheminImage() {
         return cheminImage;
     }

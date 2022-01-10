@@ -39,6 +39,11 @@ public class Porte extends ObjetMetier implements Observateur {
         listeUpdatePossible = new HashMap<Sujet, ActionPorte>();
     }
 
+    public Porte(Porte p) {
+        this.estOuverte = p.estOuverte;
+        this.listeUpdatePossible = p.listeUpdatePossible;
+    }
+
 
     ////////////////////////////////
     // GETTERS
