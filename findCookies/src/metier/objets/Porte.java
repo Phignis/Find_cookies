@@ -108,10 +108,6 @@ public class Porte extends ObjetMetier implements Observateur {
         return listeUpdatePossible.remove(notificateur) != null;
     }
 
-    public Porte creerSauvegardeEtat() {
-        return new Porte(estOuverte, listeUpdatePossible);
-    }
-
     /**
      * permet à la porte de s'update, selon l'instance de sujet passée en paramètre
      * @param notificateur Sujet qui est initiateur de l'éxecution de cette méthode
