@@ -1,6 +1,6 @@
 package utile.observateur;
 
-import metier.Interrupteur;
+import metier.objets.Interrupteur;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.List;
  * @see Sujet
  * @see Observateur
  * @see SujetObservableUneFois
- * @see metier.Interrupteur
+ * @see Interrupteur
  */
 public class SujetRelaisUniqueObservation implements Sujet {
 

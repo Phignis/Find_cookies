@@ -84,7 +84,7 @@ public class GenerateurTick extends SujetObservableUneFois implements Runnable {
         // boucle du thread
         while (true) {
             try {
-                Thread.sleep(16); // on veut un jeu a 60Hz, on permet un check des events toutes les 1/60 de secondes
+                Thread.sleep(intervalleEntreTicks); // on veut un jeu a 60Hz, on permet un check des events toutes les 1/60 de secondes
                 super.notifier(); // on notifie qu'un tick de 16ms est passé
             } catch (InterruptedException e) {
                 break;
