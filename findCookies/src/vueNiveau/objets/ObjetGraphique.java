@@ -11,8 +11,8 @@ import metier.objets.ObjetMetier;
  */
 public abstract class ObjetGraphique {
     private String cheminImage;
-    private float posX;
-    private float posY;
+    protected float posX;
+    protected float posY;
 
 
     ////////////////////////////////
@@ -43,24 +43,12 @@ public abstract class ObjetGraphique {
         this.cheminImage = cheminImage;
     }
 
-    protected float posX;
     public float getPosX() {
         return posX;
     }
 
-    protected float posY;
     public float getPosY() {
         return posY;
-    }
-
-    ////////////////////////////////
-    // CONSTRUCTEURS
-    ////////////////////////////////
-
-    public ObjetGraphique(String cheminImage, float posX, float posY, ObjetMetier metier) {
-        this.cheminImage = cheminImage;
-        this.posX = posX;
-        this.posY = posY;
     }
 
     ////////////////////////////////

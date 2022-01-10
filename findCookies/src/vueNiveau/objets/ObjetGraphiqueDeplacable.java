@@ -3,14 +3,12 @@ package vueNiveau.objets;
 import metier.objets.ObjetMetier;
 import metier.objets.deplacables.Deplacable;
 
-public abstract class ObjetGraphiqueDeplacable extends ObjetGraphique {
-    private float posX;
-    private float posY;
+public class ObjetGraphiqueDeplacable extends ObjetGraphique {
+    private Deplacable deplacable;
 
-    public ObjetGraphiqueDeplacable(String cheminImage, float posX, float posY) {
+    public ObjetGraphiqueDeplacable(String cheminImage, float posX, float posY, Deplacable deplacable) {
         super(cheminImage, posX, posY);
-        this.posX = posX;
-        this.posY = posY;
+        this.deplacable = deplacable;
     }
 
     public void setPosX(float posX){
@@ -24,6 +22,10 @@ public abstract class ObjetGraphiqueDeplacable extends ObjetGraphique {
 
     @Override
     public ObjetMetier getObjetMetier() {
+        return deplacable;
+    }
+
+    public Deplacable getDeplacable() {
         return deplacable;
     }
 }
