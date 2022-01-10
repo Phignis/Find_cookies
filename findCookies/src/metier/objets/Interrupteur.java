@@ -53,6 +53,7 @@ public class Interrupteur extends ObjetMetier implements Sujet {
         return estActive;
     }
 
+
     ////////////////////////////////
     // METHODES
     ////////////////////////////////
