@@ -17,7 +17,7 @@ public class TestMenu extends Application {
         */
         NavigateurVue navigateurVue = new NavigateurVue();
         try {
-            navigateurVue.changeScene(stage, "Test");
+            navigateurVue.changeScene(stage, "Menu");
         } catch(Exception e) {
             System.err.println("La scène demandée n'existe pas!");
             System.exit(1);

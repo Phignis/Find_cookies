@@ -8,8 +8,20 @@ import java.util.LinkedList;
 
 public class Couche {
     private int numCouche;
+    public int getNumCouche() {
+        return numCouche;
+    }
+    public void setNumCouche(int numCouche) {
+        this.numCouche = numCouche;
+    }
 
     private Collection<ObjetGraphique> listeObjets;
+    public Collection<ObjetGraphique> getListeObjets() {
+        return listeObjets;
+    }
+    public void setListeObjets(Collection<ObjetGraphique> listeObjets) {
+        this.listeObjets = listeObjets;
+    }
 
 
     ////////////////////////////////
@@ -23,32 +35,6 @@ public class Couche {
 
     public Couche(int numCouche, Collection<ObjetGraphique> listeObjets){
         this.numCouche = numCouche;
-        this.listeObjets = listeObjets;
-    }
-
-
-    ////////////////////////////////
-    // GETTERS
-    ////////////////////////////////
-
-    public int getNumCouche() {
-        return numCouche;
-    }
-
-    public Collection<ObjetGraphique> getListeObjets() {
-        return listeObjets;
-    }
-
-
-    ////////////////////////////////
-    // SETTERS
-    ////////////////////////////////
-
-    public void setNumCouche(int numCouche) {
-        this.numCouche = numCouche;
-    }
-
-    public void setListeObjets(Collection<ObjetGraphique> listeObjets) {
         this.listeObjets = listeObjets;
     }
 

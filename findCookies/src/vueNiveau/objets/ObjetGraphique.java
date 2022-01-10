@@ -39,24 +39,35 @@ public abstract class ObjetGraphique {
     public String getCheminImage() {
         return cheminImage;
     }
+    public void setCheminImage(String cheminImage) {
+        this.cheminImage = cheminImage;
+    }
 
+    protected float posX;
     public float getPosX() {
         return posX;
     }
 
+    protected float posY;
     public float getPosY() {
         return posY;
     }
 
-    public abstract ObjetMetier getObjetMetier();
-
     ////////////////////////////////
-    // SETTERS
+    // CONSTRUCTEURS
     ////////////////////////////////
 
-    public void setCheminImage(String cheminImage) {
+    public ObjetGraphique(String cheminImage, float posX, float posY, ObjetMetier metier) {
         this.cheminImage = cheminImage;
+        this.posX = posX;
+        this.posY = posY;
     }
+
+    ////////////////////////////////
+    // GETTER
+    ////////////////////////////////
+
+    public abstract ObjetMetier getObjetMetier();
 
     ////////////////////////////////
     // METHODES
