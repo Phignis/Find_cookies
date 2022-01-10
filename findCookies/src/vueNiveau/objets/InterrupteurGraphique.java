@@ -13,6 +13,16 @@ public class InterrupteurGraphique extends ObjetGraphique {
         interrupteur = metier;
     }
 
+    private InterrupteurGraphique(InterrupteurGraphique i) {
+        super(i);
+        interrupteur = new Interrupteur(i.interrupteur);
+    }
+
+    @Override
+    public ObjetMetier getObjetMetier() {
+        return interrupteur;
+    }
+
     public void actionnerInterrupteur() {
         interrupteur.actionnerInterrupteur();
     }
@@ -27,16 +37,6 @@ public class InterrupteurGraphique extends ObjetGraphique {
 
     public void notifier() {
         interrupteur.notifier();
-    }
-
-    @Override
-    public ObjetMetier getObjetMetier() {
-        return interrupteur;
-    }
-
-    @Override
-    public ObjetGraphique creerSauvegardeEtat() {
-        return new InterrupteurGraphique(getPosX(), getPosY(), interrupteur.creerSauvegardeEtat());
     }
 
 }

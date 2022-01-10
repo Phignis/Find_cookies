@@ -36,9 +36,9 @@ public class Interrupteur extends ObjetMetier implements Sujet {
         gestionSujet = new SujetRelaisUniqueObservation();
     }
 
-    private Interrupteur(boolean estActive, SujetRelaisUniqueObservation gestionSujet) {
-        this.estActive = estActive;
-        this.gestionSujet = gestionSujet;
+    public Interrupteur(Interrupteur i) {
+        this.estActive = i.estActive;
+        this.gestionSujet = i.gestionSujet;
     }
 
     ////////////////////////////////
@@ -51,10 +51,6 @@ public class Interrupteur extends ObjetMetier implements Sujet {
      */
     public boolean isEstActive() {
         return estActive;
-    }
-
-    public Interrupteur creerSauvegardeEtat() {
-        return new Interrupteur(estActive, gestionSujet);
     }
 
     ////////////////////////////////

@@ -25,6 +25,12 @@ public abstract class ObjetGraphique {
         this.posY = posY;
     }
 
+    protected ObjetGraphique(ObjetGraphique g) {
+        this.cheminImage = g.cheminImage;
+        this.posX = g.posX;
+        this.posY = g.posY;
+    }
+
 
     ////////////////////////////////
     // GETTERS
@@ -55,12 +61,6 @@ public abstract class ObjetGraphique {
     ////////////////////////////////
     // METHODES
     ////////////////////////////////
-
-    /**
-     * permet de générer un objet du même type, dans le même état que cet objet à l'instant où est effectué la méthode
-     * @return l'objet généré, ObjetGraphique
-     */
-    public abstract ObjetGraphique creerSauvegardeEtat();
 
     @Override
     public String toString() {
