@@ -1,8 +1,9 @@
 package vueNiveau.objets;
 
+import metier.objets.ObjetMetier;
 import metier.objets.deplacables.Deplacable;
 
-public class ObjetGraphiqueDeplacable extends ObjetGraphique {
+public abstract class ObjetGraphiqueDeplacable extends ObjetGraphique {
     private float posX;
     private float posY;
 
