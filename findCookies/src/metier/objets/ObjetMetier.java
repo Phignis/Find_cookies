@@ -1,6 +1,10 @@
 package metier.objets;
 
-public abstract class ObjetMetier {
+import validation.Collisionneur;
 
+public abstract class ObjetMetier {
+    protected boolean collision = false;
+
+    public boolean getCollision(){ return collision; }
 }
 

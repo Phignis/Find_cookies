@@ -13,13 +13,17 @@ public abstract class ObjetGraphiqueDeplacable extends ObjetGraphique {
         this.posY = posY;
     }
 
-    ////////////////////////////////
-    // SETTERS
-    ////////////////////////////////
+    public void setPosX(float posX){
+        super.posX = posX;
+    }
 
-    public void setPosX(float posX) { this.posX = posX; }
+    public void setPosY(float posY){
+        super.posY = posY;
+    }
 
-    public void setPosY(float posY) {
-        this.posY = posY;
+
+    @Override
+    public ObjetMetier getObjetMetier() {
+        return deplacable;
     }
 }
