@@ -4,6 +4,7 @@ import metier.Couche;
 import metier.objets.Interrupteur;
 import metier.gestion.porte.update.RemiseMementoPorte;
 import metier.objets.Porte;
+import vueNiveau.InstanciationNiveau;
 import vueNiveau.Niveau;
 import observateur.ObservateurGenerique;
 import utile.observateur.Observateur;
@@ -15,18 +16,7 @@ import java.util.Scanner;
 public class TestGlobal {
 
     public static void main(String args[]) {
-        // TestClock.testBoucle();
-        /*if(!testUniciteSujetAbstract()) {
-            System.err.println("Soucis dans le test d'unicité des instances abonnés a un SujetAbstract");
-        } else System.out.println(("Test d'unicité des instances abonnés a un SujetAbstract réussi!"));*/
-
-        if(!testUpdatePorte()) {
-            System.err.println("Soucis dans le test d'update d'une porte");
-        } else System.out.println(("Test d'update d'une porte réussi!"));
-
-        if(!testSauvegardeEtat()) {
-            System.err.println("Soucis dans le test de sauvegarde d'un état des objets graphiques");
-        } else System.out.println(("Test de sauvegarde d'un état des objets graphiques d'une porte réussi!"));
+        testDeplacementJoueur();
     }
 
     private static void testStructure() {
@@ -145,5 +135,28 @@ public class TestGlobal {
 
         if(i_copie.getPosX() != 2 || i_copie.getPosY() != 3 || !((Interrupteur) i_copie.getObjetMetier()).isEstActive()) return false;
         return true;
+    }
+
+    private static void testPorte(){
+        // TestClock.testBoucle();
+        /*if(!testUniciteSujetAbstract()) {
+            System.err.println("Soucis dans le test d'unicité des instances abonnés a un SujetAbstract");
+        } else System.out.println(("Test d'unicité des instances abonnés a un SujetAbstract réussi!"));*/
+
+        if(!testUpdatePorte()) {
+            System.err.println("Soucis dans le test d'update d'une porte");
+        } else System.out.println(("Test d'update d'une porte réussi!"));
+
+        if(!testSauvegardeEtat()) {
+            System.err.println("Soucis dans le test de sauvegarde d'un état des objets graphiques");
+        } else System.out.println(("Test de sauvegarde d'un état des objets graphiques d'une porte réussi!"));
+    }
+
+    private static void testDeplacementJoueur(){
+        try {
+            //InstanciationNiveau in = new InstanciationNiveau(1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

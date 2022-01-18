@@ -1,5 +1,7 @@
 package clock;
 
+import javafx.scene.canvas.GraphicsContext;
+import manageurs.ManageurNiveau;
 import utile.observateur.SujetObservableUneFois;
 
 /**
@@ -23,6 +25,8 @@ public class GenerateurTick extends SujetObservableUneFois implements Runnable {
      */
     private Thread threadInterne;
 
+    private ManageurNiveau creationNiveau;
+
 
     ////////////////////////////////
     // CONSTRUCTEURS
@@ -35,9 +39,10 @@ public class GenerateurTick extends SujetObservableUneFois implements Runnable {
      * @see GenerateurTick#threadInterne
      * @see GenerateurTick#intervalleEntreTicks
      */
-    public GenerateurTick() {
+    public GenerateurTick(ManageurNiveau creationNiveau) {
         this.intervalleEntreTicks = 16;
         this.threadInterne = new Thread(this);
+        this.creationNiveau = creationNiveau;
         threadInterne.start();
     }
 
@@ -82,9 +87,21 @@ public class GenerateurTick extends SujetObservableUneFois implements Runnable {
     @Override
     public void run() {
         // boucle du thread
+        GraphicsContext gc = creationNiveau.getCanvas().getGraphicsContext2D();
+
         while (true) {
             try {
                 Thread.sleep(intervalleEntreTicks); // on veut un jeu a 60Hz, on permet un check des events toutes les 1/60 de secondes
+
+                creationNiveau.getDeplacement().readInputAndMovePlayer();
+
+                gc.clearRect(0, 0, creationNiveau.getCanvas().getWidth(), creationNiveau.getCanvas().getHeight());
+                gc.drawImage(creationNiveau..playerImage,
+                        gameManager.player.getPosition().getX(),
+                        gameManager.player.getPosition().getY(),
+                        50,
+                        50);
+
                 super.notifier(); // on notifie qu'un tick de 16ms est passé
             } catch (InterruptedException e) {
                 break;
