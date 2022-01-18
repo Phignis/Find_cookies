@@ -8,14 +8,67 @@ import vueNiveau.InstanciationNiveau;
 import vueNiveau.Niveau;
 
 import java.io.File;
+import java.io.FileFilter;
 import java.net.URI;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Controleur associé à ListeNiveaux.fxml, permet d'afficher tout les niveaux disponibles
+ */
 public class ListeNiveauxControleur {
+    private InstanciationNiveau niveauAInstancier;
+
+    private List<Niveau> listeNiveaux;
+
+    @FXML
+    private ListView<Niveau> listeNiveauxAAffichier;
+    ObservableList<Niveau> listeObservable = FXCollections.observableArrayList();
+
+    public ListeNiveauxControleur() {
+        listeNiveaux = creerNiveaux(trouverListeNiveaux(new FileFilter() {
+            @Override
+            public boolean accept(File pathname) {
+                return pathname.getName().matches("^[1-9].*.txt$") && pathname.isFile();
+            }
+        }));
+    }
+
+    private List<File> trouverListeNiveaux(FileFilter f) {
+        /* System.out.println(new File("ressources/fichiers").listFiles(f).length);
+        return null;*/
+        File[] listeFile = new File("ressources/fichiers").listFiles(f);
+        LinkedList<File> aRendre = new LinkedList<>();
+        assert listeFile != null;
+        Collections.addAll(aRendre, listeFile);
+
+        return aRendre;
+    }
+
+    private List<Niveau> creerNiveaux(List<File> fichierNiveaux) {
+        List<Niveau> aRendre = new ArrayList<>();
+        for (File f : fichierNiveaux) {
+            int numberFile;
+            try{
+                numberFile = Integer.parseInt(f.getName().substring(0, f.getName().lastIndexOf('.')));
+            } catch (NumberFormatException c) {
+                continue; // impossible que cela arrive avec le filtre
+            }
+            try {
+                aRendre.add(new InstanciationNiveau(numberFile).getNiveau());
+            } catch (Exception e) {
+                continue; // impossible que cela arrive avec trouverListeNiveaux avant
+            }
+        }
+
+        return aRendre;
+    }
+
     /*
     private InstanciationNiveau instanceNiv; //Récupérer le niveau cliqué
 

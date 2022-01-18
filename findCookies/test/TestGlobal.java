@@ -1,5 +1,6 @@
 import clock.BoucleTemporelle;
 import clock.GenerateurTick;
+import controleurs.ListeNiveauxControleur;
 import metier.Couche;
 import metier.objets.Interrupteur;
 import metier.gestion.porte.update.RemiseMementoPorte;
@@ -16,7 +17,8 @@ import java.util.Scanner;
 public class TestGlobal {
 
     public static void main(String args[]) {
-        testDeplacementJoueur();
+        // lancementTests();
+        testListeFichier();
     }
 
     private static void testStructure() {
@@ -137,7 +139,7 @@ public class TestGlobal {
         return true;
     }
 
-    private static void testPorte(){
+    private static void lancementTests(){
         // TestClock.testBoucle();
         /*if(!testUniciteSujetAbstract()) {
             System.err.println("Soucis dans le test d'unicité des instances abonnés a un SujetAbstract");
@@ -150,6 +152,12 @@ public class TestGlobal {
         if(!testSauvegardeEtat()) {
             System.err.println("Soucis dans le test de sauvegarde d'un état des objets graphiques");
         } else System.out.println(("Test de sauvegarde d'un état des objets graphiques d'une porte réussi!"));
+    }
+
+    private static boolean testListeFichier() {
+        new ListeNiveauxControleur();
+
+        return true;
     }
 
     private static void testDeplacementJoueur(){

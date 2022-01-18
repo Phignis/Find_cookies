@@ -16,10 +16,13 @@ import java.util.LinkedList;
 
 public class InstanciationNiveau {
     private Niveau niveau;
-    public Niveau getNiveau(){ return niveau; }
 
     public InstanciationNiveau(int numNiveau) throws Exception {
         niveau = creerNiveau(numNiveau);
+    }
+
+    public Niveau getNiveau(){
+        return niveau;
     }
 
     /**
