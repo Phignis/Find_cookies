@@ -16,6 +16,7 @@ import java.util.Scanner;
 public class TestGlobal {
 
     public static void main(String args[]) {
+        lancementTests();
         testDeplacementJoueur();
     }
 
@@ -137,7 +138,7 @@ public class TestGlobal {
         return true;
     }
 
-    private static void testPorte(){
+    private static void lancementTests(){
         // TestClock.testBoucle();
         /*if(!testUniciteSujetAbstract()) {
             System.err.println("Soucis dans le test d'unicité des instances abonnés a un SujetAbstract");
@@ -145,11 +146,11 @@ public class TestGlobal {
 
         if(!testUpdatePorte()) {
             System.err.println("Soucis dans le test d'update d'une porte");
-        } else System.out.println(("Test d'update d'une porte réussi!"));
+        } else System.out.println("Test d'update d'une porte réussi!");
 
         if(!testSauvegardeEtat()) {
             System.err.println("Soucis dans le test de sauvegarde d'un état des objets graphiques");
-        } else System.out.println(("Test de sauvegarde d'un état des objets graphiques d'une porte réussi!"));
+        } else System.out.println("Test de sauvegarde d'un état des objets graphiques d'une porte réussi!");
     }
 
     private static void testDeplacementJoueur(){
