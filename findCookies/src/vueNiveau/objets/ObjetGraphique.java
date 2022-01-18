@@ -27,7 +27,7 @@ public abstract class ObjetGraphique {
     public ObjetGraphique(String cheminImage, float posX, float posY) {
         URL ressource = getClass().getResource("/image/objet_skin/" + cheminImage);
         if(ressource == null){
-            cheminImage = "default_skin.png";
+            cheminImage = "sol_1.png";
         }
         this.cheminImage = cheminImage;
         image = new Image(ressource.toExternalForm());
