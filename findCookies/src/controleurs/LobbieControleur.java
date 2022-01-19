@@ -4,7 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.stage.Stage;
-import utile.NavigateurVue;
+import navigation.NavigateurVue;
 
 public class LobbieControleur {
     private Stage monStage;

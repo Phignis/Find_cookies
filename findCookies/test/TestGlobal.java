@@ -1,21 +1,20 @@
-import clock.BoucleTemporelle;
-import clock.GenerateurTick;
-import metier.Couche;
-import metier.objets.Interrupteur;
-import metier.gestion.porte.update.RemiseMementoPorte;
-import metier.objets.Porte;
-import vueNiveau.InstanciationNiveau;
-import vueNiveau.Niveau;
+import temps.BoucleTemporelle;
+import temps.GenerateurTick;
+import objets.niveaux.Couche;
+import objets.niveaux.metiers.Interrupteur;
+import objets.actions.portes.RemiseMementoPorte;
+import objets.niveaux.metiers.Porte;
+import objets.niveaux.Niveau;
 import observateur.ObservateurGenerique;
-import utile.observateur.Observateur;
-import vueNiveau.objets.InterrupteurGraphique;
+import observateurs.Observateur;
+import objets.niveaux.graphiques.InterrupteurGraphique;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TestGlobal {
 
-    public static void main(String args[]) {
+    public static void main(String args[]) throws Exception {
         lancementTests();
         testDeplacementJoueur();
     }
@@ -123,7 +122,7 @@ public class TestGlobal {
         return true;
     }
 
-    private static boolean testSauvegardeEtat() {
+    private static boolean testSauvegardeEtat() throws Exception {
         InterrupteurGraphique i = new InterrupteurGraphique(2, 3, new Interrupteur());
 
         i.actionnerInterrupteur(); // l'interrupteur est a présent actif
@@ -138,7 +137,7 @@ public class TestGlobal {
         return true;
     }
 
-    private static void lancementTests(){
+    private static void lancementTests() throws Exception {
         // TestClock.testBoucle();
         /*if(!testUniciteSujetAbstract()) {
             System.err.println("Soucis dans le test d'unicité des instances abonnés a un SujetAbstract");

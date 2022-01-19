@@ -1,10 +1,16 @@
 package utile;
 
 public class Vecteur2D {
+    /**
+     * Position finale sur l'axe des abscisses
+     */
     private float x;
     public float getX() { return x; }
     public void setX(float x) { this.x = x; }
 
+    /**
+     * Position finale sur l'axe des ordonnées
+     */
     private float y;
     public float getY() { return y; }
     public void setY(float y) { this.y = y; }
