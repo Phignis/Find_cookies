@@ -15,7 +15,7 @@ import java.net.URL;
  */
 public abstract class ObjetGraphique {
     protected String cheminImage;
-    private Image image;
+    // private Image image;
 
     protected float posX;
     protected float posY;
@@ -30,7 +30,7 @@ public abstract class ObjetGraphique {
             cheminImage = "default_skin.png";
         }
         this.cheminImage = cheminImage;
-        image = new Image(ressource.toExternalForm());
+        // image = new Image(ressource.toExternalForm());
 
         this.posX = posX;
         this.posY = posY;
@@ -43,7 +43,7 @@ public abstract class ObjetGraphique {
             g.cheminImage = "default_skin.png";
         }
         this.cheminImage = g.cheminImage;
-        image = new Image(ressource.toExternalForm());
+        // image = new Image(ressource.toExternalForm());
 
         this.posX = g.posX;
         this.posY = g.posY;

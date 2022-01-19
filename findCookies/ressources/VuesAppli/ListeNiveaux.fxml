@@ -14,7 +14,7 @@
 
     <Text>Liste des niveaux</Text>
 
-    <ListView fx:id="vueListes"/>
+    <ListView fx:id="listeNumNiveauxAAfficher"/>
 
 
 </AnchorPane>

@@ -23,7 +23,7 @@ public class NiveauControleur {
     @FXML
     public Canvas canvasJoueur;
 
-    public NiveauControleur(){
+    public NiveauControleur() {
         /*
         try {
             InstanciationNiveau in = new InstanciationNiveau(1); */
