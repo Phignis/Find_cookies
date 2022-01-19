@@ -1,12 +1,3 @@
-import metier.objets.Interrupteur;
-import validation.Collisionneur;
-import vueNiveau.InstanciationNiveau;
-import vueNiveau.objets.InterrupteurGraphique;
-import vueNiveau.objets.ObjetGraphique;
-
-import java.io.IOException;
-import java.net.URISyntaxException;
-
 public class TestInstanciationNiveau {
     public static void main(String args[]) {
         try {
@@ -27,6 +18,6 @@ public class TestInstanciationNiveau {
     }
 
     public static void TestInstanciationNiveau() throws Exception {
-        InstanciationNiveau in = new InstanciationNiveau(1);
+      //  InstanciateurNiveau in = new InstanciateurNiveau(1);
     }
 }

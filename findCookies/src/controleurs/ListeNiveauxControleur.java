@@ -1,20 +1,5 @@
 package controleurs;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
-import javafx.scene.control.ListView;
-import vueNiveau.InstanciationNiveau;
-import vueNiveau.Niveau;
-
-import java.io.File;
-import java.net.URI;
-import java.net.URL;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-
 public class ListeNiveauxControleur {
     /*
     private InstanciationNiveau instanceNiv; //Récupérer le niveau cliqué

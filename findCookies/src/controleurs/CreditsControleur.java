@@ -4,7 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.stage.Stage;
-import utile.NavigateurVue;
+import navigation.NavigateurVue;
 
 /**
  * \brief Controleur associé à la vue "Credits.fxml"
@@ -21,6 +21,6 @@ public class CreditsControleur {
     @FXML
     private void clickAccueil(ActionEvent event) throws Exception{
         monStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        vue.changeScene(monStage, "Menu");
+        vue.changeScene(monStage, "Niveau"); //Menu
     }
 }

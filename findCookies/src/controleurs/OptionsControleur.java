@@ -9,7 +9,7 @@ import javafx.scene.control.Slider;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.stage.Stage;
-import utile.NavigateurVue;
+import navigation.NavigateurVue;
 
 import javafx.fxml.FXML;
 
@@ -63,6 +63,11 @@ public class OptionsControleur implements Initializable{
         //   pseudoProperty().bindBidirectional(vCpt.valueProperty(), NumberFormat.getNumberInstance());
     }
 
+    /**
+     * Afficher le menu
+     * @param event
+     * @throws Exception
+     */
     @FXML
     private void clickAccueil(ActionEvent event) throws Exception{
         monStage = (Stage)((Node)event.getSource()).getScene().getWindow();

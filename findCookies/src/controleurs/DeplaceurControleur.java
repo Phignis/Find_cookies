@@ -2,7 +2,7 @@ package controleurs;
 
 import javafx.scene.Scene;
 import utile.Vecteur2D;
-import vueNiveau.objets.ObjetGraphiqueDeplacable;
+import objets.niveaux.graphiques.ObjetGraphiqueDeplacable;
 
 public class DeplaceurControleur {
     private final ObjetGraphiqueDeplacable ogd;
@@ -40,10 +40,11 @@ public class DeplaceurControleur {
         Vecteur2D vecteurNormalise = vecteurFinal.normaliser();
 
         //calculer le mouvement
-        Vecteur2D mouvement = vecteurNormalise.multiplier(ogd.getDeplacable().getVitesse());
+        Vecteur2D mouvement = vecteurNormalise.multiplier(ogd.getObjetMetier().getVitesse());
 
         //calculer la nouvelle position
-        Vecteur2D nouvellePos = ogd.getDeplacable().getPosition().additionner(mouvement);
+        Vecteur2D posActuelle = new Vecteur2D(ogd.getPosX(), ogd.getPosY());
+        Vecteur2D nouvellePos = posActuelle.additionner(mouvement);
 
         //appliquer le mouvement
         ogd.setPosX(vecteurFinal.getX());

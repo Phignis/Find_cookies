@@ -1,7 +1,7 @@
 package observateur;
 
-import utile.observateur.Observateur;
-import utile.observateur.Sujet;
+import observateurs.Observateur;
+import observateurs.Sujet;
 
 public class ObservateurGenerique implements Observateur {
     // classe attendu seulement a fin de test de la clock ou de l'implémentation du patron Observateur,
