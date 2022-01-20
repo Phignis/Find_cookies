@@ -9,7 +9,7 @@ public class InterrupteurGraphique extends ObjetGraphique {
     private Interrupteur interrupteur;
 
     public InterrupteurGraphique(float posX, float posY, Interrupteur metier) throws Exception {
-        super("interrupteur_ferme.png", posX, posY);
+        super("bouton_rouge.png", posX, posY);
         interrupteur = metier;
     }
 

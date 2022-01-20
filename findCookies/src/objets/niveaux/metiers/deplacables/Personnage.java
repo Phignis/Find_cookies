@@ -10,5 +10,4 @@ public class Personnage extends Deplacable {
     public Personnage(float vitesse){
         super.vitesse = vitesse;
     }
-
 }

@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
+import manageurs.ManageurJeu;
 import objets.niveaux.Niveau;
 import utile.InstanciateurNiveau;
 

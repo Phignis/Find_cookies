@@ -1,5 +1,6 @@
 package objets.niveaux.graphiques;
 
+import objets.niveaux.metiers.deplacables.Caisse;
 import objets.niveaux.metiers.deplacables.Deplacable;
 import objets.niveaux.metiers.deplacables.Personnage;
 import observateurs.Observateur;
@@ -12,9 +13,9 @@ public class PersonnageGraphique extends ObjetGraphiqueDeplacable{
         this.personnage = personnage;
     }
 
-    public PersonnageGraphique(PersonnageGraphique p) throws Exception {
-        super(p.getCheminImage(), p.getPosX(), p.getPosY(), p.getObjetMetier());
-        // this.personnage = new Personnage(p.personnage);
+    public PersonnageGraphique(PersonnageGraphique personnageGraphique) throws Exception {
+        super(personnageGraphique.getCheminImage(), personnageGraphique.getPosX(), personnageGraphique.getPosY(), personnageGraphique.getObjetMetier());
+         personnage = (Personnage) personnageGraphique.getObjetMetier();
     }
 
     @Override

@@ -11,6 +11,7 @@ import objets.niveaux.metiers.deplacables.Personnage;
 import java.io.*;
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class InstanciateurNiveau {
     /**
@@ -87,7 +88,7 @@ public class InstanciateurNiveau {
                     break;
                 case '0':
                      objetVideGraphique = new ObjetVideGraphique(x, y, new ObjetVide());
-                     objetVideGraphique.setCheminImage("sol_6.png");
+                     objetVideGraphique.setCheminImage("sol.png");
                      collectionObjets.add(objetVideGraphique);
                     break;
                 case '1':
@@ -101,12 +102,27 @@ public class InstanciateurNiveau {
                     break;
                 case '4':
                     objetVideGraphique = new ObjetVideGraphique(x, y, new ObjetVide());
-                    objetVideGraphique.setCheminImage("rocher.png");
+                    Random random = new Random();
+
+                    int chiffre = random.nextInt(2); //retourne un chiffre entre 0 et 1
+                    if (chiffre == 0){
+                        objetVideGraphique.setCheminImage("buisson.png");
+                    }else{
+                        objetVideGraphique.setCheminImage("buisson2.png");
+                    }
+
                     collectionObjets.add(objetVideGraphique);
+                    break;
                 case '5':
                     objetVideGraphique = new ObjetVideGraphique(x, y, new ObjetVide());
                     objetVideGraphique.setCheminImage("carton.png");
                     collectionObjets.add(objetVideGraphique);
+                    break;
+                case '6':
+                    objetVideGraphique = new ObjetVideGraphique(x, y, new ObjetVide());
+                    objetVideGraphique.setCheminImage("egouts.png");
+                    collectionObjets.add(objetVideGraphique);
+                    break;
 
                 default:
                     objetVideGraphique = new ObjetVideGraphique(x, y, new ObjetVide());
