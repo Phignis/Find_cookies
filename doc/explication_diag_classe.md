@@ -13,7 +13,12 @@ Le diagramme de classe se trouve (ici)[./diagrammeClasses.mdj].
 
 # verificateurs
 >
+> Le role de ce package est d'acceuillir les classes servant à vérifier une modification de données.
+> Le collisioneur vérifie qu'un déplacement dans le niveau ne ferait pas heurter deux objets avec collisions.
+> 
+> VerifierNiveau permet de vérifier qu'un numéro de niveau existe dans les fichiers de persistances.
 >
+> VerifierJoueur vérifie que le nouveau joueur à ajouter n'existe pas déjà.
 >
 
 # managers
