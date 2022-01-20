@@ -18,7 +18,9 @@ Le diagramme de classe se trouve (ici)[./diagrammeClasses.mdj].
 
 # managers
 >
->
+> Le manageur jeu s'occupe de gérer tout le jeu. Il commence par instancier les classes d'objets graphiques et métiers grâce à ManageurNiveau qui va charger le niveau sélectionné. 
+> Puis, le niveau est dessiné par l'intermédiaire de ManageurDessinateur.
+> Une fois cela fait, le niveau est prêt. Le joueur peut alors se déplacer grâce au ManageurDeplaceurJoueur.
 >
 
 # utiles
@@ -63,12 +65,23 @@ Le diagramme de classe se trouve (ici)[./diagrammeClasses.mdj].
 > #### graphiques
 > > 
 > > ObjetGraphique représente la composante graphique, avec ses coordonnées, ainsi qu'une partie métier. Il est stocké dans les Couches.
-> > Il est étendu par 
+> > Il est étendu par ObjetVideGraphique, qui possède un ObjetVide comme partie métier (pour représenter les sols par exemple).
+> > InterrupteurGraphique possède un Interrupteur, et toutes ses méthodes appelles derrière celles de sa partie métier.
+> > ObjetGraphiqueDeplacable permet de modifier la position X et Y de l'objet, ce qui n'est pas le cas de ObjetGraphique.
 > > 
 >
 > #### metiers
 > > 
+> > ObjetMetier est la couche d'abstraction de la partie métier. Il possède un booléen représentant s'il est sensible aux collisions ou non.
 > > 
+> > De ce dernier dérive ObjetVide, ne déclarant rien (servant a ObjetVideGraphique).
+> > Depleacable permet le déplacement de l'objet.
+> > 
+> > Interrupteur est la partie métier d'un InterrupteurGraphique. C'est un sujet notifiant nottament ici des Portes, mais aussi un observateur, qui observera la 
+> > boucle temporelle.
+> > 
+> > Porte possède une map liant une ActionPorte avec un notifieur (cf actions/portes). Cela permet de résoudre le soucis de déterminer quoi faire, en fonction de la classe
+> > du notifieur (Interrupteur ou BoucleTemporelle).
 > > 
 >
 > #### actions/portes
@@ -76,6 +89,7 @@ Le diagramme de classe se trouve (ici)[./diagrammeClasses.mdj].
 > > Ce package référence toutes les actions possibles pour une Porte, sur une notification d'un sujet (méthode update de Porte). Le soucis était que l'on ne
 > > peut prévoir à l'avance qui notifiera précisément Porte (BoucleTemporelle ou Interrupteur). Pour ce faire, chaque instance auquel s'abonne Porte est enregistré,
 > > avec une instance dérivant de ActionPorte.
+> >
 > > Ainsi, l'action est connue. Cela permet de plus de ne pas faire la même action pour une meme classe de Sujet, même si cela n'est pas exploité ici.
 > > Une chaine de responsabilitée aurait pu etre mise en place en remplacement, mais cela aurait obligé de passer plusieurs instances de gestion de l'update,
 > > si jamais la gestion gérant la classe ou instance notifiante n'est pas en début de la chaine.
