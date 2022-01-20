@@ -11,6 +11,24 @@ Le diagramme de classe se trouve (ici)[./diagrammeClasses.mdj].
 > Le deplaceurControlleur gestionne tant qu'a lui toute requete de mouvement, en déléguant a d'autres classes la responsabilitée de vérifier si le déplacement est possible, et de déplacer.
 >
 
+# verificateurs
+>
+>
+>
+
+# managers
+>
+>
+>
+
+# utiles
+>
+> Ce package représente toutes classes "utilitaires", c'est à dire qu'elles peuvent être utilisées un peu n'importe où, utiles sur le projet en sa globalitée
+> InstanciateurNiveau permet d'aller chercher le fichier de sauvegarde du niveau, et générer le niveau, afin de le rendre par la suite.
+> Vecteur2D permet de représenter toutes les positions des Objets graphiques, ainsi que d'en additionner pour gérer les mouvements.
+> Dessinateur sert a dessiner sur le canvas tous les Objets.
+>
+
 
 # observateurs
 >
@@ -42,6 +60,8 @@ Le diagramme de classe se trouve (ici)[./diagrammeClasses.mdj].
 >
 >
 > #### metiers
+> > 
+> > 
 > > 
 >
 > #### actions/portes

@@ -22,14 +22,27 @@ import java.util.*;
 
 /**
  * Controleur associé à ListeNiveaux.fxml, permet d'afficher tous les niveaux disponibles
+ * Cette classe possède une cellFactory en son sein
  */
 public class ListeNiveauxControleur {
+    /**
+     * liste observable des numéros de niveaux
+     */
     private ObservableList<Integer> listeNumNiveauxObservables = FXCollections.observableArrayList();
+
+    /**
+     * propriétée wrappeuse de la liste observable
+     * @see ListeNiveauxControleur#listeNumNiveauxObservables
+     */
     private ListProperty<Integer> listeNiveauxP = new SimpleListProperty<>(listeNumNiveauxObservables);
         public ObservableList<Integer> getListeNiveauxP() { return listeNiveauxP.get(); }
         public void setListeNiveauxP(ObservableList<Integer> value) { listeNiveauxP.set(value); }
         public ListProperty<Integer> listeNiveauxProperty() { return listeNiveauxP; }
 
+    /**
+     * ajoute un numéro de niveau a la liste observable
+     * @param ajout Integer a ajouter
+     */
     public void addNumNiveau(Integer ajout) { listeNumNiveauxObservables.add(ajout); }
 
     @FXML
@@ -38,6 +51,10 @@ public class ListeNiveauxControleur {
     @FXML
     private Button buttonSelectionNiveau;
 
+    /**
+     * créé une instance, en générant toute la liste des numéros de niveaux, dont les fichiers textes sont de forme
+     * "^[0-9]+\.txt$" et se trouvant dans ressources/fichiers
+     */
     public ListeNiveauxControleur() {
         genererListeNumNiveaux(new FileFilter() {
             @Override
@@ -47,6 +64,11 @@ public class ListeNiveauxControleur {
         });
     }
 
+    /**
+     * permet de trouver toutes les files des niveaux du jeu
+     * @param f filtre pour choisir les niveaux
+     * @return la liste des files des niveaux
+     */
     private List<File> trouverListeNiveaux(FileFilter f) {
         File[] listeFile = new File("ressources/fichiers").listFiles(f);
         LinkedList<File> aRendre = new LinkedList<>();
@@ -56,6 +78,12 @@ public class ListeNiveauxControleur {
         return aRendre;
     }
 
+    /**
+     * Permet d'instancier une liste de niveaux a partir de leur file de persistances
+     * @deprecated pour créer les niveaux, vous devriez utiliser ManagerJeu
+     * @param fichierNiveaux la liste des files de persistances des niveaux
+     * @return une liste des niveaux instancié
+     */
     private List<Niveau> creerNiveaux(List<File> fichierNiveaux) {
         List<Niveau> aRendre = new ArrayList<>();
         for (File f : fichierNiveaux) {
@@ -77,6 +105,10 @@ public class ListeNiveauxControleur {
         return aRendre;
     }
 
+    /**
+     * génère la liste des numéros de niveaux a partir d'un filtre pour les noms des fichiers de persistances des niveaux
+     * @param f filtre pour les noms des fichiers
+     */
     private void genererListeNumNiveaux(FileFilter f) {
         for (File file : trouverListeNiveaux(f)) {
             try {
@@ -87,6 +119,10 @@ public class ListeNiveauxControleur {
         }
     }
 
+    /**
+     * bind la listView avec la propriétée wrappant la liste observable contenant les integer, puis génères les cells de la
+     * listView
+     */
     @FXML
     private void initialize() {
         listeNumNiveauxAAfficher.itemsProperty().bind(listeNiveauxProperty());
@@ -105,11 +141,18 @@ public class ListeNiveauxControleur {
 
     }
 
+    /**
+     * permet d'enable le bouton au premier event de click sur la listView
+     */
     @FXML
     private void niveauTempSelect() {
         if(buttonSelectionNiveau.disableProperty().get()) buttonSelectionNiveau.setDisable(false);
     }
 
+    /**
+     * permet de sélectionner un niveau, par le bouton de la vue, et génère un NiveauControler avec l'Integer sélectionné, et show
+     * le stage contenant ce niveau
+     */
     @FXML
     private void selectionnerNiveau() {
         // on récupère le niveau sélectionné
