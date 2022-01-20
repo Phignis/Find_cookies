@@ -8,7 +8,7 @@ public class PersonnageGraphique extends ObjetGraphiqueDeplacable{
     private Personnage personnage;
 
     public PersonnageGraphique(float posX, float posY, Personnage personnage) throws Exception {
-        super("patate_face.svg", posX, posY, personnage);
+        super("chpatata_face.png", posX, posY, personnage);
         this.personnage = personnage;
     }
 

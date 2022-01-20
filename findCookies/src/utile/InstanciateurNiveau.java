@@ -100,7 +100,7 @@ public class InstanciateurNiveau {
                     collectionObjets.add(objetVideGraphique);
                 case '5':
                     objetVideGraphique = new ObjetVideGraphique(x, y, new ObjetVide());
-                    objetVideGraphique.setCheminImage("carton.svg");
+                    objetVideGraphique.setCheminImage("carton.png");
                     collectionObjets.add(objetVideGraphique);
 
                 default:

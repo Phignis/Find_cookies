@@ -6,13 +6,6 @@ import utile.Vecteur2D;
 
 import java.net.URL;
 
-/**
- * Objet graphique de l'application
- *
- * @version 1.0
- *
- * @author L'HOSTIS Loriane
- */
 public abstract class ObjetGraphique {
     private String cheminImage;
     public String getCheminImage(){ return cheminImage; }

@@ -8,7 +8,7 @@ public class PorteGraphique extends ObjetGraphique {
     private Porte porte;
 
     public PorteGraphique(float posX, float posY, Porte metier) throws Exception {
-        super("porte_face.svg", posX, posY);
+        super("porte_face.png", posX, posY);
         porte = metier;
     }
 

@@ -7,19 +7,22 @@ import objets.niveaux.graphiques.ObjetGraphique;
 
 import java.net.URL;
 
+import static java.lang.Math.max;
+import static java.lang.Math.min;
+
 public class Dessinateur {
     private Canvas canvas;
     public Canvas getCanvas(){ return canvas; }
 
-    private float hauteur; //700/(5+2)
-    private float largeur; //1000/(10+2);
+    private float hauteurElement; //700/(5+2)
+    private float largeurElement; //1000/(10+2);
 
     private GraphicsContext graphiqueContext;
 
     public Dessinateur(Canvas canvas){
         this.canvas = canvas;
-        hauteur = (float) canvas.getHeight()/ 5;
-        largeur = (float) canvas.getWidth() / 10;
+        hauteurElement = (float) canvas.getHeight()/ 5;
+        largeurElement = (float) canvas.getWidth() / 10;
 
         graphiqueContext = canvas.getGraphicsContext2D();
     }
@@ -28,7 +31,7 @@ public class Dessinateur {
      * Dessine, sur un canvas, l'image d'un objet métier aux positions qui lui sont attribuées.
      */
     public void dessinerSurUneCase(ObjetGraphique og){
-        graphiqueContext.drawImage(og.getImage(), og.getPosX() * largeur, og.getPosY() * hauteur, largeur, hauteur);
+        graphiqueContext.drawImage(og.getImage(), og.getPosX() * largeurElement, og.getPosY() * hauteurElement, largeurElement, hauteurElement);
     }
 
     /**
@@ -38,11 +41,10 @@ public class Dessinateur {
     public void dessinerLibre(ObjetGraphique og){
         if(og == null) { return; }
 
-        float largeurImage = (float) og.getImage().getWidth();
-        float hauteurImage = (float) og.getImage().getHeight();
-
         //graphiqueContext.clearRect(0,0,canvas.getWidth(), canvas.getHeight());
-        graphiqueContext.drawImage(og.getImage(), og.getPosX(), og.getPosY(), largeurImage, hauteurImage);
+        //graphiqueContext.drawImage(og.getImage(), og.getPosX(), og.getPosY(), largeurImage, hauteurImage);
+
+        graphiqueContext.drawImage(og.getImage(), og.getPosX() * largeurElement, og.getPosY() * hauteurElement, largeurElement, hauteurElement);
     }
 
     /**
@@ -61,9 +63,9 @@ public class Dessinateur {
             imgRemplacer = new Image(ressource.toExternalForm());
         }
 
-        graphiqueContext.clearRect(anciennePosX * largeur, anciennePosY * hauteur, largeur, hauteur); //canvas.getWidth(), canvas.getHeight());
-        graphiqueContext.drawImage(imgRemplacer, anciennePosX * largeur, anciennePosY * hauteur, largeur, hauteur);
-        graphiqueContext.drawImage(objAjouter.getImage(), objAjouter.getPosX() * largeur, objAjouter.getPosY() * hauteur, largeur, hauteur);
+        graphiqueContext.clearRect(anciennePosX * largeurElement, anciennePosY * hauteurElement, largeurElement, hauteurElement); //canvas.getWidth(), canvas.getHeight());
+        graphiqueContext.drawImage(imgRemplacer, anciennePosX * largeurElement, anciennePosY * hauteurElement, largeurElement, hauteurElement);
+        graphiqueContext.drawImage(objAjouter.getImage(), objAjouter.getPosX() * largeurElement, objAjouter.getPosY() * hauteurElement, largeurElement, hauteurElement);
     }
 
 }

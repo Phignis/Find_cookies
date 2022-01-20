@@ -7,7 +7,7 @@ public class ObjetVideGraphique extends ObjetGraphique {
     private ObjetVide objetVide;
 
     public ObjetVideGraphique(float posX, float posY, ObjetVide objetVide) throws Exception {
-        super("sol_6.jpg", posX, posY);
+        super("skin_par_defaut.png", posX, posY);
         this.objetVide = objetVide;
     }
 
