@@ -1,7 +1,5 @@
 package objets.niveaux.graphiques;
 
-import objets.niveaux.metiers.Interrupteur;
-import objets.niveaux.metiers.ObjetMetier;
 import objets.niveaux.metiers.deplacables.Deplacable;
 import observateurs.Observateur;
 import observateurs.Sujet;
@@ -78,7 +76,7 @@ public abstract class ObjetGraphiqueDeplacable extends ObjetGraphique implements
     /**
      * permet de notifier tous les objets graphiques
      * @see ObjetGraphiqueDeplacable#gestionSujet
-     * @see Observateur#update(Sujet)
+     * @see Observateur#mettreAJour(Sujet)
      */
     public void notifier() {
         gestionSujet.notifier(this);

@@ -28,15 +28,21 @@ public class Dessinateur {
      * Dessine, sur un canvas, l'image d'un objet métier aux positions qui lui sont attribuées.
      */
     public void dessinerSurUneCase(ObjetGraphique og){
-        graphiqueContext.drawImage(og.getImage(), (og.getPosX() ) * largeur, (og.getPosY() ) * hauteur, largeur, hauteur);
+        graphiqueContext.drawImage(og.getImage(), og.getPosX() * largeur, og.getPosY() * hauteur, largeur, hauteur);
     }
 
     /**
      * Dessine un objet graphique de la taille attribuée
-     * @param og
+     * @param og Objet graphique à dessiner
      */
     public void dessinerLibre(ObjetGraphique og){
-        graphiqueContext.drawImage(og.getImage(), og.getPosX(), og.getPosY(), og.getImage().getWidth() / largeur, og.getImage().getHeight() / hauteur);
+        if(og == null) { return; }
+
+        float largeurImage = (float) og.getImage().getWidth();
+        float hauteurImage = (float) og.getImage().getHeight();
+
+        //graphiqueContext.clearRect(0,0,canvas.getWidth(), canvas.getHeight());
+        graphiqueContext.drawImage(og.getImage(), og.getPosX(), og.getPosY(), largeurImage, hauteurImage);
     }
 
     /**

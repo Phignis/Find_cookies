@@ -1,38 +1,36 @@
 package manageurs;
 
 import javafx.scene.canvas.Canvas;
-import objets.niveaux.graphiques.ObjetGraphique;
-import objets.niveaux.graphiques.ObjetGraphiqueDeplacable;
 import objets.niveaux.graphiques.PersonnageGraphique;
 import objets.niveaux.metiers.deplacables.Personnage;
-import temps.GenerateurMouvement;
 import temps.GenerateurTick;
-import utile.Dessinateur;
-import utile.InstanciateurNiveau;
 
 public class ManageurJeu {
     private ManageurNiveau manageurNiveau;
     private GenerateurTick generateurTick;
-   // private GenerateurMouvement generateurMouvement;
     private ManageurDessinateur manageurDessinateur;
     private ManagerDeplaceurJoueur managerDeplaceurJoueur;
 
-    private  Canvas canvas;
+    private Canvas canvas;
     private PersonnageGraphique personnage;
 
     public ManageurJeu(Canvas canvas) throws Exception {
-       this.canvas = canvas;
+        if(canvas == null){ throw new IllegalArgumentException("Le canvas ne peut pas être nul"); }
+        this.canvas = canvas;
 
         generateurTick = new GenerateurTick(32);
-       // generateurMouvement = new GenerateurMouvement(canvas);
-       //// generateurTick.attacher(generateurMouvement);
     }
 
+    /**
+     * Permet de charger le niveau et d'en afficher son graphisme
+     * @param numNiveau Index du niveau à charger parmi la liste des niveaux
+     * @return vrai si le niveau a bien été chargé ; faux sinon
+     */
     public boolean chargerNiveau(int numNiveau){
         try {
             manageurNiveau = new ManageurNiveau(numNiveau);
 
-            personnage = new PersonnageGraphique(8,3, new Personnage());
+            personnage = new PersonnageGraphique(2,2, new Personnage());
             managerDeplaceurJoueur = new ManagerDeplaceurJoueur(personnage, canvas.getScene());
 
             manageurDessinateur = new ManageurDessinateur(canvas, personnage, manageurNiveau.getNiveau());

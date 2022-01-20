@@ -25,7 +25,7 @@ public class ObservateurGenerique implements Observateur {
     }
 
     @Override
-    public void update(Sujet notificateur) {
+    public void mettreAJour(Sujet notificateur) {
         activiteObservateur = !activiteObservateur;
 
         if(isActiviteObservateur()) System.out.println(getNomObservateur() + " est actif par l'action d'un " + notificateur.getClass().getName());

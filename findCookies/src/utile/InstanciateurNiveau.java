@@ -5,7 +5,7 @@ import objets.niveaux.graphiques.*;
 import objets.niveaux.metiers.Interrupteur;
 import objets.niveaux.metiers.Porte;
 import objets.niveaux.Niveau;
-import objets.niveaux.metiers.Sol;
+import objets.niveaux.metiers.ObjetVide;
 import objets.niveaux.metiers.deplacables.Personnage;
 
 import java.io.*;
@@ -65,6 +65,8 @@ public class InstanciateurNiveau {
         ArrayList<ObjetGraphique> collectionObjets = new ArrayList<>();
         Couche c;
 
+        ObjetVideGraphique objetVideGraphique;
+
         while((caractere = br.read()) != -1)
         {
             switch((char) caractere){
@@ -73,13 +75,15 @@ public class InstanciateurNiveau {
                     listeCouches.add(c);
                     collectionObjets = new ArrayList<ObjetGraphique>(); //on vide la collection d'objets
                     numCouche++; //on incrémente le numéro de la couche pour lire encore plus de dessins
-                    y=-2;
+                    y=-3;
                 case '\n':
                     x=-1; //pour repasser à 0 ensuite avec le x++;
                     y++;
                     break;
                 case '0':
-                     collectionObjets.add(new SolGraphique(x, y, new Sol()));
+                     objetVideGraphique = new ObjetVideGraphique(x, y, new ObjetVide());
+                     objetVideGraphique.setCheminImage("sol_6.png");
+                     collectionObjets.add(objetVideGraphique);
                     break;
                 case '1':
                     collectionObjets.add(new PersonnageGraphique(x, y, new Personnage()));
@@ -89,8 +93,20 @@ public class InstanciateurNiveau {
                     break;
                 case '3':
                     collectionObjets.add(new PorteGraphique(x, y, new Porte()));
+                    break;
+                case '4':
+                    objetVideGraphique = new ObjetVideGraphique(x, y, new ObjetVide());
+                    objetVideGraphique.setCheminImage("rocher.png");
+                    collectionObjets.add(objetVideGraphique);
+                case '5':
+                    objetVideGraphique = new ObjetVideGraphique(x, y, new ObjetVide());
+                    objetVideGraphique.setCheminImage("carton.svg");
+                    collectionObjets.add(objetVideGraphique);
+
                 default:
-                    // collectionObjets.add(new ObjetGraphique("Rien.png", x, y, null));
+                    objetVideGraphique = new ObjetVideGraphique(x, y, new ObjetVide());
+                    objetVideGraphique.setCheminImage("skin_par_defaut.png");
+                    collectionObjets.add(objetVideGraphique);
                     break;
             }
             x++;
