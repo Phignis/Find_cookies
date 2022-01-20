@@ -18,8 +18,8 @@ public class Dessinateur {
 
     public Dessinateur(Canvas canvas){
         this.canvas = canvas;
-        hauteur = (float) canvas.getHeight()/ (5+2);
-        largeur = (float) canvas.getWidth() / (10+2);
+        hauteur = (float) canvas.getHeight()/ 5;
+        largeur = (float) canvas.getWidth() / 10;
 
         graphiqueContext = canvas.getGraphicsContext2D();
     }
@@ -27,10 +27,16 @@ public class Dessinateur {
     /**
      * Dessine, sur un canvas, l'image d'un objet métier aux positions qui lui sont attribuées.
      */
-    public void dessiner(ObjetGraphique og){
-      //  creationNiveau.getDeplacement().readInputAndMovePlayer();
-
+    public void dessinerSurUneCase(ObjetGraphique og){
         graphiqueContext.drawImage(og.getImage(), (og.getPosX() ) * largeur, (og.getPosY() ) * hauteur, largeur, hauteur);
+    }
+
+    /**
+     * Dessine un objet graphique de la taille attribuée
+     * @param og
+     */
+    public void dessinerLibre(ObjetGraphique og){
+        graphiqueContext.drawImage(og.getImage(), og.getPosX(), og.getPosY(), og.getImage().getWidth() / largeur, og.getImage().getHeight() / hauteur);
     }
 
     /**

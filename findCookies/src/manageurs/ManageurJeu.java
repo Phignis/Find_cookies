@@ -2,6 +2,7 @@ package manageurs;
 
 import javafx.scene.canvas.Canvas;
 import objets.niveaux.graphiques.ObjetGraphique;
+import objets.niveaux.graphiques.ObjetGraphiqueDeplacable;
 import objets.niveaux.graphiques.PersonnageGraphique;
 import objets.niveaux.metiers.deplacables.Personnage;
 import temps.GenerateurMouvement;
@@ -14,14 +15,15 @@ public class ManageurJeu {
     private GenerateurTick generateurTick;
    // private GenerateurMouvement generateurMouvement;
     private ManageurDessinateur manageurDessinateur;
+    private ManagerDeplaceurJoueur managerDeplaceurJoueur;
 
     private  Canvas canvas;
-    private ObjetGraphique personnage;
+    private PersonnageGraphique personnage;
 
     public ManageurJeu(Canvas canvas) throws Exception {
        this.canvas = canvas;
 
-        generateurTick = new GenerateurTick();
+        generateurTick = new GenerateurTick(32);
        // generateurMouvement = new GenerateurMouvement(canvas);
        //// generateurTick.attacher(generateurMouvement);
     }
@@ -31,9 +33,12 @@ public class ManageurJeu {
             manageurNiveau = new ManageurNiveau(numNiveau);
 
             personnage = new PersonnageGraphique(8,3, new Personnage());
+            managerDeplaceurJoueur = new ManagerDeplaceurJoueur(personnage, canvas.getScene());
 
             manageurDessinateur = new ManageurDessinateur(canvas, personnage, manageurNiveau.getNiveau());
+
             generateurTick.attacher(manageurDessinateur);
+            generateurTick.attacher(managerDeplaceurJoueur);
 
             return true;
         } catch (Exception e){

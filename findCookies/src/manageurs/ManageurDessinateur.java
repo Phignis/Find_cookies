@@ -3,14 +3,9 @@ package manageurs;
 import javafx.scene.canvas.Canvas;
 import objets.niveaux.Niveau;
 import objets.niveaux.graphiques.ObjetGraphique;
-import objets.niveaux.graphiques.ObjetGraphiqueDeplacable;
-import objets.niveaux.metiers.deplacables.Caisse;
-import objets.niveaux.metiers.deplacables.Personnage;
 import observateurs.Observateur;
 import observateurs.Sujet;
 import utile.Dessinateur;
-
-import java.util.*;
 
 
 public class ManageurDessinateur implements Observateur {
@@ -35,7 +30,7 @@ public class ManageurDessinateur implements Observateur {
 
     public void dessinerPersonnage(){
         if(personnage == null) { return; }
-        dessinateur.dessiner(personnage);
+        dessinateur.dessinerLibre(personnage);
     }
 
     public void dessinerNiveau(){
@@ -44,7 +39,7 @@ public class ManageurDessinateur implements Observateur {
         for (i = 0; i<niveau.getListeCouches().size(); i++){ //pour chaque couche
             for (ObjetGraphique og : niveau.getListeCouches().get(i).getListeObjets()) {
                 //pour chaque objet graphique de la liste de chaque couche...
-                dessinateur.dessiner(og); //...on le dessine
+                dessinateur.dessinerSurUneCase(og); //...on le dessine
             }
         }
     }
