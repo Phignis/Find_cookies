@@ -55,9 +55,16 @@ Le diagramme de classe se trouve (ici)[./diagrammeClasses.mdj].
 > et notifie à la fin de la boucle tout les objets devant se remettre dans l'état de début de boucle, car est aussi un Sujet.
 >
 
-# objets
+# objets/niveaux
 >
+> Un niveau permet de stocker tout les objets, en arrière. Il facilite la gestion des collisions en ayant une liste de couches, possédant elle meme les objets graphiques de cette couche.
+> Un joueur possède un niveau atteint, et ne pourra en choisir au dessus.
 >
+> #### graphiques
+> > 
+> > ObjetGraphique représente la composante graphique, avec ses coordonnées, ainsi qu'une partie métier. Il est stocké dans les Couches.
+> > Il est étendu par 
+> > 
 >
 > #### metiers
 > > 

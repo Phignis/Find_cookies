@@ -7,16 +7,17 @@
 
 
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="controleurs.CreditsControleur">
+      fx:controller="controleurs.CreditsControleur"
+      stylesheets="/css/app.css">
 
    <children>
-      <Label text="Crédits" textFill="#f26a9e">
+      <Label text="Crédits" styleClass="titre">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
       <Label prefHeight="34.0" prefWidth="518.0" text="Application réalisée en Java et JavaFX 16 par L'HOSTIS Loriane et FOUCRAS Baptiste. Etudiants en 2ème année du DUT Informatique, en 2021-2022." textAlignment="CENTER" wrapText="true" />
       <Label text="\@Crédits 2021" />
-      <Button mnemonicParsing="false" text="Accueil" textAlignment="CENTER" textFill="#f26a9e" onAction="#clickAccueil"/>
+      <Button mnemonicParsing="false" text="Accueil" textAlignment="CENTER" onAction="#clickAccueil" styleClass="buttonClass"/>
    </children>
 </VBox>

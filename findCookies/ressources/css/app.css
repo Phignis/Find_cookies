@@ -1,0 +1,9 @@
+.buttonClass {
+    -fx-text-alignment : "CENTER";
+    -fx-text-fill : "#f26a9e";
+    -fx-text-overrun : "CENTER_ELLIPSIS";
+}
+
+.titre {
+    -fx-text-fill : "#f26a9e";
+}
