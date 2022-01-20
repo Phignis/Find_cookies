@@ -1,7 +1,9 @@
 package clock;
 
 import observateur.ObservateurGenerique;
-import utile.observateur.Observateur;
+import temps.BoucleTemporelle;
+import temps.GenerateurTick;
+import observateurs.Observateur;
 
 import static java.lang.Thread.sleep;
 

@@ -15,7 +15,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Label prefHeight="34.0" prefWidth="518.0" text="Application réaliséeé en Java par L'HOSTIS Loriane et FOUCRAS Baptiste. Etudiants en 2ème année du DUT Informatique." textAlignment="CENTER" wrapText="true" />
+      <Label prefHeight="34.0" prefWidth="518.0" text="Application réalisée en Java et JavaFX 16 par L'HOSTIS Loriane et FOUCRAS Baptiste. Etudiants en 2ème année du DUT Informatique, en 2021-2022." textAlignment="CENTER" wrapText="true" />
       <Label text="\@Crédits 2021" />
       <Button mnemonicParsing="false" text="Accueil" textAlignment="CENTER" textFill="#f26a9e" onAction="#clickAccueil"/>
    </children>

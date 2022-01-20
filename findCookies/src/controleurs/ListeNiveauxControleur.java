@@ -12,8 +12,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
-import vueNiveau.InstanciationNiveau;
-import vueNiveau.Niveau;
+import objets.niveaux.Niveau;
+import utile.InstanciateurNiveau;
 
 import java.io.File;
 import java.io.FileFilter;
@@ -21,10 +21,9 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * Controleur associé à ListeNiveaux.fxml, permet d'afficher tout les niveaux disponibles
+ * Controleur associé à ListeNiveaux.fxml, permet d'afficher tous les niveaux disponibles
  */
 public class ListeNiveauxControleur {
-
     private ObservableList<Integer> listeNumNiveauxObservables = FXCollections.observableArrayList();
     private ListProperty<Integer> listeNiveauxP = new SimpleListProperty<>(listeNumNiveauxObservables);
         public ObservableList<Integer> getListeNiveauxP() { return listeNiveauxP.get(); }
@@ -60,15 +59,15 @@ public class ListeNiveauxControleur {
     private List<Niveau> creerNiveaux(List<File> fichierNiveaux) {
         List<Niveau> aRendre = new ArrayList<>();
         for (File f : fichierNiveaux) {
-            int numberFile;
+            int numeroFichier;
             try{
-                numberFile = Integer.parseInt(f.getName().substring(0, f.getName().lastIndexOf('.')));
+                numeroFichier = Integer.parseInt(f.getName().substring(0, f.getName().lastIndexOf('.')));
             } catch (NumberFormatException c) {
                 continue; // impossible que cela arrive avec le filtre
             }
             try {
-                System.out.println(numberFile);
-                aRendre.add(new InstanciationNiveau(numberFile).getNiveau());
+                Niveau niveau = new InstanciateurNiveau().creerNiveau(numeroFichier);
+                aRendre.add(niveau);
             } catch (Exception e) {
                 // impossible que cela arrive avec trouverListeNiveaux avant
                 e.printStackTrace();

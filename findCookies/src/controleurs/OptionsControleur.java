@@ -9,14 +9,14 @@ import javafx.scene.control.Slider;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.stage.Stage;
-import utile.NavigateurVue;
+import navigation.NavigateurVue;
 
 import javafx.fxml.FXML;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class OptionsControleur implements Initializable{
+public class OptionsControleur{
     private Stage monStage;
     private NavigateurVue vue = new NavigateurVue();
 
@@ -29,8 +29,8 @@ public class OptionsControleur implements Initializable{
     private int valeurCourante;
 
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    @FXML
+    private void initialize() {
         //Initialiser les valeurs
         SpinnerValueFactory<Integer> fabrique =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100);
@@ -63,6 +63,11 @@ public class OptionsControleur implements Initializable{
         //   pseudoProperty().bindBidirectional(vCpt.valueProperty(), NumberFormat.getNumberInstance());
     }
 
+    /**
+     * Afficher le menu
+     * @param event
+     * @throws Exception
+     */
     @FXML
     private void clickAccueil(ActionEvent event) throws Exception{
         monStage = (Stage)((Node)event.getSource()).getScene().getWindow();

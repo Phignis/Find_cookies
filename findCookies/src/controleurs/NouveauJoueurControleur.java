@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import utile.NavigateurVue;
+import navigation.NavigateurVue;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,12 +28,21 @@ public class NouveauJoueurControleur implements Initializable {
         vBtnValidation.disableProperty().bind(vPseudo.textProperty().isEmpty());
     }
 
+    /**
+     * Changement de scène pour afficher le menu
+     * @param event
+     * @throws Exception
+     */
     @FXML
     private void clickAccueil(ActionEvent event) throws Exception{
         monStage = (Stage)((Node)event.getSource()).getScene().getWindow();
         vue.changeScene(monStage, "Menu");
     }
 
+    /**
+     * Action d'ajouter le joueur dont le pseudo vient d'être saisit dans la liste des joueurs de l'application
+     * @param event
+     */
     @FXML
     private void clickAjouterJoueur(ActionEvent event) {
         monStage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -43,7 +52,6 @@ public class NouveauJoueurControleur implements Initializable {
             if(joueurC.ajouterJoueur(pseudo)){
                 vue.changeScene(monStage, "ListeNiveaux");
             }else{
-              //  vue.changeScene(monStage, "NouveauJoueur");
                 vTxtErreur.setText("Problème de pseudo - Veuillez en changer");
             }
         }
