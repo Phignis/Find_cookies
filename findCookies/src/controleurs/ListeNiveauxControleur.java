@@ -6,13 +6,18 @@ import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.stage.Stage;
 import vueNiveau.InstanciationNiveau;
 import vueNiveau.Niveau;
 
 import java.io.File;
 import java.io.FileFilter;
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -30,6 +35,9 @@ public class ListeNiveauxControleur {
 
     @FXML
     private ListView<Integer> listeNumNiveauxAAfficher;
+
+    @FXML
+    private Button buttonSelectionNiveau;
 
     public ListeNiveauxControleur() {
         genererListeNumNiveaux(new FileFilter() {
@@ -95,12 +103,33 @@ public class ListeNiveauxControleur {
                 }
             }
         });
+
+    }
+
+    @FXML
+    private void niveauTempSelect() {
+        if(buttonSelectionNiveau.disableProperty().get()) buttonSelectionNiveau.setDisable(false);
     }
 
     @FXML
     private void selectionnerNiveau() {
         // on récupère le niveau sélectionné
         Integer i = listeNumNiveauxAAfficher.getSelectionModel().getSelectedItem();
-        System.out.println(i);
+        if(i != null) {
+            // on est sur qu'il ne soit pas null, car le boutton est disable avant, mais on verifie par propreté
+            // on change la scene pour le niveau
+            try {
+                FXMLLoader f = new FXMLLoader(getClass().getResource("/VuesAppli/Niveau.fxml"));
+                f.setController(new NiveauControleur(i));
+                Parent p = f.load();
+                Stage monStage = (Stage) buttonSelectionNiveau.getScene().getWindow(); // je recupère le stage courant avec mon bouton
+                monStage.setScene(new javafx.scene.Scene(p));
+                monStage.show();
+
+                System.out.println("Scene actuelle : " + "/VuesAppli/Niveau.fxml");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
