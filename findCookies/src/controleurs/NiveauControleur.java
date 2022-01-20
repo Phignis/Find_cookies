@@ -7,6 +7,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.stage.Stage;
 import navigation.NavigateurVue;
+import objets.niveaux.graphiques.PersonnageGraphique;
+import objets.niveaux.metiers.deplacables.Personnage;
+import utile.Dessinateur;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -53,5 +56,10 @@ public class NiveauControleur implements Initializable {
         */
 
         manageurJeu.chargerNiveau(1);
+
+       // Dessinateur dessinateur = new Dessinateur(canvas);
+       // PersonnageGraphique personnageGraphique = new PersonnageGraphique(2,2, new Personnage());
+        //personnageGraphique.setCheminImage("chpatata_arrete.png");
+       // dessinateur.dessinerLibre(personnageGraphique);
     }
 }
