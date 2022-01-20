@@ -33,11 +33,10 @@ public abstract class SujetObservableUneFois implements Sujet {
      * Abonne un Observateur à cette instance de SujetObservableUneFois, pour qu'il reçoive les notifications,
      * si l'instance n'est pas déjà présente
      * @see SujetObservableUneFois#notifier()
-     * @param o observateur a abonner au Sujet, pour qu'il recoive les notifications
+     * @param o observateur à abonner au Sujet, pour qu'il recoive les notifications
      * @return true si l'observateur a bien été abonné, false sinon (si null, ou si l'instance est déjà abonnée)
      */
     public boolean attacher(Observateur o) {
-
         if(o == null) return false;
 
         for (Observateur dejaAbonne : observateurs) {
@@ -57,7 +56,7 @@ public abstract class SujetObservableUneFois implements Sujet {
     }
 
     /**
-     * Notifie, via la méthode update de Observateur, tout les Observateurs abonnés a cette instance, via la méthode attacher
+     * Notifie, via la méthode update de Observateur, tous les Observateurs abonnés à cette instance, via la méthode attacher
      * @see Observateur#update(Sujet)
      * @see SujetObservableUneFois#attacher(Observateur)
      */

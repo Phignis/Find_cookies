@@ -1,7 +1,11 @@
 package temps;
 
+import controleurs.DeplaceurControleur;
 import javafx.scene.canvas.Canvas;
+import navigation.NavigateurVue;
+import objets.niveaux.graphiques.PersonnageGraphique;
 import objets.niveaux.metiers.Porte;
+import objets.niveaux.metiers.deplacables.Personnage;
 import utile.Dessinateur;
 import observateurs.Observateur;
 import observateurs.Sujet;
@@ -11,49 +15,38 @@ import objets.niveaux.graphiques.ObjetGraphiqueDeplacable;
 import objets.niveaux.graphiques.PorteGraphique;
 
 public class GenerateurMouvement extends SujetObservableUneFois implements Observateur {
-
     private Dessinateur dessinateur;
     private ObjetGraphique og;
 
     private int a = 0;
     private int b = 0;
 
+    private DeplaceurControleur dc;
+    private PersonnageGraphique pg;
+
     public GenerateurMouvement(Canvas canvas) throws Exception {
+        if(canvas == null){ throw new IllegalArgumentException("Le canvas ne peut pas être nul."); }
+        pg = new PersonnageGraphique(a, b, new Personnage());
+        dc = new DeplaceurControleur(pg, new NavigateurVue().getScene());
+
         dessinateur = new Dessinateur(canvas);
         dessinateur.dessiner(new PorteGraphique(5, 5, new Porte()));
         this.dessinateur = dessinateur;
     }
 
-    /*
-    public GenerateurMouvement(Dessinateur dessinateur, ObjetGraphique og){
-        if(dessinateur == null){ throw new IllegalArgumentException("Le dessinateur ne peut pas être nul."); }
-        if(og == null){ throw new IllegalArgumentException("L'objet graphique ne peut pas être nul."); }
-        this.dessinateur = dessinateur;
-        this.og = og;
-    }
-     */
-
     @Override
     public void update(Sujet notificateur) {
-        // update par GenerateurTick
-        /*
-        if(notificateur instanceof GenerateurTick) {
-            GraphicsContext gc = creationNiveau.getCanvas().getGraphicsContext2D();
-
-            creationNiveau.getDeplacement().readInputAndMovePlayer();
-
-            gc.clearRect(0, 0, creationNiveau.getCanvas().getWidth(), creationNiveau.getCanvas().getHeight());
-            gc.drawImage(creationNiveau..playerImage,
-                    gameManager.player.getPosition().getX(),
-                    gameManager.player.getPosition().getY(),
-                    50,
-                    50);
-
-        }*/
-
-        /*
         if(notificateur instanceof GenerateurTick) {
            // System.out.println(a);
+            //if( instanceof ObjetGraphiqueDeplacable) {
+            try {
+                dc.lireEntrees();
+             //   System.out.println(pg.getPosX());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            //  }
+            /*
             if(dessinateur.getObjetGraphique() instanceof ObjetGraphiqueDeplacable) {
                 notifier();
                 ((ObjetGraphiqueDeplacable) dessinateur.getObjetGraphique()).setPosX(a);
@@ -63,9 +56,12 @@ public class GenerateurMouvement extends SujetObservableUneFois implements Obser
                 b++;
                 System.out.println(a);
             }
-        }
 
-*/
+             */
+            a++;
+            b++;
+          //  System.out.println(a);
+        }
 
     }
 }

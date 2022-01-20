@@ -1,5 +1,10 @@
 package controleurs;
 
+import javafx.scene.Scene;
+import manageurs.ManageurJeu;
+import objets.niveaux.graphiques.ObjetGraphiqueDeplacable;
+import objets.niveaux.graphiques.PersonnageGraphique;
+import objets.niveaux.metiers.deplacables.Personnage;
 import temps.GenerateurMouvement;
 import temps.GenerateurTick;
 import javafx.event.ActionEvent;
@@ -24,27 +29,20 @@ public class NiveauControleur implements Initializable {
     @FXML
     private Canvas canvas;
 
-    private ManageurNiveau manageurNiveau;
-    private GenerateurTick generateurTick;
-    private GenerateurMouvement generateurMouvement;
+    private ManageurJeu manageurJeu;
 
-    private final int HAUTEUR_MAX = 500; //700
-    public int getHAUTEUR_MAX() { return HAUTEUR_MAX; }
-
-    private final int LARGEUR_MAX = 1000; //1000
-    public int getLARGEUR_MAX() { return LARGEUR_MAX; }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            canvas.setHeight(HAUTEUR_MAX);
-            canvas.setWidth(LARGEUR_MAX);
+            canvas.setHeight(new NavigateurVue().getHAUTEUR_MAX() - 200);
+            canvas.setWidth(new NavigateurVue().getLARGEUR_MAX());
 
-            manageurNiveau = new ManageurNiveau(canvas, 1);
+            manageurJeu = new ManageurJeu(canvas);
 
-            Dessinateur dessinateur = new Dessinateur(canvas);
-            generateurTick = new GenerateurTick();
-            generateurMouvement = new GenerateurMouvement(canvas);
-            generateurTick.attacher(generateurMouvement);
+           // PersonnageGraphique pg = new PersonnageGraphique(5, 5, new Personnage());
+        //    DeplaceurControleur dc = new DeplaceurControleur(pg, new NavigateurVue().getScene());
+
+          //  System.out.println(pg.getPosX());
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -64,8 +62,10 @@ public class NiveauControleur implements Initializable {
         dessinateur.dessiner(new PorteGraphique(5, 5, new Porte()));
        // Dessinateur dessinateur2 = new Dessinateur(canvas, new PorteGraphique(9, 9, new Porte()));
 
-       // Dessinateur dessinateur3 = new Dessinateur(canvas, new PorteGraphique(2, 2, new Porte()));
-        dessinateur.dessinerAvecSuppression(8,5 , new PorteGraphique(8, 8, new Porte()),
+        // Dessinateur dessinateur3 = new Dessinateur(canvas, new PorteGraphique(2, 2, new Porte()));
+        PersonnageGraphique pg = new PersonnageGraphique(8, 8, new Personnage()); //new PorteGraphique(8, 8, new Porte())
+        dessinateur.dessinerAvecSuppression(8,5 , new PorteGraphique(2, 2, new Porte()),
                 new Image(getClass().getResource("/images/objet_skin/sol_1.png").toExternalForm()));
+
     }
 }

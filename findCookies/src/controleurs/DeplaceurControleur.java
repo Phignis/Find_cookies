@@ -29,7 +29,7 @@ public class DeplaceurControleur {
 
     private void deplacement(Vecteur2D vecteurFinal, ObjetGraphiqueDeplacable ogd){
         if(ogd == null) throw new IllegalArgumentException("L'objet graphique déplaçable ne peut pas être nul.");
-        if(vecteurFinal == null) throw new IllegalArgumentException("La scene ne peut pas être nulle.");
+        if(vecteurFinal == null) throw new IllegalArgumentException("Le vecteur ne peut pas être nul.");
 
         //s'il n'y a pas de collision :
        // if(Collisionneur.isEnCollision(ogd, )){
@@ -47,12 +47,12 @@ public class DeplaceurControleur {
         Vecteur2D nouvellePos = posActuelle.additionner(mouvement);
 
         //appliquer le mouvement
-        ogd.setPosX(vecteurFinal.getX());
-        ogd.setPosY(vecteurFinal.getY());
+        ogd.setPosX(nouvellePos.getX()); // vecteurFinal.getX()
+        ogd.setPosY(nouvellePos.getY()); //vecteurFinal.getY()
     }
 
     private void initListeners() {
-        scene.setOnKeyPressed(e -> {
+        scene.setOnKeyPressed(e -> { //appuie
             switch (e.getCode()) {
                 case Q -> deplacementX(-1);
                 case D -> deplacementX(1);
@@ -62,7 +62,7 @@ public class DeplaceurControleur {
             }
         });
 
-        scene.setOnKeyReleased(e -> {
+        scene.setOnKeyReleased(e -> { //relâche
             switch (e.getCode()) {
                 case Q -> deplacementX(1);
                 case D -> deplacementX(-1);
@@ -75,7 +75,6 @@ public class DeplaceurControleur {
 
     public void lireEntrees() {
         if(newPosX != 0 || newPosY != 0) {
-            //entityMover.move(player, new Vector2(posX, posY));
             deplacement(new Vecteur2D(newPosX, newPosY), ogd);
         }
     }

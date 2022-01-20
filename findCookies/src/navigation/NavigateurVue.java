@@ -3,6 +3,7 @@ package navigation;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
@@ -10,15 +11,23 @@ import javafx.stage.Stage;
  */
 public class NavigateurVue {
 
-    private float HAUTEUR_MAX;
+    /**
+     * Hauteur de la fenêtre
+     */
+    private static float HAUTEUR_MAX = 700;
     public float getHAUTEUR_MAX() { return HAUTEUR_MAX; }
 
-    private float LARGEUR_MAX;
+    /**
+     * Largeur de la fenêtre
+     */
+    private static float LARGEUR_MAX = 1000;
     public float getLARGEUR_MAX() { return LARGEUR_MAX; }
 
+    private static Scene scene;
+    public Scene getScene(){ return scene; }
+
     public NavigateurVue(){
-        HAUTEUR_MAX = 700;
-        LARGEUR_MAX = 1000;
+        new NavigateurVue(HAUTEUR_MAX, LARGEUR_MAX);
     }
 
     public NavigateurVue(float hauteur, float largeur){
@@ -55,6 +64,8 @@ public class NavigateurVue {
         monStage.setHeight(HAUTEUR_MAX);
         monStage.setWidth(LARGEUR_MAX);
         monStage.show();
+
+        scene = monStage.getScene();
 
       //  if (Debugger.isEnabled())
          //   Debugger.log("Scene actuelle : " + nomScene);

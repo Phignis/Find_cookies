@@ -12,13 +12,13 @@ public class Dessinateur {
     public Canvas getCanvas(){ return canvas; }
 
     private float hauteur; //700/(5+2)
-    private float largeur; //=1000/(10+2);
+    private float largeur; //1000/(10+2);
 
     private GraphicsContext graphiqueContext;
 
     public Dessinateur(Canvas canvas){
         this.canvas = canvas;
-        hauteur = (float) canvas.getHeight() / (5+2);
+        hauteur = (float) canvas.getHeight()/ (5+2);
         largeur = (float) canvas.getWidth() / (10+2);
 
         graphiqueContext = canvas.getGraphicsContext2D();
