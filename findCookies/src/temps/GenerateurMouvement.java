@@ -2,7 +2,6 @@ package temps;
 
 import controleurs.DeplaceurControleur;
 import javafx.scene.canvas.Canvas;
-import navigation.NavigateurVue;
 import objets.niveaux.graphiques.PersonnageGraphique;
 import objets.niveaux.metiers.Porte;
 import objets.niveaux.metiers.deplacables.Personnage;
@@ -11,7 +10,6 @@ import observateurs.Observateur;
 import observateurs.Sujet;
 import observateurs.SujetObservableUneFois;
 import objets.niveaux.graphiques.ObjetGraphique;
-import objets.niveaux.graphiques.ObjetGraphiqueDeplacable;
 import objets.niveaux.graphiques.PorteGraphique;
 
 public class GenerateurMouvement extends SujetObservableUneFois implements Observateur {
@@ -27,10 +25,10 @@ public class GenerateurMouvement extends SujetObservableUneFois implements Obser
     public GenerateurMouvement(Canvas canvas) throws Exception {
         if(canvas == null){ throw new IllegalArgumentException("Le canvas ne peut pas être nul."); }
         pg = new PersonnageGraphique(a, b, new Personnage());
-        dc = new DeplaceurControleur(pg, new NavigateurVue().getScene());
+        dc = new DeplaceurControleur(pg, canvas.getScene());
 
         dessinateur = new Dessinateur(canvas);
-        dessinateur.dessiner(new PorteGraphique(5, 5, new Porte()));
+        dessinateur.dessinerSurUneCase(new PorteGraphique(5, 5, new Porte()));
         this.dessinateur = dessinateur;
     }
 

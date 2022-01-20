@@ -23,9 +23,6 @@ public class NavigateurVue {
     private static float LARGEUR_MAX = 1000;
     public float getLARGEUR_MAX() { return LARGEUR_MAX; }
 
-    private static Scene scene;
-    public Scene getScene(){ return scene; }
-
     public NavigateurVue(){
         new NavigateurVue(HAUTEUR_MAX, LARGEUR_MAX);
     }
@@ -64,8 +61,6 @@ public class NavigateurVue {
         monStage.setHeight(HAUTEUR_MAX);
         monStage.setWidth(LARGEUR_MAX);
         monStage.show();
-
-        scene = monStage.getScene();
 
       //  if (Debugger.isEnabled())
          //   Debugger.log("Scene actuelle : " + nomScene);

@@ -1,21 +1,18 @@
 package utile;
 
 import objets.niveaux.Couche;
+import objets.niveaux.graphiques.*;
 import objets.niveaux.metiers.Interrupteur;
 import objets.niveaux.metiers.Porte;
 import objets.niveaux.Niveau;
-import objets.niveaux.graphiques.InterrupteurGraphique;
-import objets.niveaux.graphiques.ObjetGraphique;
-import objets.niveaux.graphiques.PorteGraphique;
+import objets.niveaux.metiers.Sol;
+import objets.niveaux.metiers.deplacables.Personnage;
 
 import java.io.*;
 import java.net.URI;
 import java.util.ArrayList;
 
 public class InstanciateurNiveau {
-    //private Niveau niveau;
-   // public Niveau getNiveau(){ return niveau; }
-
     /**
      * Nombre d'éléments en largeur sur une couche
      */
@@ -82,10 +79,10 @@ public class InstanciateurNiveau {
                     y++;
                     break;
                 case '0':
-                    // collectionObjets.add(new ObjetGraphique("Sol.png", x, y, null));
+                     collectionObjets.add(new SolGraphique(x, y, new Sol()));
                     break;
                 case '1':
-                    // collectionObjets.add(new ObjetGraphique("Chpatata.png", x, y, null));
+                    collectionObjets.add(new PersonnageGraphique(x, y, new Personnage()));
                     break;
                 case '2':
                     collectionObjets.add(new InterrupteurGraphique(x, y, new Interrupteur()));
