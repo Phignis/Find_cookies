@@ -17,11 +17,12 @@ public class TestMenu extends Application {
         */
         NavigateurVue navigateurVue = new NavigateurVue();
         try {
-            navigateurVue.changeScene(stage, "Menu");
+            navigateurVue.changeScene(stage, "ListeNiveaux"); //Menu
         } catch(Exception e) {
             System.err.println("La scène demandée n'existe pas!");
             System.exit(1);
         }
+
     }
 
 }

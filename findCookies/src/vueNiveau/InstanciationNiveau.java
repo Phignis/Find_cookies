@@ -21,6 +21,10 @@ public class InstanciationNiveau {
         niveau = creerNiveau(numNiveau);
     }
 
+    public Niveau getNiveau(){
+        return niveau;
+    }
+
     /**
      * Créér le niveau en chargeant le fichier correspondant au numéro du niveau à charger
      * @param numNiveau numéro du niveau à charger

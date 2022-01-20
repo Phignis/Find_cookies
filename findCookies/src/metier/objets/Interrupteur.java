@@ -38,9 +38,12 @@ public class Interrupteur extends ObjetMetier implements Sujet {
         super.collision = true;
     }
 
+    /**
+     * Créé un interrupteur par copie profonde
+     */
     public Interrupteur(Interrupteur i) {
         this.estActive = i.estActive;
-        this.gestionSujet = i.gestionSujet;
+        this.gestionSujet = new SujetRelaisUniqueObservation(i.gestionSujet);
     }
 
     ////////////////////////////////
@@ -77,6 +80,7 @@ public class Interrupteur extends ObjetMetier implements Sujet {
      * @param o Observateur a abonner, pour qu'il recoive les notifications
      * @return true si l'observateur a bien été abonné, false sinon (si null, ou si l'instance est déjà abonnée)
      */
+    @Override
     public boolean attacher(Observateur o) {
         return gestionSujet.attacher(o);
     }
@@ -87,6 +91,7 @@ public class Interrupteur extends ObjetMetier implements Sujet {
      * @param o observateur a abonner au Sujet, pour qu'il recoive les notifications
      * @return true si l'observateur a bien été abonné, false sinon
      */
+    @Override
     public boolean detacher(Observateur o) {
         return gestionSujet.detacher(o);
     }
@@ -96,6 +101,7 @@ public class Interrupteur extends ObjetMetier implements Sujet {
      * @see Interrupteur#gestionSujet
      * @see Observateur#update(Sujet)
      */
+    @Override
     public void notifier() {
         gestionSujet.notifier(this);
     }

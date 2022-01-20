@@ -37,6 +37,15 @@ public class SujetRelaisUniqueObservation implements Sujet {
     }
 
     /**
+     * Constructeur de SujetRelaisUniqueObservation par copie profonde
+     * @see SujetRelaisUniqueObservation#observateurs
+     */
+    public SujetRelaisUniqueObservation(SujetRelaisUniqueObservation copie) {
+        this.observateurs = new ArrayList<>();
+        observateurs.addAll(copie.observateurs);
+    }
+
+    /**
      * Abonne un Observateur à cette instance de SujetRelaisUniqueObservation, pour qu'il reçoive les notifications,
      * si l'instance n'est pas déjà présente
      * @see SujetRelaisUniqueObservation#notifier()

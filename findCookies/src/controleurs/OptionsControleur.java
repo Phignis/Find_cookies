@@ -28,9 +28,9 @@ public class OptionsControleur implements Initializable{
     private final int valeurInitiale = 50;
     private int valeurCourante;
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         //Initialiser les valeurs
         SpinnerValueFactory<Integer> fabrique =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100);

@@ -7,7 +7,7 @@ import static java.lang.Thread.sleep;
 
 public class TestClock {
 
-    public static void testBoucle() {
+    public static void main(String args[]) {
 
         // mise en place de la clock, avec boucle temporelle de 2 secondes
         GenerateurTick t = new GenerateurTick();

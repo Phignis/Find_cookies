@@ -41,7 +41,7 @@ public class NouveauJoueurControleur implements Initializable {
 
         try{
             if(joueurC.ajouterJoueur(pseudo)){
-                vue.changeScene(monStage, "Niveau");
+                vue.changeScene(monStage, "ListeNiveaux");
             }else{
               //  vue.changeScene(monStage, "NouveauJoueur");
                 vTxtErreur.setText("Problème de pseudo - Veuillez en changer");

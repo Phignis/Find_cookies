@@ -1,6 +1,6 @@
 package controleurs;
 
-import managers.ManagerJoueur;
+import manageurs.ManageurJoueur;
 import metier.Joueur;
 import validation.VerifierJoueur;
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import java.util.List;
 
 public class JoueurControleur {
     private Joueur joueurCourant;
-    private ManagerJoueur managerJ = new ManagerJoueur();
+    private ManageurJoueur managerJ = new ManageurJoueur();
     private VerifierJoueur verifierJ = new VerifierJoueur();
     private List<Joueur> listeJoueurs = new ArrayList<>();
 

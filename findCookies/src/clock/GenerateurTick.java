@@ -1,5 +1,7 @@
 package clock;
 
+import javafx.scene.canvas.GraphicsContext;
+import manageurs.ManageurNiveau;
 import utile.observateur.SujetObservableUneFois;
 
 /**
