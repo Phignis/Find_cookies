@@ -6,7 +6,7 @@ import objets.niveaux.metiers.Porte;
  * Cette classe a pour but que l'état d'une porte se remette a celui d'un memento précedent
  * @see ActionPorte
  * @see Porte
- * @see clock.BoucleTemporelle
+ * @see temps.BoucleTemporelle
  */
 public class RemiseMementoPorte implements ActionPorte {
 

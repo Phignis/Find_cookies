@@ -1,5 +1,0 @@
-tri des "metier" selon deplaçable ou non dépaçable puisqu'on doit modifier posX et posY et qu'on ne peut pas le faire directement via les classes filles de "metier". 
-
-ObjetGraphiqueDeplacable : Contraint à utiliser des "model" "deplacable". 
-
-num niveau - num couche 

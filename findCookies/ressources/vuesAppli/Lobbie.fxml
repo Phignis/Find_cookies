@@ -11,9 +11,10 @@
 <?import javafx.scene.text.Font?>
 
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="controleurs.LobbieControleur">
+      fx:controller="controleurs.LobbieControleur"
+      stylesheets="/css/app.css">
    <children>
-      <Label text="JOUER" textFill="#f26a9e">
+      <Label text="JOUER" styleClass="titre">
          <font>
             <Font size="24.0" />
          </font>
