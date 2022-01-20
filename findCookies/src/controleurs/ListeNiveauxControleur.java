@@ -1,7 +1,6 @@
 package controleurs;
 
 import javafx.beans.binding.Bindings;
-import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
@@ -40,7 +39,6 @@ public class ListeNiveauxControleur {
             }
         });
     }
-
 
     private List<File> trouverListeNiveaux(FileFilter f) {
         File[] listeFile = new File("ressources/fichiers").listFiles(f);
@@ -97,5 +95,12 @@ public class ListeNiveauxControleur {
                 }
             }
         });
+    }
+
+    @FXML
+    private void selectionnerNiveau() {
+        // on récupère le niveau sélectionné
+        Integer i = listeNumNiveauxAAfficher.getSelectionModel().getSelectedItem();
+        System.out.println(i);
     }
 }

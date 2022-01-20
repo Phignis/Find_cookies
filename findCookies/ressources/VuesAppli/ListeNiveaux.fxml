@@ -7,14 +7,26 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.scene.text.Text?>
-<AnchorPane xmlns="http://javafx.com/javafx"
+<GridPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controleurs.ListeNiveauxControleur"
-            prefHeight="400.0" prefWidth="600.0">
+            fx:controller="controleurs.ListeNiveauxControleur">
 
-    <Text>Liste des niveaux</Text>
+    <rowConstraints>
+        <RowConstraints percentHeight="10.0"/>
+        <RowConstraints percentHeight="90.0"/>
+    </rowConstraints>
+    <columnConstraints>
+        <ColumnConstraints prefWidth="800.0" />
+        <ColumnConstraints prefWidth="100.0" />
+    </columnConstraints>
 
-    <ListView fx:id="listeNumNiveauxAAfficher"/>
+
+    <Text GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="1">Liste des niveaux</Text>
+
+    <ListView GridPane.columnIndex="0" GridPane.rowIndex="1" fx:id="listeNumNiveauxAAfficher" prefWidth="100.0"/>
+
+    <Button GridPane.columnIndex="1" GridPane.rowIndex="1" prefWidth="100.0"
+            mnemonicParsing="false" text="Lancer le niveau" textAlignment="CENTER" textFill="#f26a9e" onAction="#selectionnerNiveau"/>
 
 
-</AnchorPane>
+</GridPane>
