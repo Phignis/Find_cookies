@@ -21,7 +21,6 @@ public class ManageurJoueur {
      * @param j Joueur à supprimer
      * @param listeJoueurs liste des joueurs de laquelle supprimer le joueur
      * @return retourne vrai si la suppression a bien été effective, faux sinon
-     * @throws Exception
      */
     public boolean supprimerJoueur(Joueur j, List<Joueur> listeJoueurs){
         return listeJoueurs.remove(j);
