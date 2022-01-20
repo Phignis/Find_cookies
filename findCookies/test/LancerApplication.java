@@ -2,7 +2,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import navigation.NavigateurVue;
 
-public class TestMenu extends Application {
+public class LancerApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         /*
