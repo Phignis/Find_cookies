@@ -88,7 +88,7 @@ public class Interrupteur extends ObjetMetier implements Sujet {
     /**
      * permet de notifier tout les Observateurs abonné à cet interrupteur (en réalité abonné à gestionSujet)
      * @see Interrupteur#gestionSujet
-     * @see Observateur#update(Sujet)
+     * @see Observateur#mettreAJour(Sujet)
      */
     public void notifier() {
         gestionSujet.notifier(this);

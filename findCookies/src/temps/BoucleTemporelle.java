@@ -80,7 +80,7 @@ public class BoucleTemporelle extends SujetObservableUneFois implements Observat
      * @see BoucleTemporelle#eventFinBoucleTemporelle()
      */
     @Override
-    public void update(Sujet notificateur) {
+    public void mettreAJour(Sujet notificateur) {
         // update par GenerateurTick
         if(notificateur instanceof GenerateurTick) {
             ++nbTicksEcoule;

@@ -56,7 +56,7 @@ public class TestGlobal {
         if(!b.attacher(o) || b.attacher(o) || !b.attacher(new ObservateurGenerique("obs2"))) return false;
 
         System.out.println("Vous devriez voir deux lignes de notification, une pour obs1, et une pour obs2");
-        b.update(null);
+        b.mettreAJour(null);
         Scanner c = new Scanner(System.in);
         System.out.println("Il y a t'il bien eu 2 lignes, une pour obs1 et une pour obs2? (true/false)");
 
@@ -77,7 +77,7 @@ public class TestGlobal {
         }
 
         System.out.println("Vous devriez voir une ligne de notification, pour obs2");
-        b.update(null);
+        b.mettreAJour(null);
         System.out.println("Il y a t'il bien eu 1 ligne pour obs2? (true/false)");
 
         try {
@@ -106,12 +106,12 @@ public class TestGlobal {
         b.attacher(p);
         GenerateurTick t = new GenerateurTick();
         t.interrompreGenerateur();
-        b.update(t); // b notifie p, mais p est censé rester dans son état
+        b.mettreAJour(t); // b notifie p, mais p est censé rester dans son état
 
         if (!p.isEstOuverte()) return false;
         // on le refait cette fois avec l'action d'update pour la boucle
         p.ajouterActionUpdate(b, new RemiseMementoPorte(p));
-        b.update(t); // b notifie p, mais p recoit et doit s'update
+        b.mettreAJour(t); // b notifie p, mais p recoit et doit s'update
 
         if (p.isEstOuverte()) return false;
         // on est dans le cas où p est fermée par la boucle

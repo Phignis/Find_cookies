@@ -60,6 +60,7 @@ public class NavigateurVue {
         monStage.setScene(new javafx.scene.Scene(p));
         monStage.setHeight(HAUTEUR_MAX);
         monStage.setWidth(LARGEUR_MAX);
+        monStage.setResizable(false);
         monStage.show();
 
       //  if (Debugger.isEnabled())

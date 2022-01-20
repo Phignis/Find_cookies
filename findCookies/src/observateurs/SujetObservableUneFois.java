@@ -57,12 +57,12 @@ public abstract class SujetObservableUneFois implements Sujet {
 
     /**
      * Notifie, via la méthode update de Observateur, tous les Observateurs abonnés à cette instance, via la méthode attacher
-     * @see Observateur#update(Sujet)
+     * @see Observateur#mettreAJour(Sujet)
      * @see SujetObservableUneFois#attacher(Observateur)
      */
     public void notifier() {
         for (Observateur o : observateurs) {
-            o.update(this);
+            o.mettreAJour(this);
         }
     }
 }

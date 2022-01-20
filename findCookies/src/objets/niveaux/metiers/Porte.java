@@ -34,7 +34,7 @@ public class Porte extends ObjetMetier implements Observateur {
 
     /**
      * map liant un Sujet notificateur à un ActionUpdatePorte, qui détermine l'algorithme de update à effectuer
-     * @see Observateur#update(Sujet)
+     * @see Observateur#mettreAJour(Sujet)
      */
     private Map<Sujet, ActionPorte> listeUpdatePossible;
 
@@ -85,7 +85,7 @@ public class Porte extends ObjetMetier implements Observateur {
      * @param notificateur Sujet étant à l'origine de l'update, pour lequel on spécifie un algorithme
      * @param actionAEffectuer Algorithme a effectuer
      * @see ActionPorte
-     * @see Porte#update(Sujet)
+     * @see Porte#mettreAJour(Sujet)
      */
     public void ajouterActionUpdate(Sujet notificateur, ActionPorte actionAEffectuer) {
         listeUpdatePossible.put(notificateur, actionAEffectuer);
@@ -105,7 +105,7 @@ public class Porte extends ObjetMetier implements Observateur {
      * @param notificateur Sujet qui est initiateur de l'éxecution de cette méthode
      */
     @Override
-    public void update(Sujet notificateur) {
+    public void mettreAJour(Sujet notificateur) {
         ActionPorte actionAEffectuer = listeUpdatePossible.get(notificateur);
         if(actionAEffectuer != null) {
             actionAEffectuer.doAction();

@@ -10,7 +10,7 @@ import observateurs.Sujet;
 public interface ActionPorte {
     /**
      * algorithme a effectuer sur la Porte
-     * @see observateurs.Observateur#update(Sujet)
+     * @see observateurs.Observateur#mettreAJour(Sujet)
      */
     void doAction();
 }

@@ -28,11 +28,17 @@ public class ManageurDessinateur implements Observateur {
         setNiveau(niveau);
     }
 
+    /**
+     * Dessine le personnage.
+     */
     public void dessinerPersonnage(){
         if(personnage == null) { return; }
         dessinateur.dessinerLibre(personnage);
     }
 
+    /**
+     * Dessiner un niveau
+     */
     public void dessinerNiveau(){
         if(niveau == null) { return; }
         int i;
@@ -45,7 +51,7 @@ public class ManageurDessinateur implements Observateur {
     }
 
     @Override
-    public void update(Sujet notificateur) {
+    public void mettreAJour(Sujet notificateur) {
         dessinerNiveau();
         dessinerPersonnage();
     }

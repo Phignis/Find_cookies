@@ -15,5 +15,5 @@ public interface Observateur {
      * @see SujetObservableUneFois#attacher(Observateur)
      * @see SujetObservableUneFois#notifier()
      */
-    void update(Sujet notificateur);
+    void mettreAJour(Sujet notificateur);
 }

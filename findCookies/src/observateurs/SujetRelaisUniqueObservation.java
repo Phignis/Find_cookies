@@ -69,13 +69,13 @@ public class SujetRelaisUniqueObservation implements Sujet {
      * de relais pour des classes ne pouvant étandre de SujetObservationUneFois, instance pensée pour etre possédée en attribut
      * Notifie, via la méthode update de Observateur, tout les Observateurs abonnés a cette instance, via la méthode attacher.
      * Cette méthode notifie avec la Class lié à cette instance, donc SujetRelaisUniqueObservation.
-     * @see Observateur#update(Sujet)
+     * @see Observateur#mettreAJour(Sujet)
      * @see SujetRelaisUniqueObservation#attacher(Observateur)
      */
     @Override
     public void notifier() {
         for (Observateur o : observateurs) {
-            o.update(this);
+            o.mettreAJour(this);
         }
     }
 
@@ -83,14 +83,14 @@ public class SujetRelaisUniqueObservation implements Sujet {
      * Notifie, via la méthode update de Observateur, tous les Observateurs abonnés a cette instance, via la méthode attacher.
      * Cette méthode notifie avec l'instance passée en paramètre, typiquement l'instance qui possède la possède en attribut.
      * @param notificateur Instance sous laquelle vous souhaitez faire passer la notification
-     * @see Observateur#update(Sujet)
+     * @see Observateur#mettreAJour(Sujet)
      * @see SujetRelaisUniqueObservation#attacher(Observateur)
      * @see Object#getClass()
      * @see Interrupteur#notifier()
      */
     public void notifier(Sujet notificateur) {
         for (Observateur o : observateurs) {
-            o.update(notificateur);
+            o.mettreAJour(notificateur);
         }
     }
 }
