@@ -38,9 +38,12 @@ public class Interrupteur extends ObjetMetier implements Sujet {
         super.collision = true;
     }
 
+    /**
+     * Créé un interrupteur par copie profonde
+     */
     public Interrupteur(Interrupteur i) {
         this.estActive = i.estActive;
-        this.gestionSujet = i.gestionSujet;
+        this.gestionSujet = new SujetRelaisUniqueObservation(i.gestionSujet);
     }
 
     ////////////////////////////////
