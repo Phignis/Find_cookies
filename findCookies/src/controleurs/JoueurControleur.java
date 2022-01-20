@@ -3,6 +3,9 @@ package controleurs;
 import manageurs.ManageurJoueur;
 import objets.niveaux.Joueur;
 import validation.VerifierJoueur;
+
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +34,7 @@ public class JoueurControleur {
      * @param pseudo Pseudo du joueur à ajouter
      * @return vrai si l'insertion a bien eut lieu ; faux sinon
      */
-    public boolean ajouterJoueur(String pseudo) {
+    public boolean ajouterJoueur(String pseudo) throws IOException {
         boolean verif = verifierJ.verifierPseudo(pseudo, listeJoueurs);
         if(!verif){
             return false;
@@ -39,9 +42,16 @@ public class JoueurControleur {
 
         Joueur j = new Joueur(pseudo, 1);
 
+      /*
+        DataOutputStream fichier = new DataOutputStream(
+                new BufferedOutputStream(
+                        new FileOutputStream("/ressources/sauvegardes/joueurs/listeJoueurs.bin")));
+ */
         if(!manageurJ.ajouterJoueur(j, listeJoueurs)){
             return false;
         }
+
+      //  fichier.close();
 
         joueurCourant = j;
         return true;
@@ -65,5 +75,33 @@ public class JoueurControleur {
         joueurCourant = null;
         return true;
     }
+
+    /**
+     * Charge la colection des joueurs à partir d'un fichier binaire
+     */
+    /*
+    private void chargerListeJoueurs(){
+        DataInputStream fichier;
+        int nbJoueurs;
+
+        try {
+            fichier = new DataInputStream(
+                    new BufferedInputStream(
+                            new FileInputStream("/ressources/sauvegardes/joueurs/listeJoueurs.bin")));
+
+            nbJoueurs = fichier.readInt();
+            for(int i=0; i<nbJoueurs; i++){
+                String pseudo = fichier.readUTF();
+                int numeroAtteint = fichier.readInt();
+                Joueur joueur = new Joueur(pseudo, numeroAtteint);
+                listeJoueurs.add(joueur);
+            }
+
+            fichier.close();
+        } catch (IOException ioe) {
+            System.err.println(ioe);
+        }
+    }
+     */
 
 }

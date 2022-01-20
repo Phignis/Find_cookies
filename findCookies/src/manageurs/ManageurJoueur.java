@@ -2,6 +2,8 @@ package manageurs;
 
 import objets.niveaux.Joueur;
 
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class ManageurJoueur {
@@ -13,8 +15,30 @@ public class ManageurJoueur {
      * @return retourne vrai si l'insertion a bien été effective, faux sinon
      */
     public boolean ajouterJoueur(Joueur j, List<Joueur> listeJoueurs){
-        return listeJoueurs.add(j);
+        if(listeJoueurs.add(j)){
+            return true;
+        }
+        return false;
     }
+
+    /**
+     * Sauvegarde un joueur dans un fichier binaire
+     * @param j Joueur à sauvegarder
+     * @param fichier Fichier dans lequel écrire
+     * @return vrai si le joueur a bien été sauvegardé ; faux sinon
+     */
+    /*
+    private boolean ecrireJoueur(Joueur j, DataOutputStream fichier){
+        try{
+            fichier.write(j.getPseudo().getBytes(StandardCharsets.UTF_8));
+            fichier.writeInt(j.getNiveauAtteint().getNumeroNiveau());
+            return true;
+        } catch (IOException ioe) {
+            System.err.println(ioe);
+        }
+        return false;
+    }
+     */
 
     /**
      * Supprime un joueur de la liste des joueurs

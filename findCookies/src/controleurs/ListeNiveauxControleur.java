@@ -12,7 +12,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
-import manageurs.ManageurJeu;
 import objets.niveaux.Niveau;
 import utile.InstanciateurNiveau;
 
@@ -162,14 +161,14 @@ public class ListeNiveauxControleur {
             // on est sur qu'il ne soit pas null, car le boutton est disable avant, mais on verifie par propreté
             // on change la scene pour le niveau
             try {
-                FXMLLoader f = new FXMLLoader(getClass().getResource("/VuesAppli/Niveau.fxml"));
+                FXMLLoader f = new FXMLLoader(getClass().getResource("/vuesAppli/Niveau.fxml"));
                 f.setController(new NiveauControleur(i));
                 Parent p = f.load();
                 Stage monStage = (Stage) buttonSelectionNiveau.getScene().getWindow(); // je recupère le stage courant avec mon bouton
                 monStage.setScene(new javafx.scene.Scene(p));
                 monStage.show();
 
-                System.out.println("Scene actuelle : " + "/VuesAppli/Niveau.fxml");
+                System.out.println("Scene actuelle : " + "/vuesAppli/Niveau.fxml");
             } catch (IOException e) {
                 e.printStackTrace();
             }

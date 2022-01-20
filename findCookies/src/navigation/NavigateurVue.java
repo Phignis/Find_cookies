@@ -3,7 +3,6 @@ package navigation;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
@@ -51,7 +50,7 @@ public class NavigateurVue {
      * @throws Exception si le nom de scene est incorrect
      */
     public void changeScene(Stage monStage, String nomScene, float hauteur, float largeur) throws Exception {
-        nomScene = "/VuesAppli/" + nomScene + ".fxml";
+        nomScene = "/vuesAppli/" + nomScene + ".fxml";
         HAUTEUR_MAX = hauteur;
         LARGEUR_MAX = largeur;
 
