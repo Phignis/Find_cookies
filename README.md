@@ -52,3 +52,10 @@
 >
 > 19 novembre 2021 au 16 janvier 2022 (2 mois)
 >
+
+## Comment jouer ? 
+> Lancez le projet avec "LancerApplication"
+
+> Il suffit de se déplacer avec 4 touches : 
+> Q : Se déplacer à gauche ; D : Se déplacer à droite 
+> Z : Se déplacer en haut ; S : Se déplacer en bas
