@@ -56,6 +56,7 @@ public class NiveauControleur implements Initializable {
        // monStage = (Stage)((Node)event.getSource()).getScene().getWindow();
        // vue.changeScene(monStage, "Menu");
 
+        /*
         Canvas ancienCanvas = canvas;
 
         Dessinateur dessinateur = new Dessinateur(canvas);
@@ -66,6 +67,8 @@ public class NiveauControleur implements Initializable {
         PersonnageGraphique pg = new PersonnageGraphique(8, 8, new Personnage()); //new PorteGraphique(8, 8, new Porte())
         dessinateur.dessinerAvecSuppression(8,5 , new PorteGraphique(2, 2, new Porte()),
                 new Image(getClass().getResource("/images/objet_skin/sol_1.png").toExternalForm()));
+        */
 
+        manageurJeu.chargerNiveau(1);
     }
 }
