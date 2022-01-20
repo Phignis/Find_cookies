@@ -2,6 +2,7 @@ package objets.niveaux.graphiques;
 
 import objets.niveaux.metiers.deplacables.Deplacable;
 import objets.niveaux.metiers.deplacables.Personnage;
+import observateurs.Observateur;
 
 public class PersonnageGraphique extends ObjetGraphiqueDeplacable{
     private Personnage personnage;
@@ -20,19 +21,4 @@ public class PersonnageGraphique extends ObjetGraphiqueDeplacable{
     public Deplacable getObjetMetier() {
         return personnage;
     }
-/*
-    public boolean attacher(Observateur o) {
-        return personnage.attacher(o);
-    }
-
-    public boolean detacher(Observateur o) {
-        return personnage.detacher(o);
-    }
-
-    public void notifier() {
-        personnage.notifier();
-    }
-
- */
-
 }

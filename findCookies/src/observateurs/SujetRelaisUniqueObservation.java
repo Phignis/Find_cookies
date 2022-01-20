@@ -9,7 +9,7 @@ import java.util.List;
  * SujetRelaisUniqueObservation est une implémentation de Sujet. Il réalise donc la promesse de Sujet,
  * et garentit en plus l'unicité des Observateurs, c'est à dire qu'un Observateur ne peut observer qu'une seule fois
  * cette instance de SujetRelaisUniqueObservation.
- * Il ressemble en cela à SujetObservableUneFOis. Il a été pensé pour remplir ce rôle, en relayant les notifications d'un
+ * Il ressemble en cela à SujetObservableUneFois. Il a été pensé pour remplir ce rôle, en relayant les notifications d'un
  * Sujet ne pouvant étendre de la classe SujetObservableUneFois, et est possédé en attribut.
  * Une classe possédant un SujetRelaisUniqueObservation en attribut est Interrupteur
  * @see Sujet
@@ -39,11 +39,10 @@ public class SujetRelaisUniqueObservation implements Sujet {
      * si l'instance n'est pas déjà présente
      * @see SujetRelaisUniqueObservation#notifier()
      * @see SujetRelaisUniqueObservation#notifier(Sujet)
-     * @param o observateur a abonner au SujetRelaisUniqueObservation, pour qu'il recoive les notifications
+     * @param o observateur à abonner au SujetRelaisUniqueObservation, pour qu'il recoive les notifications
      * @return true si l'observateur a bien été abonné, false sinon (si null, ou si l'instance est déjà abonnée)
      */
     public boolean attacher(Observateur o) {
-
         if(o == null) return false;
 
         for (Observateur dejaAbonne : observateurs) {
@@ -63,7 +62,7 @@ public class SujetRelaisUniqueObservation implements Sujet {
     }
 
     /**
-     * Notifie, via la méthode update de Observateur, tout les Observateurs abonnés a cette instance, via la méthode attacher.
+     * Notifie, via la méthode update de Observateur, tous les Observateurs abonnés a cette instance, via la méthode attacher.
      * Cette méthode notifie avec lui-même (l'instance), ici SujetRelaisUniqueObservation
      *
      * @deprecated Cette méthode ne devrait pas etre utilisé dans le concept original de cette classe, qui est de servir
@@ -81,8 +80,8 @@ public class SujetRelaisUniqueObservation implements Sujet {
     }
 
     /**
-     * Notifie, via la méthode update de Observateur, tout les Observateurs abonnés a cette instance, via la méthode attacher.
-     * Cette méthode notifie avec l'intence passée en paramètre, typiquement l'instance qui possède cette instance en attribut.
+     * Notifie, via la méthode update de Observateur, tous les Observateurs abonnés a cette instance, via la méthode attacher.
+     * Cette méthode notifie avec l'instance passée en paramètre, typiquement l'instance qui possède la possède en attribut.
      * @param notificateur Instance sous laquelle vous souhaitez faire passer la notification
      * @see Observateur#update(Sujet)
      * @see SujetRelaisUniqueObservation#attacher(Observateur)
